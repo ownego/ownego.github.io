@@ -1,0 +1,117 @@
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.btn-group-lg > .btn {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+.btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.dl-horizontal dd:before,
+.dl-horizontal dd:after,
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after,
+.form-horizontal .form-group:before,
+.form-horizontal .form-group:after,
+.btn-toolbar:before,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:before,
+.btn-group-vertical > .btn-group:after,
+.nav:before,
+.nav:after,
+.navbar:before,
+.navbar:after,
+.navbar-header:before,
+.navbar-header:after,
+.navbar-collapse:before,
+.navbar-collapse:after,
+.pager:before,
+.pager:after,
+.panel-body:before,
+.panel-body:after,
+.modal-footer:before,
+.modal-footer:after {
+  content: " ";
+  display: table;
+}
+.dl-horizontal dd:after,
+.container:after,
+.container-fluid:after,
+.row:after,
+.form-horizontal .form-group:after,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:after,
+.nav:after,
+.navbar:after,
+.navbar-header:after,
+.navbar-collapse:after,
+.pager:after,
+.panel-body:after,
+.modal-footer:after {
+  clear: both;
+}
+@media only screen and (min-width: 1199px) {
+  .container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media only screen and (min-width: 991px) {
+  .panel.stepchild-panel .panel-body .step-item {
+    padding-top: 13px;
+    padding-bottom: 14px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .resp-step {
+    position: absolute;
+    top: 18px;
+    left: 15px;
+    z-index: 1001;
+  }
+  .resp-step a {
+    color: #ffffff;
+  }
+  .resp-step a:active,
+  .resp-step a:visited {
+    color: #ffffff;
+  }
+  .header-ads {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .oe-header {
+    background: #ffffff;
+    border-bottom: 1px solid #cccccc;
+  }
+  .resp-step a {
+    color: #000000;
+  }
+  .resp-step a:active,
+  .resp-step a:visited {
+    color: #000000;
+  }
+}
