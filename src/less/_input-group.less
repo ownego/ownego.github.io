@@ -1,0 +1,196 @@
+button {
+    outline: 0;
+    border: 0;
+}
+.btn {
+    display: block;
+    width: 450px;
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 3px;
+    background-color: @orange;
+    text-align: center;
+    .font-bold;
+    .font-large;
+    .text-white;
+    text-transform: uppercase;
+    line-height: 90px;
+    letter-spacing: 1px;
+    .box-shadow(0px 3px 0px #d9831e);
+    .transition(all @animateSpeed linear);
+
+    @media @mobletBelow {
+        width: 350px;
+        height: 70px;
+        line-height: 70px;
+    }
+    @media @mobile {
+        width: 250px;
+        height: 45px;
+        .font-small;
+    }
+
+    &.grey-btn {
+          background-color: #ddd;
+          .box-shadow(0 3px 0 #bbb);
+          color: #222;
+    }
+}
+
+.login-btn {
+    width: 100%;
+    height: 50px;
+    padding: 6px 0;
+    margin-bottom: 15px;
+    font-size: 15px;
+    .font-regular;
+    line-height: 38px;
+
+
+    i {
+        display: inline-block;
+        position: relative;
+        top: 3px;
+        width: 15%;
+        font-size: 26px;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 1px;
+            height: 35px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+    }
+    span {
+        display: inline-block;
+        width: 83%;
+        margin-top: 2px;
+        vertical-align: top;
+    }
+
+    .download-modal & {
+        float: left;
+        width: 32%;
+        margin-left: 2%;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        i {
+            float: left;
+            width: 20%;
+            font-size: 21px;
+        }
+        span {
+            width: 73%;
+            font-size: 13px;
+        }
+    }
+
+    &.facebook {
+        background-color: @color-facebook;
+        .box-shadow(0 3px 0 #395085);
+    }
+    &.twitter {
+        background-color: @color-twitter;
+        .box-shadow(0 3px 0 #4a93d0);
+    }
+    &.gplus {
+        background-color: @color-google;
+        .box-shadow(0 3px 0 #b73f2f);
+    }
+    &.linkedin {
+        background-color: @color-linkedin;
+        .box-shadow(0 3px 0 #156289);
+    }
+
+    @media @mobletBelow {
+        .download-modal & {
+            height: 40px;
+            padding-top: 1px;
+
+            i {
+                width: 49%;
+                font-size: 20px;
+
+                &:after {
+                    top: 5px;
+                    height: 27px;
+                }
+            }
+            span {
+                width: 55px;
+                font-size: 15px;
+            }
+        }
+    }
+
+    @media @mobile {
+        i {
+            font-size: 18px;
+        }
+        span {
+            font-size: 10px;
+        }
+
+        .download-modal & {
+            height: 40px;
+            padding-top: 1px;
+
+            i {
+                width: 38%;
+                font-size: 20px;
+
+                &:after {
+                    top: 5px;
+                    height: 27px;
+                }
+            }
+            span {
+                width: 48%;
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+.radio-faker {
+    label {
+        display: block;
+        cursor: pointer;
+    }
+
+    input:checked {
+        & ~ label {
+            &.fill-purple {
+                &:extend(.hexagon.hxg-color-purple all);
+            }
+            &.fill-red {
+                &:extend(.hexagon.hxg-color-red all);
+            }
+            &.fill-yellow {
+                &:extend(.hexagon.hxg-color-yellow all);
+            }
+            &.fill-orange {
+                &:extend(.hexagon.hxg-color-orange all);
+
+                &.hexagon-transparent {
+                    &,
+                    &:before,
+                    &:after {
+                        border-color: @orange;
+                    }
+                }
+            }
+            &.fill-blue {
+                &:extend(.hexagon.hxg-color-blue all);
+            }
+        }
+    }
+}

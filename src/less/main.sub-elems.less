@@ -1,0 +1,155 @@
+.sub-elems {
+    position: relative;
+    z-index: 1000;
+
+    @media @tabletBelow {
+        position: fixed;
+        width: 100%;
+        height: 45px;
+        background-color: #fff;
+        .box-shadow(0 2px 2px rgba(198,198,198,.4););
+    }
+
+    .logo.sm {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+
+        @media @tabletBelow {
+            left: 15px;
+            right: auto;
+            top: 0;
+        }
+    }
+    .sign-in-account {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        max-width: 200px;
+
+        .hexagon {
+            float: left;
+            margin-right: 10px;
+        }
+
+        p {
+            margin-top: 7px;
+            .font-small;
+            .font-regular;
+            .text-overflow();
+        }
+    }
+}
+.nav-right {
+    position: absolute;
+    top: 90px;
+    right: 60px;
+    .font-tiny;
+    .font-regular;
+    color: #444;
+    text-align: right;
+
+    .nr-list {
+        padding-left: 0;
+
+        li {
+            position: relative;
+            margin-bottom: 20px;
+
+            .nav-title,
+            .ms-nav-link {
+                opacity: 0;
+            }
+
+            &.available {
+                .hexagon {
+                    color: @blue;
+                }
+
+                .ms-nav-link {
+                    opacity: 1;
+                }
+                .disable {
+                    display: none;
+                }
+            }
+
+            &.active {
+                .nav-title {
+                    opacity: 1;
+                }
+
+                .hexagon {
+                    .hexagon-color(@orange);
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .hexagon {
+        position: absolute;
+        top: -7px;
+        right: -40px;
+        text-align: center;
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 500;
+
+        @media @tabletBelow {
+            position: relative;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    @media @tabletBelow {
+        right: 15px;
+        top: 5px;
+        text-align: right;
+
+        .nr-list {
+            li {
+                float: left;
+                margin-bottom: 0;
+                margin-left: 5px;
+
+                .nav-title {
+                    display: inline-block;
+                    max-width: 0;
+                    height: 20px;
+                }
+
+                &.active {
+                    .nav-title {
+                        max-width: 100px;
+                    }
+                }
+
+                .clickable-item {
+                    display: none;
+                    .clearfix();
+
+                    .hexagon {
+                        float: left;
+                        margin-right: 5px;
+                    }
+                    span {
+                        position: relative;
+                        top: 7px;
+                    }
+                }
+                &.available {
+                    .clickable-item {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.disable {
+    cursor: not-allowed;
+}

@@ -1,0 +1,56 @@
+// Color scheme
+// ------------
+@white: #fff;
+@blue: #00b9f2;
+@orange: #f7931e;
+@purple: #6155be;
+@red: #c64e54;
+@yellow: #ffd61f;
+@lightOrange: #ff9300;
+@color-facebook: #4662a2;
+@color-twitter: #56abf3;
+@color-google: #d34836;
+@color-linkedin: #1381b9;
+
+// Text
+// ----
+@fontColor: #000;
+@fontFamily: "Roboto", sans-serif;
+
+// Others
+// ------
+@mainSpacing: 10px;
+@animateSpeed: 300ms;
+
+// Hexagon
+// -------
+@hexagonDefaultColor: #ebfaff;
+@hexagonDefaultIcon: #00baef;
+@hxg-size-large: 170px;
+@hxg-size-large-mobile: 120px;
+@hxg-size-small: 30px;
+
+/* === Responsive config === */
+// Tiny screen / phone
+// Note: Deprecated @screen-xs and @screen-phone as of v3.0.1
+@screen-md:                  990px;
+@screen-tn:                  320px;
+@screen-tn-min:              @screen-xs;
+@screen-tn-max:              (@screen-xs-min - 1);
+
+
+// Below
+/* < 767  */ @mobletBelow: ~"only screen and (max-width: @{screen-xs-max})";
+/* > 767  */ @mobletAbove: ~"only screen and (min-width: @{screen-xs-max})";
+/* < 991  */ @tabletBelow: ~"only screen and (max-width: @{screen-md-min})";
+/* > 991  */ @desktopAbove: ~"only screen and (min-width: @{screen-md-min})";
+/* < 1199 */ @desktopBelow: ~"only screen and (max-width: @{screen-md-max})";
+
+/* > 480  */ @mobileAbove: ~"only screen and (min-width: @{screen-tn-min})";
+// Exactly
+/* o < 479 */          @mobile: ~"only screen and (max-width: @{screen-tn-max})";
+/* 480 < o < 767 */    @moblet: ~"only screen and (min-width: @{screen-xs-min}) and (max-width: @{screen-xs-max})";
+/* 768 < o < 991 */    @tablet: ~"only screen and (min-width: @{screen-sm-min}) and (max-width: @{screen-sm-max})";
+/* 992 < o < 1199*/    @desktop: ~"only screen and (min-width: @{screen-md-min}) and (max-width: @{screen-md-max})";
+/* 1200 < o */         @wide: ~"only screen and (min-width: @{screen-lg-min})";
+/* Retina */           @retina: ~"only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-moz-min-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)";

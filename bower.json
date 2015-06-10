@@ -1,0 +1,11 @@
+{
+  "name": "xalolead",
+  "version": "0.0.1",
+  "description": "Xalo Lead",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+      "jquery": "~1.11",
+      "bootstrap": "3.*"
+  }
+}

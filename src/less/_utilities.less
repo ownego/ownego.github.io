@@ -1,0 +1,90 @@
+.bg-full {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+.full-screen {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+// Aligment
+// --------
+.vmiddle-inline {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.vmiddle {
+    position: absolute;
+    top: 50%;
+    .translate(0, -50%);
+}
+
+// Please let me stay here,
+// I'm not common animations methods :(
+.anim-fade {
+    opacity: 0;
+    visibility: hidden;
+
+    -webkit-transition: visibility 0s linear @animateSpeed, opacity @animateSpeed linear;
+    -moz-transition: visibility 0s linear @animateSpeed, opacity @animateSpeed linear;
+    transition: visibility 0s linear @animateSpeed, opacity @animateSpeed linear;
+
+    &.in {
+        opacity: 1;
+        visibility: visible;
+        .transition-delay(0);
+    }
+}
+
+.anim-delay {
+    .transition-delay(500ms);
+}
+
+// Spacing
+// -------
+.pdin {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.pb {
+    padding-bottom: @mainSpacing;
+}
+.pb2x {
+    padding-bottom: @mainSpacing * 2;
+}
+.pb3x {
+    padding-bottom: @mainSpacing * 3;
+}
+.pb4x {
+    padding-bottom: @mainSpacing * 4;
+}
+.pb5x {
+    padding-bottom: @mainSpacing * 5;
+}
+.pb4x {
+    padding-bottom: @mainSpacing * 4;
+}
+.pb6x {
+    padding-bottom: @mainSpacing * 6;
+}
+.pb10x {
+    padding-bottom: @mainSpacing * 10;
+}
+.pt {
+    padding-top: @mainSpacing;
+}
+.nm {
+    margin: 0;
+}
+.nvm {
+    margin-top: 0;
+    margin-bottom: 0;
+}
