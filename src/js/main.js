@@ -10,5 +10,6 @@
 })(window, jQuery);
 
 $(function() {
-
+    var screenHeight = $(window).outerHeight();
+    $('#fitScreen').height(screenHeight);
 });
