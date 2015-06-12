@@ -1,29 +1,52 @@
 .logo {
-    position: absolute;
-    top: 50%;
-    .translate(0, -50%);
     @logoWidth: 110px;
     @logoHeight: 110px;
-    .nvm;
 
-    a {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    .translate(0, -50%);
+
+    i {
         display: block;
-        margin: 0 auto;
-        width: @logoWidth;
-        height: @logoHeight;
+        float: left;
+        font-size: 110px;
+        line-height: 1em;
+        margin-right: 20px;
+    }
+    h1 {
+        float: left;
+        .font-bold;
+        .font-xxl;
+        .nvm;
 
-        i {
-            font-size: 110px;
+        span {
+            display: block;
+            margin: 7px 0 0 2px;
+            color: @grey-light;
+            .font-light;
+            .font-sm;
+            letter-spacing: 0.2px;
         }
     }
-
-
 }
 
-.s1-content {
-    position: absolute;
-    bottom: 90px;
-    right: 32px;
-    width: 500px;
-    text-align: right;
+.s1 {
+    .s-content {
+        position: absolute;
+        bottom: 60px;
+        right: 30px;
+
+        &:before {
+//            display: block;
+//            content: '';
+//            position: absolute;
+//            top: 40px;
+//            left: -100px;
+//            width: 300px;
+//            height: 300px;
+//            background: url(../img/coding-bg.png) no-repeat center center;
+//            background-size: cover;
+        }
+    }
 }

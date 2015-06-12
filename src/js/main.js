@@ -11,5 +11,5 @@
 
 $(function() {
     var screenHeight = $(window).outerHeight();
-    $('#fitScreen').height(screenHeight);
+    $('.fitscreen').height(screenHeight);
 });

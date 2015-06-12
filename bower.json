@@ -1,7 +1,7 @@
 {
-  "name": "xalolead",
-  "version": "0.0.1",
-  "description": "Xalo Lead",
+  "name": "ownego",
+  "version": "1.0.0",
+  "description": "Ownego official",
   "license": "MIT",
   "private": true,
   "dependencies": {
