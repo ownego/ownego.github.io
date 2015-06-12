@@ -13,3 +13,7 @@ $(function() {
     var screenHeight = $(window).outerHeight();
     $('.fitscreen').height(screenHeight);
 });
+
+$('.lines-button').click(function() {
+  $(this).toggleClass( "close" );
+});

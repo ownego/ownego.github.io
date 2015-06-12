@@ -1,0 +1,120 @@
+.fixed-elems {
+    position: static;
+    z-index: 1000;
+    
+    .social-bar {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        
+        .social-icon {
+            display: block;
+            float: right;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            line-height: 20px;
+            margin-right: 10px;
+        }
+    }
+    
+    .copyright-line {
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+        
+        i {
+            font-size: 70px;
+        }
+        
+        p {
+            .font-regular;
+            color: @grey-light;
+            padding-top: 20px;
+        }
+        
+        span {
+            color: @black;
+        }
+    }
+}
+
+// Nav
+
+@button-size: 50px;
+@transition: 0.3s;
+
+.lines-button {
+    position: absolute;
+    top: 30px;
+    left:30px;
+    line-height: 1px;
+    display: inline-block;
+    padding: @button-size/2 @button-size/4;
+    transition: .3s;
+    cursor: pointer;
+    user-select: none;
+    border-radius: @button-size/7;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:active {
+        transition: 0;
+        background: rgba(0,0,0,.1);
+    }
+
+    & .lines {
+        transition: background .3s .6s ease;
+
+        &:before, &:after{
+            //set transform origin back to center
+            transform-origin: 50% 50%;
+            transition: top .3s .6s ease, transform .3s ease;
+        }
+    }
+    
+    &.close .lines {
+        transition: background .3s 0s ease;
+        background: transparent;
+
+        &:before, &:after{
+            transition: top .3s ease, transform .3s .5s ease;      
+            top:0;
+            width: @button-size;
+        }
+        &:before{
+            transform: rotate3d(0,0,1,45deg); 
+        }
+        &:after{
+            transform: rotate3d(0,0,1,-45deg); 
+        }
+    }
+}
+
+
+.line {
+    display: inline-block;
+    width: @button-size;
+    height: @button-size/7;
+    background: @black;
+    border-radius: @button-size/14; 
+    transition: @transition;
+}
+
+.lines {
+    .line;
+    position: relative;
+    
+    &:before, &:after {
+        .line;
+        position: absolute;
+        left:0;
+        content: '';
+        transform-origin: @button-size/14 center;
+    }
+    &:before { top: @button-size/4; }
+    &:after { top: -@button-size/4; }
+}
