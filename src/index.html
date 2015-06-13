@@ -13,25 +13,16 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,300|Roboto+Condensed:700&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
     <!-- build:csslib ./css/libs.css -->
     <link rel="stylesheet" href="./css/libs.css" />
-    <link rel="stylesheet" href="vendors/multiscreen/multi-screen-css.css" />
     <!-- endbuild -->
     <!-- build:cssmains ./css/main.css -->
     <link rel="stylesheet" href="./css/main.css" />
     <!-- endbuild -->
-
-    <!--[if !IE]><!-->
-    <!-- build:cssanim ./css/animations.css -->
-    <link rel="stylesheet" href="./css/animations.css" />
-    <!-- endbuild -->
-    <!--<![endif]-->
-
-    <script src="./js/jquery-1.11.2.js"></script>
 </head>
 <body>
     <div class="recangle st"></div>
     <main>
         <!-- Section 1 -->
-        <section class="s1">
+        <section class="s1 main-screen active">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-offset-2 col-md-5">
@@ -64,13 +55,11 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </section>
 
         <!-- Section 2 -->
-        <section class="s2 hidden">
+        <section class="s2 main-screen">
             <div class="container">
                 <h1 class="logo">
                     <a href="#">
@@ -99,18 +88,22 @@
                         In hac habitasse platea dictumst. Aliquam non eros ac sem ornare blandit in nec lacus. Phasellus lacinia hendrerit ipsum eget vestibulum.
                     </p>
                 </div>
-
             </div>
         </section>
-
     </main>
 
     <!-- fixed elements -->
     <div class="fixed-elems">
-        <button class="lines-button arrow arrow-left" type="button" role="button" aria-label="Toggle Navigation">
-  <span class="lines"></span>
-</button>
-        
+        <button class="btn-nav" id="btnNav">
+            <span class="lines-button arrow arrow-left" type="button" role="button" aria-label="Toggle Navigation">
+                <span class="lines"></span>
+            </span>
+        </button>
+
+        <a href="#" id="nextBtn" class="next-btn">
+            Continue <i class="oeicon-arrow-right"></i>
+        </a>
+
         <div class="social-bar">
             <a href="#" class="social-icon">
                 <i class="oeicon-social-gplus"></i>
@@ -122,14 +115,15 @@
                 <i class="oeicon-social-facebook"></i>
             </a>
         </div>
-        
+
         <div class="copyright-line">
             <i class="oeicon-logo"></i>
-            <p>Copyright &copy; 2015 <span>ownego</span>. All Rights Reserved</p>
+            <p>Copyright &copy; 2015 <span>ownego</span>. All Rights Reserved.</p>
         </div>
     </div>
-    
+
     <!-- build:js ./js/libs.js -->
+    <script src="vendors/jquery/dist/jquery.js"></script>
     <script src="./js/main.js"></script>
     <!-- endbuild -->
 </body>

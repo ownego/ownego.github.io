@@ -1,0 +1,72 @@
+// Navigation button
+// Based on inspirations via http://sarasoueidan.com/demos/navicon-transformicons/
+@nav-size: 28px;
+@nav-as: .2s;
+.btn-nav {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    user-select: none;
+    outline: 0;
+    box-shadow: none;
+    cursor: pointer;
+}
+.lines-button {
+    display: inline-block;
+    line-height: 1px;
+    .transition(@nav-as);
+
+    &:active {
+        transition: 0;
+    }
+
+    & .lines {
+        .transition(background @nav-as @nav-as*2 ease);
+
+        &:before, &:after{
+            transform-origin: 50% 50%;
+            .transition(top @nav-as @nav-as*2 ease, transform @nav-as ease;);
+        }
+    }
+
+    &.close .lines {
+        background: transparent;
+        .transition(background @nav-as 0s ease);
+
+        &:before, &:after{
+            top: 0;
+            width: @nav-size;
+            .transition(top @nav-as ease, transform @nav-as @nav-as*2 ease;);
+        }
+        &:before{
+            .rotate3d(0, 0, 1, 45deg);
+        }
+        &:after{
+            .rotate3d(0, 0, 1, -45deg);
+        }
+    }
+}
+
+
+.line {
+    display: inline-block;
+    width: @nav-size;
+    height: 3px;
+    background: @black;
+    transition: @nav-as;
+}
+
+.lines {
+    .line;
+    position: relative;
+
+    &:before, &:after {
+        .line;
+        position: absolute;
+        left: 0;
+        content: '';
+        transform-origin: @nav-size/14 center;
+    }
+    &:before { top: @nav-size/4; }
+    &:after { top: -@nav-size/4; }
+}

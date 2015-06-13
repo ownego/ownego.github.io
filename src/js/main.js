@@ -3,6 +3,11 @@
 
     // Common functions
     var oe = {
+        nextSwitch: function() {
+
+        },
+
+        nextActions
     };
 
     // Make it global
@@ -12,8 +17,8 @@
 $(function() {
     var screenHeight = $(window).outerHeight();
     $('.fitscreen').height(screenHeight);
-});
 
-$('.lines-button').click(function() {
-  $(this).toggleClass( "close" );
+    $('.lines-button').click(function() {
+        $(this).toggleClass('close');
+    });
 });
