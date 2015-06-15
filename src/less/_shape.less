@@ -1,6 +1,7 @@
 .recangle {
     overflow: hidden;
     position: absolute;
+    z-index: 10;
     left: -130%;
     top: 0;
     width: 200%;
@@ -8,4 +9,30 @@
     background-color: @white;
 
     .skew(-55deg, 0);
+    -webkit-transition: -webkit-transform @animateSpeed*4 ease, left @animateSpeed*2 ease @animateSpeed*3;
+    -moz-transition: -moz-transform @animateSpeed*4 ease, left @animateSpeed*2 ease @animateSpeed*3;
+    transition: transform @animateSpeed*4 ease, left @animateSpeed*2 ease @animateSpeed*3;
+
+    .s2.active ~ & {
+        left: -150%;
+        .skew(20deg, 0);
+    }
+}
+.bgs1 {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    bottom: 50px;
+    right: 100px;
+    width: 500px;
+    height: 500px;
+    background: url(../img/coding-bg.jpg) no-repeat center center;
+    background-size: cover;
+
+    .transition(opacity linear @animateSpeed @animateSpeed*3);
+
+    .s1.active ~ & {
+        opacity: 1;
+    }
 }
