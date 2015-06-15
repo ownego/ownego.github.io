@@ -3,16 +3,19 @@
 @nav-size: 28px;
 @nav-as: .2s;
 .btn-nav {
+    display: inline-block;
+    padding: @nav-size/2 @nav-size/4;
     position: absolute;
     top: 15px;
     left: 10px;
+    line-height: 1px;
     user-select: none;
     outline: 0;
     box-shadow: none;
     cursor: pointer;
+    z-index: 100;
 }
 .lines-button {
-    display: inline-block;
     line-height: 1px;
     .transition(@nav-as);
 
@@ -51,6 +54,7 @@
 .line {
     display: inline-block;
     width: @nav-size;
+    border-radius: @nav-size/7;
     height: 3px;
     background: @black;
     transition: @nav-as;
@@ -69,4 +73,54 @@
     }
     &:before { top: @nav-size/4; }
     &:after { top: -@nav-size/4; }
+}
+
+
+// Navigation
+.site-nav-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 66%;
+    background-color: rgba(255, 255, 255, 0.95);
+    overflow-y: scroll;
+    z-index: 10;
+    .translate3d(0, -100%, 0);
+}
+
+.site-nav {
+    width: 100%;
+    height: 100%;
+}
+
+.nav-items-wrapper {
+    position: absolute;
+    top: 0;
+}
+
+.nav-items {
+    margin-left: 31px;
+    margin-top: 75px;
+    .font-light;
+    
+    a {
+        .font-lg;
+    }
+    
+    p {
+        .font-sm;
+        color: @grey-light;
+        padding: 0;
+    }
+}
+
+.active {
+    &.site-nav-wrapper {
+        .translate3d(0, 0, 0);
+    }
+    &.first-half-page {
+        .blur(5px);
+    }
 }

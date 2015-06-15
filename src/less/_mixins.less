@@ -3,3 +3,15 @@
     -moz-transform: rotate3d(@x, @y, @z, @w);
     transform: rotate3d(@x, @y, @z, @w);
 }
+.blur(@x) {
+    filter:blur(@x);
+    -o-filter:blur(@x);
+    -ms-filter:blur(@x);
+    -moz-filter:blur(@x);
+    -webkit-filter:blur(@x);
+}
+.vertical-center {
+    position: absolute;
+    top: 50%;
+    .translate3d(0, -50%, 0);
+}
