@@ -1,29 +1,44 @@
 .components {
+    display: block;
+    float: right;
+    clear: both;
     position: relative;
     margin-bottom: 30px;
     text-align: right;
     overflow: auto;
     
     .bounding-box {
-        width: 120px;
-        height: 120px;
+        padding-top: (@bounding-box-size - @bounding-box-icon-size) / 2;
+        width: @bounding-box-size;
+        height: @bounding-box-size;
         float: right;
+        text-align: center;
         border-radius: 50%;
         background-repeat: no-repeat;
         
-        &.first-member{
-            background-image: url(../img/Duc.png);
-            background-size: 345px;
-            background-position: 55% 63%;
+        
+        i {
+            font-size: @bounding-box-icon-size;
+            color: @grey-light;
+        }
+        
+        &.box-border {
+            border: solid 1px @grey-light;
         }
     }
     
     h4 {
-        .vertical-center;
         .nvm;
-        right: 165px;
+        line-height: @bounding-box-size;
+        padding-right: @bounding-box-size + 20px;
+        white-space: nowrap;
     }
     
+    &.team-member h4 {
+        line-height: 1.1;
+        padding-top: 41px;
+    }
+ 
     span {
         display: block;
     }
