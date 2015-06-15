@@ -3,6 +3,17 @@
         .vertical-center;
         right: 30px;
         text-align: left;
+        
+        .desc i {
+            display: block;
+            font-size: 115px;
+            line-height: 0px;
+            margin-top: 25px;
+            
+            &:before {
+                line-height: 50px;
+            }
+        }
     }
     .components-wrapper {
         .vertical-center;
@@ -39,7 +50,6 @@
     }
 }
 
-// Javascript activate
-.social-bar.social-bar-s2 {
+[data-active-screen="2"] .social-bar {
     color: @white;
 }

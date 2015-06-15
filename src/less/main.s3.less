@@ -7,13 +7,46 @@
         }
     }
     .s-content {
-        .vertical-center;
-        right: 30px;
+        margin-top: 150px;
+        margin-right: 15px;
         text-align: right;
+        color: @black;
+        
+        p {
+            color: @black;
+        }
     }
     .components-wrapper {
         .vertical-center;
         width: 100%;
-        right: 30%;
+        right: 25%;
+        color: @grey-light;
+        
+        .components:nth-child(2) {
+            margin-right: 35px;
+        }
+        .components:nth-child(3) {
+            margin-right: 70px;
+        }
+        .components:nth-child(4) {
+            margin-right: 115px;
+        }
+    }
+}
+
+[data-active-screen="3"] {
+    .btn-nav .lines {
+        background-color: @white;
+        &:before, &:after {
+            background-color: @white;
+        }
+    }
+    .next-btn {
+        color: @white;
+    }
+    .copyright-line {
+        i, p, p span {
+            color: @white;
+        }
     }
 }
