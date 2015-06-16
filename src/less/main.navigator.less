@@ -85,7 +85,7 @@
     width: 50%;
     height: 66%;
     overflow-y: scroll;
-    z-index: 10;
+    z-index: 600;
     .translate3d(0, -100%, 0);
 }
 
@@ -96,19 +96,18 @@
 
 .nav-items-wrapper {
     position: absolute;
-    top: 0;
+    top: 45px;
 }
 
 .nav-items {
+    display: block;
     margin-left: 31px;
     margin-top: 75px;
     .font-light;
+    .font-lg;
 
-    a {
-        .font-lg;
-    }
-
-    p {
+    span {
+        display: block;
         .font-sm;
         color: @grey-light;
         padding: 0;
