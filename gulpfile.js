@@ -15,14 +15,14 @@ var gulp = require('gulp')
  */
 gulp.task('dev:less', function() {
     return gulp
-    .src(['src/less/main.less', 'src/less/libs.less', 'src/less/animations.less'])
+    .src(['src/assets/less/main.less', 'src/assets/less/libs.less', 'src/assets/less/animations.less'])
     .pipe(less({
         paths: [
-            'src/less',
+            'src/assets/less',
             'src/vendors'
         ]
     }))
-    .pipe(gulp.dest('src/css/'))
+    .pipe(gulp.dest('src/assets/css/'))
 });
 
 /**
@@ -30,8 +30,8 @@ gulp.task('dev:less', function() {
  */
 gulp.task('dev:watch', function() {
     gulp.watch(['src/*.html'], ['dev:less']);
-    gulp.watch(['src/less/**'], ['dev:less']);
-    gulp.watch(['src/js/**'], ['dev:less']);
+    gulp.watch(['src/assets/less/**'], ['dev:less']);
+    gulp.watch(['src/assets/js/**'], ['dev:less']);
 });
 
 /**
@@ -51,19 +51,19 @@ gulp.task('dist', ['dev:less'], function() {
 
     // Copy all images ..
     gulp
-    .src('src/img/**')
-    .pipe(gulp.dest('dist/img'));
+    .src('src/assets/img/**')
+    .pipe(gulp.dest('assets/img'));
 
     // .. and everything at root dir
     //   except index.html and vendor dir
     gulp
     .src(['src/**',
           '!src/index.html',
-          '!src/less/**',
-          '!src/less',
+          '!src/assets/less/**',
+          '!src/assets/less',
           '!src/vendors/**',
           '!src/vendors'])
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('./'));
 });
 
 /**
