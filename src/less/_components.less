@@ -1,63 +1,62 @@
-.components {
+.punchs {
     float: right;
     clear: both;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: right;
     overflow: hidden;
-    
-    .bounding-box {
-        padding-top: (@bounding-box-icon-size - @icon-size) / 2 - 2px;
-        width: @bounding-box-icon-size;
-        height: @bounding-box-icon-size;
-        float: right;
-        text-align: center;
-        border-radius: 50%;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        
-        i {
-            font-size: @icon-size;
-            color: @grey-light;
-            padding: 24px;
-        }
-        
-        &.box-border {
-            border: solid 1px @grey-light;
-        }
-        
+}
+
+.bounding-box {
+    float: right;
+    overflow: hidden;
+    width: @bounding-box-icon-size;
+    height: @bounding-box-icon-size;
+    border-radius: 50%;
+    padding-top: (@bounding-box-icon-size - @icon-size) / 2 - 2px;
+
+    i {
+        padding: 24px;
+        font-size: @icon-size;
+        color: @grey-light;
+    }
+
+    &.box-border {
+        border: solid 1px @grey-light;
+    }
+
+
+    .team-member & {
+        padding-top: 0;
+        width: @bounding-box-size;
+        height: @bounding-box-size;
+
         img {
+            height: @bounding-box-size;
+            min-width: @bounding-box-size;
             .grayscale(100%);
         }
     }
-    
+}
+.bounding-info {
+    float: left;
+    margin-right: 30px;
+
     h4 {
-        .nvm;
-        .font-lg;
+        margin: 20px 0 0;
+        .font-md;
         .font-light;
-        line-height: @bounding-box-icon-size;
-        padding-right: @bounding-box-icon-size + 20px;
-        white-space: nowrap;
-    }
-    
-    &.team-member {
-        .bounding-box {
-            padding-top: 0;
-            width: @bounding-box-size;
-            height: @bounding-box-size;
-        }
-        
-        h4 {
-            line-height: 1.1;
-            padding-top: 31px;
-            padding-right: @bounding-box-size + 20px;
+
+        .team-member & {
+            .font-lg;
+            margin-bottom: 2px;
         }
     }
- 
+
     span {
         display: block;
-        .font-sm;
-        .font-regular;
+        .font-xs;
+        .font-light;
         color: @grey-light;
     }
 }

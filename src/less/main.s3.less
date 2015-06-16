@@ -1,35 +1,42 @@
 .s3 {
     .heading-wrapper {
-        margin-top: 150px;
+        margin-top: 100px;
         margin-left: 15px;
+        float: left;
+
         .s-title {
             color: @white;
         }
     }
     .s-content {
-        margin-top: 150px;
+        margin-top: 100px;
         margin-right: 15px;
         text-align: right;
         color: @black;
-        
+
         p {
+            .font-light;
             color: @black;
         }
     }
-    .components-wrapper {
-        .vertical-center;
-        width: 100%;
+    .punchs-wrapper {
+        position: absolute;
+        top: 55%;
         right: 15%;
+        width: 100%;
         color: @grey-light;
-        
-        .components:nth-child(2) {
-            margin-right: 40px;
-        }
-        .components:nth-child(3) {
-            margin-right: 80px;
-        }
-        .components:nth-child(4) {
-            margin-right: 120px;
+        .translate(0, -50%);
+
+        .punchs {
+            &:nth-child(2) {
+                margin-right: 40px;
+            }
+            &:nth-child(3) {
+                margin-right: 80px;
+            }
+            &:nth-child(4) {
+                margin-right: 120px;
+            }
         }
     }
     form {
