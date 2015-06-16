@@ -1,5 +1,4 @@
 .components {
-    display: block;
     float: right;
     clear: both;
     position: relative;
@@ -8,7 +7,7 @@
     overflow: auto;
     
     .bounding-box {
-        padding-top: (@bounding-box-icon-size - @icon-size) / 2;
+        padding-top: (@bounding-box-icon-size - @icon-size) / 2 - 2px;
         width: @bounding-box-icon-size;
         height: @bounding-box-icon-size;
         float: right;
@@ -20,6 +19,7 @@
         i {
             font-size: @icon-size;
             color: @grey-light;
+            padding: 24px;
         }
         
         &.box-border {
