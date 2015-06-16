@@ -47,7 +47,7 @@ gulp.task('dist', ['dev:less'], function() {
         js: [uglify()],
         iejs: [uglify()]
     }))
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('./'));
 
     // Copy all images ..
     gulp
@@ -58,6 +58,7 @@ gulp.task('dist', ['dev:less'], function() {
     //   except index.html and vendor dir
     gulp
     .src(['src/**',
+          '!src/index.html',
           '!src/less/**',
           '!src/less',
           '!src/vendors/**',
