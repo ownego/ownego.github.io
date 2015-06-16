@@ -84,7 +84,6 @@
     left: 0;
     width: 50%;
     height: 66%;
-    background-color: rgba(255, 255, 255, 0.95);
     overflow-y: scroll;
     z-index: 10;
     .translate3d(0, -100%, 0);
@@ -104,11 +103,11 @@
     margin-left: 31px;
     margin-top: 75px;
     .font-light;
-    
+
     a {
         .font-lg;
     }
-    
+
     p {
         .font-sm;
         color: @grey-light;
@@ -121,6 +120,7 @@
         .translate3d(0, 0, 0);
     }
     &.first-half-page {
+        .opacity(0.3);
         .blur(5px);
     }
 }
