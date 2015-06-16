@@ -4,5 +4,7 @@
 /bower_components/
 /node_modules/
 /src/vendors/
-/src/css/
+/src/assets/css/
 /dist/
+/assets/
+/favicons/
