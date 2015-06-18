@@ -18,11 +18,42 @@
     .animCore();
     opacity: 0;
 
-    .shown & {
+    .active & {
         .animation-name(fadeIn);
     }
 }
-
+.bdMoveRight() {
+    .animCore();
+    
+    .active & {
+        .animation-name(bdMoveRight);
+        .animation-duration(@animateSpeed*5);
+    }
+}
+.bdMoveDown() {
+    .animCore();
+    
+    .active & {
+        .animation-name(bdMoveDown);
+        .animation-duration(@animateSpeed*5);
+    }
+}
+.bdMoveLeft() {
+    .animCore();
+    
+    .active & {
+        .animation-name(bdMoveLeft);
+        .animation-duration(@animateSpeed*5);
+    }
+}
+.bdMoveUp() {
+    .animCore();
+    
+    .active & {
+        .animation-name(bdMoveUp);
+        .animation-duration(@animateSpeed*5);
+    }
+}
 // Show up
 // -------
 .s1-content {
@@ -47,29 +78,31 @@
     stroke: @black;
     stroke-width: 2;
 }
-
+.input-normal, .form-caution {
+    .fadeIn();
+    .animDelayLevel(5);
+}
 .form-submit {
-    line {
-        .transition(all .8s ease-in-out);
-    }
-    
     &:hover {
         background-color: @white;
         color: @black;
+        border: solid 1px @black;
+    }
+    .fadeIn();
+    .animDelayLevel(5);
+}
 
-        line {
-            &.border-top {
-                .translate3d(300px, 0, 0);
-            }
-            &.border-left {
-                .translate3d(0, -100px, 0);
-            }
-            &.border-bottom {
-                .translate3d(-300px, 0, 0);
-            }
-            &.border-right {
-                .translate3d(0, 100px, 0);
-            }
-        }
+form line {
+    &.border-top {
+        .bdMoveRight();
+    }
+    &.border-left {
+        .bdMoveUp();
+    }
+    &.border-bottom {
+        .bdMoveLeft();
+    }
+    &.border-right {
+        .bdMoveDown();
     }
 }

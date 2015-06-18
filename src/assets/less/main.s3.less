@@ -44,23 +44,20 @@
         
         .form-submit {
             position: relative;
-            float: right;
-            width: 150px;
+            width: 100%;
             margin: 0;
+            .transition(all 300ms ease-in-out);
+        }
+        .input-wrapper {
+            position: relative;
         }
         .border-svg {
             position: absolute;
+            z-index: -1;
             top: 0;
             left: 0;
-            stroke: @black;
+            stroke: @borderColor;
             stroke-width: 2;
-            
-            .border-top, .border-bottom {
-                stroke-dasharray: 165 120;
-            }
-            .border-left, .border-right {
-                stroke-dasharray: 55 40;
-            }
         }
     }
 }
