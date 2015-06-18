@@ -26,7 +26,6 @@
     }
 }
 
-
 .fadeUp() {
     .animCore();
     opacity: 0;
@@ -64,6 +63,14 @@
 
     .active& {
         .animation-name(fadeRight);
+    }
+}
+
+.logoFill() {
+    .animCore();
+    
+    & {
+        .animation-name(logoFill);
     }
 }
 
@@ -126,6 +133,13 @@
     .desc {
         .fadeUp();
         .animDelayLevel(2);
+    }
+    .logo {
+        path {
+            .logoFill();
+            .animDelayLevel(6);
+            .animation-duration(@animateSpeed*4);
+        }
     }
 }
 
