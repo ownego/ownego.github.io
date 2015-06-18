@@ -87,6 +87,10 @@
     overflow-y: scroll;
     z-index: 600;
     .translate3d(0, -100%, 0);
+
+    &.active {
+        .translate3d(0, 0, 0);
+    }
 }
 
 .site-nav {
@@ -114,11 +118,10 @@
     }
 }
 
-.active {
-    &.site-nav-wrapper {
-        .translate3d(0, 0, 0);
-    }
-    &.first-half-page {
+.first-half-page {
+    .transition(all @animateSpeed ease);
+
+    &.active {
         .opacity(0.3);
         .blur(5px);
     }

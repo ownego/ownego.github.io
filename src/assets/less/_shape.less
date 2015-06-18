@@ -19,11 +19,12 @@
     overflow: hidden;
     position: absolute;
     z-index: 10;
-    left: 0%;
+    left: -50%;
     top: 0;
     width: 200%;
     height: 100%;
     background-color: @white;
+    .skew(-55deg, 0);
 
     -webkit-transition: -webkit-transform @swapSpeed ease, left @swapSpeed ease @animateSpeed;
     -moz-transition: -moz-transform @swapSpeed ease, left @swapSpeed ease @animateSpeed;
@@ -62,4 +63,10 @@
     .s1.active ~ & {
         opacity: 1;
     }
+}
+
+#logo-oe path {
+    fill: none;
+    stroke: @borderColor;
+    stroke-width: 2;
 }

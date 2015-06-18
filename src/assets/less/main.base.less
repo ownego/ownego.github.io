@@ -62,16 +62,46 @@ button {
 
 .sub-title {
     display: inline-block;
-    padding: 5px 15px;
+    position: relative;
     margin-top: 0;
     margin-bottom: @mainSpacing * 2;
 
     .font-bold;
     .font-md;
     .font-sub;
-    background-color: @white;
-    color: @black;
-    white-space: nowrap;
+
+    span {
+        display: block;
+        padding: 5px 15px;
+        opacity: 1;
+        color: @black;
+        white-space: nowrap;
+        background-color: @white;
+        .transition(opacity @animateSpeed linear);
+    }
+
+    &:after {
+        content: attr(data-sub-content);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        padding: 5px 0;
+        color: @white;
+        .transition(opacity 100ms linear);
+    }
+
+    &:hover {
+        span {
+            opacity: 0;
+        }
+        &:after {
+            opacity: 1;
+        }
+    }
 }
 
 p {

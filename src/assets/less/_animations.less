@@ -1,5 +1,8 @@
 // Animations core
 .animDelayLevel(@level:0) {
+    // the animations will be delayed by level.
+    //     Higher level means slower
+    //     put level = -5 as no delay
     @extraDelay: 200ms * @level;
     .animation-delay(1000ms + @extraDelay);
 }
@@ -18,91 +21,145 @@
     .animCore();
     opacity: 0;
 
-    .active & {
+    .main-screen.active& {
         .animation-name(fadeIn);
     }
 }
+
+
+.fadeUp() {
+    .animCore();
+    opacity: 0;
+    .translate(0, 100%);
+
+    .active& {
+        .animation-name(fadeUp);
+    }
+}
+
+.fadeDown() {
+    .animCore();
+    opacity: 0;
+    .translate(0, -100%);
+
+    .active& {
+        .animation-name(fadeDown);
+    }
+}
+
+.fadeLeft() {
+    .animCore();
+    opacity: 0;
+    .translate(-100%, 0);
+
+    .active& {
+        .animation-name(fadeLeft);
+    }
+}
+
+.fadeRight() {
+    .animCore();
+    opacity: 0;
+    .translate(100%, 0);
+
+    .active& {
+        .animation-name(fadeRight);
+    }
+}
+
 .bdMoveRight() {
     .animCore();
-    
-    .active & {
+
+    .active& {
         .animation-name(bdMoveRight);
         .animation-duration(@animateSpeed*5);
     }
 }
 .bdMoveDown() {
     .animCore();
-    
-    .active & {
+
+    .active& {
         .animation-name(bdMoveDown);
         .animation-duration(@animateSpeed*5);
     }
 }
 .bdMoveLeft() {
     .animCore();
-    
-    .active & {
+
+    .active& {
         .animation-name(bdMoveLeft);
         .animation-duration(@animateSpeed*5);
     }
 }
 .bdMoveUp() {
     .animCore();
-    
-    .active & {
+
+    .active& {
         .animation-name(bdMoveUp);
         .animation-duration(@animateSpeed*5);
     }
 }
+
 // Show up
 // -------
-.s1-content {
-    .s-title {
-        > span:last-child,
-        .title-color,
-        .s-title-mobile {
-            display: inline-block;
-            .fadeIn();
-        }
-        .title-color {
-            .animDelayLevel(1);
-        }
-        > span:last-child {
-            .animDelayLevel(2);
-        }
+.btn-nav,
+.social-icon,
+.copyright-line {
+    .animCore();
+    .animDelayLevel(-5);
+    opacity: 0;
+
+    [data-active-screen] & {
+        .animation-name(fadeIn);
     }
 }
 
-#logo-oe path {
-    fill: none;
-    stroke: @black;
-    stroke-width: 2;
-}
-.input-normal, .form-caution {
-    .fadeIn();
-    .animDelayLevel(5);
-}
-.form-submit {
-    &:hover {
-        background-color: @white;
-        color: @black;
-        border: solid 1px @black;
+.s1 {
+    .s-title,
+    .sub-title {
+        .fadeRight();
     }
-    .fadeIn();
-    .animDelayLevel(5);
+
+    .sub-title {
+        .animDelayLevel(1);
+    }
+    .desc {
+        .fadeUp();
+        .animDelayLevel(2);
+    }
 }
 
-form line {
-    &.border-top {
-        .bdMoveRight();
+
+
+.s3 {
+    .input-normal,
+    .form-caution {
+        .fadeIn();
+        .animDelayLevel(5);
     }
-    &.border-left {
-        .bdMoveUp();
+
+    .form-submit {
+        &:hover {
+            background-color: @white;
+            color: @black;
+            border: solid 1px @black;
+        }
+        .fadeIn();
+        .animDelayLevel(5);
     }
-    &.border-bottom {
-        .bdMoveLeft();
-    }
-    &.border-right {
-        .bdMoveDown();
+
+    line {
+        &.border-top {
+            .bdMoveRight();
+        }
+        &.border-left {
+            .bdMoveUp();
+        }
+        &.border-bottom {
+            .bdMoveLeft();
+        }
+        &.border-right {
+            .bdMoveDown();
+        }
     }
 }
