@@ -41,6 +41,27 @@
     }
     form {
         margin-top: 20px;
+        
+        .form-submit {
+            position: relative;
+            float: right;
+            width: 150px;
+            margin: 0;
+        }
+        .border-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            stroke: @black;
+            stroke-width: 2;
+            
+            .border-top, .border-bottom {
+                stroke-dasharray: 165 120;
+            }
+            .border-left, .border-right {
+                stroke-dasharray: 55 40;
+            }
+        }
     }
 }
 

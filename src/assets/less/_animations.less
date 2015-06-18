@@ -47,3 +47,29 @@
     stroke: @black;
     stroke-width: 2;
 }
+
+.form-submit {
+    line {
+        .transition(all .8s ease-in-out);
+    }
+    
+    &:hover {
+        background-color: @white;
+        color: @black;
+
+        line {
+            &.border-top {
+                .translate3d(300px, 0, 0);
+            }
+            &.border-left {
+                .translate3d(0, -100px, 0);
+            }
+            &.border-bottom {
+                .translate3d(-300px, 0, 0);
+            }
+            &.border-right {
+                .translate3d(0, 100px, 0);
+            }
+        }
+    }
+}
