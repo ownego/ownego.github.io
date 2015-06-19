@@ -121,31 +121,34 @@ $(function() {
 	};
     
     SVGEl.prototype.fill = function() {
-        console.log(this.path.length);
-//        var self = this,
-//            currentColor = [255,255,255],
-//            targetColor = [0,0,0],
-//            increment = [1,1,1];
-//
-//        function startTransition() {
-//            currentColor[0] -= increment[0];
-//            currentColor[1] -= increment[1];
-//            currentColor[2] -= increment[2];
-//
-//            var nextColor = "rgb(" + currentColor[0] + "," + currentColor[1] + "," + currentColor[2] + ")";
-////            self.style.backgroundColor = nextColor;
-//            for(var p=0, len = this.path.length; p < len; p++) {
-//                this.path[j].style.fill = nextColor;
-//            }
-//
-//            if (currentColor[0] == targetColor[0]) {
-//                clearInterval(transition);
-//            }
-//        }
-//
-//        var transition = setInterval(function() {
-//            startTransition();
-//        }, 1000/60);
+        var self = this,
+            currentColor = [255,255,255],
+            targetColor = [0,0,0],
+            strokeNone = [208,208,208],
+            increment = [1,1,1];
+
+        function startTransition() {
+            currentColor[0] -= increment[0];
+            currentColor[1] -= increment[1];
+            currentColor[2] -= increment[2];
+
+            var nextColor = "rgb(" + currentColor[0] + "," + currentColor[1] + "," + currentColor[2] + ")";
+            for(var p=0, len = self.path.length; p < len; p++) {
+                self.path[p].style.fill = nextColor;
+            }
+            
+            if (currentColor[0] == strokeNone[0]) {
+                for(var a=0, leng = self.path.length; a < leng; a++) {
+                    self.path[a].style.stroke = 'none';
+                }
+            } else if (currentColor[0] == targetColor[0]) {
+                clearInterval(transition);
+            }
+        }
+
+        var transition = setInterval(function() {
+            startTransition();
+        }, 1000/120);
     };
 	
 	function init() {
