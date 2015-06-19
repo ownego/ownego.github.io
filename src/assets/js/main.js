@@ -123,8 +123,8 @@ $(function() {
     SVGEl.prototype.fill = function() {
         var self = this,
             currentColor = [255,255,255],
-            targetColor = [0,0,0],
-            strokeNone = [208,208,208],
+            targetColor = [51,51,51],
+            strokeColor = [208,208,208],
             increment = [1,1,1];
 
         function startTransition() {
@@ -137,12 +137,13 @@ $(function() {
                 self.path[p].style.fill = nextColor;
             }
             
-            if (currentColor[0] == strokeNone[0]) {
-                for(var a=0, leng = self.path.length; a < leng; a++) {
-                    self.path[a].style.stroke = 'none';
-                }
-            } else if (currentColor[0] == targetColor[0]) {
+            if (currentColor[0] == targetColor[0]) {
                 clearInterval(transition);
+            } else if (currentColor[0] <= strokeColor[0]) {
+                for(var a=0, leng = self.path.length; a < leng; a++) {
+                    var colorComponent = componentToHex(currentColor[0]);
+                    self.path[a].style.stroke = "#" + colorComponent + colorComponent + colorComponent;
+                }
             }
         }
 
@@ -169,4 +170,9 @@ $(function() {
 	};
 
 	init();
+    
+    function componentToHex(c) {
+        var hex = c.toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+    }
 });
