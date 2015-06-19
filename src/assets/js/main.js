@@ -22,7 +22,9 @@
             if(nextScreen == 1) {
                 oe.drawingShapes('#oeLogo');
             } else if(nextScreen == 2) {
-                oe.drawingShapes('#foundersSign');
+                setTimeout(function() {
+                    oe.drawingShapes('#foundersSign');
+                }, 4500);
             }
         },
 
@@ -38,12 +40,12 @@
             });
         },
 
-        drawingShapes: function(selector) {
+        drawingShapes: function(selector, options) {
             var svgs = Array.prototype.slice.call($(selector)),
                 svgArr = new Array();
 
             svgs.forEach(function(el, i) {
-                var svg = new SVGEl(el);
+                var svg = new SVGEl(el, options);
                 svgArr[i] = svg;
                 setTimeout(function(el) {
                     return function() {

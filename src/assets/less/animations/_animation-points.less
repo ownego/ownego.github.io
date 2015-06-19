@@ -8,7 +8,7 @@
 @eff-fixedElems: @eff-delay-breakpoint + (@eff-delay-range*(@eff-startingPoint));
 
 // nav
-@eff-nav-item1: @eff-startingPoint;
+@eff-nav-item1: @eff-startingPoint + 1;
 @eff-nav-item1-sub: @eff-nav-item1 + 1;
 @eff-nav-item2: @eff-nav-item1-sub + 1;
 @eff-nav-item2-sub: @eff-nav-item2 + 1;
@@ -17,11 +17,11 @@
 
 // main bg
 @eff-shape-level: -2; // default -2
+@eff-shape-speed-level: -3; // rotate
 @eff-shape-delay-level: @eff-shape-level;
-@eff-shape-speed-level: @eff-shape-delay-level; // rotate
 @eff-shape-move-level: @eff-shape-delay-level + 2; // move
-@eff-shape-s3-animdelay-level: @eff-shape-delay-level + @eff-shape-speed-level + 1;
-@eff-shape-s3-animspeed-level: @eff-shape-speed-level + 1;
+@eff-shape-s3-animdelay-level: (@eff-shape-delay-level + @eff-shape-speed-level - @eff-startingPoint) + 1;
+@eff-shape-s3-animspeed-level: @eff-shape-speed-level + 3;
 
 @eff-shape-delay: @eff-delay-breakpoint + (@eff-delay-range*@eff-shape-delay-level);
 @eff-shape-speed: @eff-delay-breakpoint + (@eff-delay-range*@eff-shape-speed-level);
@@ -31,15 +31,31 @@
 
 // s1 effects chain
 @eff-s1-logo-fill: 10;
-@eff-s1-title: @eff-s1-logo-fill + 1;
+@eff-s1-title: (@eff-shape-delay-level - @eff-startingPoint) + @eff-shape-move-level + 2;
 @eff-s1-sub-title: @eff-s1-title + 2;
 @eff-s1-desc: @eff-s1-sub-title + 3;
 
 // s2 show time
-@eff-s2-bounding-count: 4;
-@eff-s2-bounding-box: (@eff-shape-speed-level - @eff-startingPoint) + @eff-shape-move-level;
-@eff-s2-bounding-title: @eff-s2-bounding-box + 2;
-@eff-s2-bounding-sub-title: @eff-s2-bounding-title + 1;
-@eff-s2-title: @eff-s2-bounding-sub-title + @eff-s2-bounding-count;
+@eff-s2-title: (@eff-shape-speed-level - @eff-startingPoint) + @eff-shape-move-level;
 @eff-s2-sub-title: @eff-s2-title + 2;
 @eff-s2-desc: @eff-s2-sub-title + 3;
+
+@eff-s2-bounding-count: 4;
+@eff-s2-bounding-box: @eff-s2-desc + 1;
+@eff-s2-bounding-title: @eff-s2-bounding-box + 2;
+@eff-s2-bounding-sub-title: @eff-s2-bounding-title + 1;
+
+// s3 ready
+@eff-s3-left-title: @eff-shape-s3-animdelay-level + @eff-shape-s3-animspeed-level + 2;
+@eff-s3-left-sub-title: @eff-s3-left-title + 2;
+
+@eff-s3-bounding-count: 4;
+@eff-s3-bounding-box: @eff-s3-left-sub-title + 1;
+@eff-s3-bounding-title: @eff-s3-bounding-box + 2;
+
+@eff-s3-right-title: @eff-s3-left-title;
+@eff-s3-right-desc: @eff-s3-right-title + 2;
+@eff-s3-input-draw: @eff-s3-right-desc + 2;
+@eff-s3-input-draw-speed: 6;
+@eff-s3-input-show: @eff-s3-input-draw-speed + @eff-s3-input-draw - 1;
+

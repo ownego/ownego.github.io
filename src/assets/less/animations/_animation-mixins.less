@@ -1,0 +1,89 @@
+// Animations core
+.animDelayLevel(@level: 0, @now: false) {
+    // the animations will be delayed by level.
+    //     Higher level means slower
+    //     put level = -5 as no delay
+    @extraDelay: 200ms * @level;
+
+
+    & when (@now = true) {
+        .animation-delay(1000ms + @extraDelay);
+    }
+
+    .active& {
+        .animation-delay(1000ms + @extraDelay);
+    }
+}
+.animSetup {
+    .animation-duration(@animateSpeed*2);
+    .animation-fill-mode(both);
+    .animation-timing-function(cubic-bezier(.27, .35, .23, .96););
+    .animation-delay(0ms);
+    .animDelayLevel();
+}
+.animCore() {
+    &:extend(.animSetup all);
+}
+
+// Effects
+.fadeIn() {
+    .animCore();
+    .animation-name(fadeOut);
+
+    .main-screen.active& {
+        .animation-name(fadeIn);
+    }
+}
+
+.fadeUp() {
+    .animCore();
+    .animation-name(fadeOutUp);
+
+    .active& {
+        .animation-name(fadeInUp);
+    }
+}
+
+.fadeDown() {
+    .animCore();
+    .animation-name(fadeOutDown);
+
+    .active& {
+        .animation-name(fadeInDown);
+    }
+}
+
+.fadeLeft() {
+    .animCore();
+    .animation-name(fadeOutLeft);
+
+    .active& {
+        .animation-name(fadeInLeft);
+    }
+}
+
+.fadeRight() {
+    .animCore();
+    .animation-name(fadeOutRight);
+
+    .active& {
+        .animation-name(fadeInRight);
+    }
+}
+
+.zoomIn() {
+    .animCore();
+    .animation-name(zoomOut);
+
+    .active& {
+        .animation-name(zoomIn);
+    }
+}
+
+.logoFill() {
+    .animCore();
+
+    .active& {
+        .animation-name(logoFill);
+    }
+}

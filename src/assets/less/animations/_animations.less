@@ -1,126 +1,3 @@
-// Animations core
-.animDelayLevel(@level: 0, @now: false) {
-    // the animations will be delayed by level.
-    //     Higher level means slower
-    //     put level = -5 as no delay
-    @extraDelay: 200ms * @level;
-
-
-    & when (@now = true) {
-        .animation-delay(1000ms + @extraDelay);
-    }
-
-    .active& {
-        .animation-delay(1000ms + @extraDelay);
-    }
-}
-.animSetup {
-    .animation-duration(@animateSpeed*2);
-    .animation-fill-mode(both);
-    .animation-timing-function(cubic-bezier(.27, .35, .23, .96););
-    .animation-delay(0ms);
-    .animDelayLevel();
-}
-.animCore() {
-    &:extend(.animSetup all);
-}
-
-// Effects
-.fadeIn() {
-    .animCore();
-    .animation-name(fadeOut);
-
-    .main-screen.active& {
-        .animation-name(fadeIn);
-    }
-}
-
-.fadeUp() {
-    .animCore();
-    .animation-name(fadeOutDown);
-
-    .active& {
-        .animation-name(fadeInUp);
-    }
-}
-
-.fadeDown() {
-    .animCore();
-    .animation-name(fadeOutUp);
-
-    .active& {
-        .animation-name(fadeInDown);
-    }
-}
-
-.fadeLeft() {
-    .animCore();
-    .animation-name(fadeOutLeft);
-
-    .active& {
-        .animation-name(fadeInLeft);
-    }
-}
-
-.fadeRight() {
-    .animCore();
-    .animation-name(fadeOutRight);
-
-    .active& {
-        .animation-name(fadeInRight);
-    }
-}
-
-.zoomIn() {
-    .animCore();
-    .animation-name(zoomOut);
-
-    .active& {
-        .animation-name(zoomIn);
-    }
-}
-
-.logoFill() {
-    .animCore();
-
-    .active& {
-        .animation-name(logoFill);
-    }
-}
-
-.bdMoveRight() {
-    .animCore();
-
-    .active& {
-        .animation-name(bdMoveRight);
-        .animation-duration(@animateSpeed*5);
-    }
-}
-.bdMoveDown() {
-    .animCore();
-
-    .active& {
-        .animation-name(bdMoveDown);
-        .animation-duration(@animateSpeed*5);
-    }
-}
-.bdMoveLeft() {
-    .animCore();
-
-    .active& {
-        .animation-name(bdMoveLeft);
-        .animation-duration(@animateSpeed*5);
-    }
-}
-.bdMoveUp() {
-    .animCore();
-
-    .active& {
-        .animation-name(bdMoveUp);
-        .animation-duration(@animateSpeed*5);
-    }
-}
-
 /* ===== It's show time ===== */
 // Fixed Elements
 .btn-nav,
@@ -197,9 +74,15 @@
 
 // Main Background that we called Shape
 .rectangle {
-    -webkit-transition: -webkit-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
-    -moz-transition: -moz-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
-    transition: transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+    -webkit-transition:
+        -webkit-transform @eff-shape-speed ease @eff-shape-delay,
+        right @eff-shape-speed ease @eff-shape-move-delay;
+    -moz-transition:
+        -moz-transform @eff-shape-speed ease @eff-shape-delay,
+        right @eff-shape-speed ease @eff-shape-move-delay;
+    transition:
+        transform @eff-shape-speed ease @eff-shape-delay,
+        right @eff-shape-speed ease @eff-shape-move-delay;
 
     .s3.active ~ & {
         .animation(shapeComin @eff-shape-s3-animspeed ease @eff-shape-s3-animdelay forwards);
@@ -233,13 +116,6 @@
         .fadeIn();
         .animDelayLevel(@eff-s1-desc);
     }
-//    .logo {
-//        path {
-//            .logoFill();
-//            .animDelayLevel(@eff-s1-logo-fill, true);
-//            .animation-duration(@animateSpeed*4);
-//        }
-//    }
 }
 
 .s2 {
@@ -276,7 +152,7 @@
 
     .s-title,
     .sub-title {
-        .fadeUp();
+        .fadeRight();
     }
     .s-title {
         .animDelayLevel(@eff-s2-title);
@@ -291,34 +167,93 @@
 }
 
 .s3 {
-    .input-normal,
-    .form-caution {
-        .fadeIn();
-        .animDelayLevel(5);
+    .punchs {
+        .bounding-box {
+            .zoomIn();
+        }
+        .bounding-info {
+            h4 {
+                .fadeLeft();
+            }
+        }
+
+        // Generate bounding items effects
+        .generate-bounding(@eff-s3-bounding-count);
+
+        .generate-bounding(@n, @i: 1) when (@i =< @n) {
+            &:nth-child(@{i}) {
+                .bounding-box {
+                    .animDelayLevel(@eff-s3-bounding-box + @i);
+                }
+                .bounding-info {
+                    h4 {
+                        .animDelayLevel(@eff-s3-bounding-title + @i);
+                    }
+                }
+            }
+            .generate-bounding(@n, (@i + 1));
+        }
+    }
+    // Left side
+    .heading-wrapper {
+        .s-title,
+        .sub-title {
+            .fadeLeft();
+        }
+        .s-title {
+            .animDelayLevel(@eff-s3-left-title);
+        }
+        .sub-title {
+            .animDelayLevel(@eff-s3-left-sub-title);
+        }
+    }
+    // Right side
+    .s-content {
+        .s-title {
+            .fadeRight();
+        }
+        .desc {
+            .fadeIn();
+        }
+        .s-title {
+            .animDelayLevel(@eff-s3-right-title);
+        }
+        .desc {
+            .animDelayLevel(@eff-s3-right-desc);
+        }
     }
 
+    .input-normal,
+    .form-caution,
     .form-submit {
-        &:hover {
-            background-color: @white;
-            color: @black;
-            border: solid 1px @black;
-        }
         .fadeIn();
-        .animDelayLevel(5);
+        .animDelayLevel(@eff-s3-input-show);
     }
 
     line {
+        .animCore();
+        .animation-duration(@eff-delay-range * @eff-s3-input-draw-speed);
+        .animDelayLevel(@eff-s3-input-draw, true);
+
         &.border-top {
-            .bdMoveRight();
+            .active& {
+                .animation-name(bdMoveRight);
+            }
         }
         &.border-left {
-            .bdMoveUp();
+            .active& {
+                .animation-name(bdMoveUp);
+            }
         }
         &.border-bottom {
-            .bdMoveLeft();
+            .active& {
+                .animation-name(bdMoveLeft);
+            }
         }
         &.border-right {
-            .bdMoveDown();
+            .active& {
+                .animation-name(bdMoveDown);
+            }
         }
     }
 }

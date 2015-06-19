@@ -26,10 +26,12 @@
         top: 55%;
         right: 15%;
         width: 100%;
-        color: @grey-light;
         .translate(0, -50%);
 
         .punchs {
+            color: @grey-light;
+            .transition(color @animateSpeed ease);
+
             &:nth-child(2) {
                 margin-right: 40px;
             }
@@ -38,6 +40,19 @@
             }
             &:nth-child(4) {
                 margin-right: 120px;
+            }
+
+            &:hover {
+                color: @white;
+
+                .bounding-box {
+                    &.box-border {
+                        border-color: @white;
+                    }
+                    i {
+                        color: @white;
+                    }
+                }
             }
         }
     }

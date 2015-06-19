@@ -7,22 +7,28 @@
 // -----
 @import (reference)"_vars.less";
 
-// General
-// ------
-@import "_fonts.less";
-@import "_icons.less";
-@import "_mixins.less";
-@import "_shape.less";
-@import "_utilities.less";
-@import "_components.less";
-@import "_input-group.less";
-@import "_responsive.less";
+// Utilities
+// ---------
+@import "utilities/_utilities.less";
+@import "utilities/_mixins.less";
+
+// Components
+// ----------
+@import "components/_fonts.less";
+@import "components/_icons.less";
+@import "components/_shape.less";
+@import "components/_punchs.less";
+@import "components/_input-group.less";
 
 // Site
 // ----
-@import "main.base.less";
-@import "main.s1.less";
-@import "main.s2.less";
-@import "main.s3.less";
-@import "main.fixed-elems.less";
-@import "main.navigator.less";
+@import "layouts/main.base.less";
+@import "layouts/main.s1.less";
+@import "layouts/main.s2.less";
+@import "layouts/main.s3.less";
+@import "layouts/main.fixed-elems.less";
+@import "layouts/main.navigator.less";
+
+// Mobiles
+// -------
+@import "_responsive.less";
