@@ -1,15 +1,24 @@
 // Animations core
-.animDelayLevel(@level:0) {
+.animDelayLevel(@level: 0, @now: false) {
     // the animations will be delayed by level.
     //     Higher level means slower
     //     put level = -5 as no delay
     @extraDelay: 200ms * @level;
-    .animation-delay(1000ms + @extraDelay);
+
+
+    & when (@now = true) {
+        .animation-delay(1000ms + @extraDelay);
+    }
+
+    .active& {
+        .animation-delay(1000ms + @extraDelay);
+    }
 }
 .animSetup {
     .animation-duration(@animateSpeed*2);
-    .animation-fill-mode(forwards);
+    .animation-fill-mode(both);
     .animation-timing-function(cubic-bezier(.27, .35, .23, .96););
+    .animation-delay(0ms);
     .animDelayLevel();
 }
 .animCore() {
@@ -19,7 +28,7 @@
 // Effects
 .fadeIn() {
     .animCore();
-    opacity: 0;
+    .animation-name(fadeOut);
 
     .main-screen.active& {
         .animation-name(fadeIn);
@@ -28,57 +37,53 @@
 
 .fadeUp() {
     .animCore();
-    opacity: 0;
-    .translate(0, 100%);
+    .animation-name(fadeOutDown);
 
     .active& {
-        .animation-name(fadeUp);
+        .animation-name(fadeInUp);
     }
 }
 
 .fadeDown() {
     .animCore();
-    opacity: 0;
-    .translate(0, -100%);
+    .animation-name(fadeOutUp);
 
     .active& {
-        .animation-name(fadeDown);
+        .animation-name(fadeInDown);
     }
 }
 
 .fadeLeft() {
     .animCore();
-    opacity: 0;
-    .translate(-100%, 0);
+    .animation-name(fadeOutLeft);
 
     .active& {
-        .animation-name(fadeLeft);
+        .animation-name(fadeInLeft);
     }
 }
 
 .fadeRight() {
     .animCore();
-    opacity: 0;
-    .translate(100%, 0);
+    .animation-name(fadeOutRight);
 
     .active& {
-        .animation-name(fadeRight);
+        .animation-name(fadeInRight);
     }
 }
 
-.bigBang() {
+.zoomIn() {
     .animCore();
-    .scale(0, 0);
+    .animation-name(zoomOut);
 
     .active& {
-        .animation-name(bigBang);
+        .animation-name(zoomIn);
     }
 }
 
 .logoFill() {
     .animCore();
 
-    & {
+    .active& {
         .animation-name(logoFill);
     }
 }
@@ -116,13 +121,13 @@
     }
 }
 
-// Show up
-// -------
+/* ===== It's show time ===== */
+// Fixed Elements
 .btn-nav,
 .social-icon,
 .copyright-line {
     .animCore();
-    .animDelayLevel(-5);
+    .animation-delay(0);
     opacity: 0;
 
     [data-active-screen] & {
@@ -146,31 +151,26 @@
     }
 }
 
+// Navigator
 .site-nav-wrapper {
     .nav-items {
         .fadeUp();
         .animation-duration(@animateSpeed);
-        .animDelayLevel(-5);
+        .animDelayLevel(@eff-nav-item1);
 
         .nav-sub-text {
             .fadeUp();
-            .animDelayLevel(-4);
+            .animDelayLevel(@eff-nav-item1-sub);
             .transition(color @animateSpeed linear);
         }
 
         &:nth-child(2) {
-            .animDelayLevel(-2);
-
-            .nav-sub-text {
-                .animDelayLevel(-1);
-            }
+            .animDelayLevel(@eff-nav-item2);
+            .nav-sub-text {.animDelayLevel(@eff-nav-item2-sub);}
         }
         &:nth-child(3) {
-            .animDelayLevel(1);
-
-            .nav-sub-text {
-                .animDelayLevel(2);
-            }
+            .animDelayLevel(@eff-nav-item3);
+            .nav-sub-text {.animDelayLevel(@eff-nav-item3-sub);}
         }
 
         i {
@@ -178,6 +178,7 @@
             .translate(-20%, 0);
             .transition(all @animateSpeed ease);
         }
+
         &:hover {
             i {
                 opacity: 1;
@@ -190,11 +191,32 @@
                     color: @white;
                 }
             }
-
         }
     }
 }
 
+// Main Background that we called Shape
+.rectangle {
+    -webkit-transition: -webkit-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+    -moz-transition: -moz-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+    transition: transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+
+    .s3.active ~ & {
+        .animation(shapeComin @eff-shape-s3-animspeed ease @eff-shape-s3-animdelay forwards);
+    }
+}
+.bgs1 {
+    .transition(opacity (@animateSpeed*2) ease-in @animateSpeed);
+}
+.main-screen {
+    .transition(opacity @eff-shape-move-delay linear, left 1ms linear (@eff-shape-move-delay+200ms););
+
+    &.active {
+        .transition-delay(0ms);
+    }
+}
+
+// Screen 1
 .s1 {
     .s-title,
     .sub-title {
@@ -202,76 +224,69 @@
     }
 
     .s-title {
-        .animDelayLevel(15);
+        .animDelayLevel(@eff-s1-title);
     }
     .sub-title {
-        .animDelayLevel(16);
+        .animDelayLevel(@eff-s1-sub-title);
     }
     .desc {
-        .fadeUp();
-        .animDelayLevel(17);
+        .fadeIn();
+        .animDelayLevel(@eff-s1-desc);
     }
+//    .logo {
+//        path {
+//            .logoFill();
+//            .animDelayLevel(@eff-s1-logo-fill, true);
+//            .animation-duration(@animateSpeed*4);
+//        }
+//    }
 }
 
 .s2 {
     .punchs {
         .bounding-box {
-            .bigBang();
+            .zoomIn();
         }
         .bounding-info {
             h4, span {
                 .fadeLeft();
             }
         }
-        &:nth-child(1) {
-            .bounding-info {
-                h4 {
-                    .animDelayLevel(1);
+
+        // Generate bounding items effects
+        .generate-bounding(@eff-s2-bounding-count);
+
+        .generate-bounding(@n, @i: 1) when (@i =< @n) {
+            &:nth-child(@{i}) {
+                .bounding-box {
+                    .animDelayLevel(@eff-s2-bounding-box + @i);
                 }
-                span {
-                    .animDelayLevel(2);
+                .bounding-info {
+                    h4 {
+                        .animDelayLevel(@eff-s2-bounding-title + @i);
+                    }
+                    span {
+                        .animDelayLevel(@eff-s2-bounding-sub-title + @i);
+                    }
                 }
             }
+            .generate-bounding(@n, (@i + 1));
         }
-        &:nth-child(2) {
-            .bounding-box {
-                .animDelayLevel(1);
-            }
-            .bounding-info {
-                h4 {
-                    .animDelayLevel(3);
-                }
-                span {
-                    .animDelayLevel(4);
-                }
-            }
-        }
-        &:nth-child(3) {
-            .bounding-box {
-                .animDelayLevel(2);
-            }
-            .bounding-info {
-                h4 {
-                    .animDelayLevel(5);
-                }
-                span {
-                    .animDelayLevel(6);
-                }
-            }
-        }
-        &:nth-child(4) {
-            .bounding-box {
-                .animDelayLevel(3);
-            }
-            .bounding-info {
-                h4 {
-                    .animDelayLevel(7);
-                }
-                span {
-                    .animDelayLevel(8);
-                }
-            }
-        }
+    }
+
+    .s-title,
+    .sub-title {
+        .fadeUp();
+    }
+    .s-title {
+        .animDelayLevel(@eff-s2-title);
+    }
+    .sub-title {
+        .animDelayLevel(@eff-s2-sub-title);
+    }
+    .desc {
+        .fadeIn();
+        .animDelayLevel(@eff-s2-desc);
     }
 }
 

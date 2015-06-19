@@ -2,23 +2,54 @@
     var $doc = $(document);
     var $body = $('body');
 
+    var config = {
+        firstScreen: 1,
+        screenCount: $('.main-screen').size()
+    }
+
     // Common functions
     var oe = {
-        nextSwitch: function() {
-            var screenCount = $('.main-screen').size();
-            $doc.on('click', '#nextBtn', function() {
-                var currentScreen = parseInt($body.attr('data-active-screen'));
-                var nextScreen = (currentScreen == screenCount) ? 1 : (currentScreen + 1);
+        switchNext: function() {
+            // Get current screen
+            //      if the first time, start from first screen (at config)
+            var currentScreen = $body.attr('data-active-screen') ? parseInt($body.attr('data-active-screen')) : (config.firstScreen - 1);
+            var nextScreen = (currentScreen == config.screenCount) ? 1 : (currentScreen + 1);
 
-                $body.attr('data-active-screen', nextScreen);
-                $('[data-screen-no=' + currentScreen + ']').removeClass('active');
-                $('[data-screen-no=' + nextScreen + ']').addClass('active');
+            $body.attr('data-active-screen', nextScreen);
+            $('[data-screen-no=' + currentScreen + ']').removeClass('active');
+            $('[data-screen-no=' + nextScreen + ']').addClass('active');
+
+            if(nextScreen == 1) {
+                oe.drawingShapes('#oeLogo');
+            } else if(nextScreen == 2) {
+                oe.drawingShapes('#foundersSign');
+            }
+        },
+
+        switchActions: function() {
+            $doc.on('click', '#nextBtn', function() {
+                oe.switchNext();
             });
         },
 
         effLogoName: function() {
             $('.texttl').textillate({
                 initialDelay: 500
+            });
+        },
+
+        drawingShapes: function(selector) {
+            var svgs = Array.prototype.slice.call($(selector)),
+                svgArr = new Array();
+
+            svgs.forEach(function(el, i) {
+                var svg = new SVGEl(el);
+                svgArr[i] = svg;
+                setTimeout(function(el) {
+                    return function() {
+                        svg.render();
+                    };
+                }(el), 1000);
             });
         }
     };
@@ -41,138 +72,9 @@ $(function() {
 
     // Delay to show the effects
     setTimeout(function() {
-        var firstScreen = 1;
-        $('body').attr('data-active-screen', firstScreen);
-        $('[data-screen-no=' + firstScreen + ']').addClass('active');
+        oe.switchNext();
     }, 500);
 
-    oe.nextSwitch();
+    oe.switchActions();
     oe.effLogoName();
-
-    // Logo drawing via SVG
-    var docElem = window.document.documentElement;
-    window.requestAnimFrame = function(){
-		return (
-			window.requestAnimationFrame       || 
-			window.webkitRequestAnimationFrame || 
-			window.mozRequestAnimationFrame    || 
-			window.oRequestAnimationFrame      || 
-			window.msRequestAnimationFrame     || 
-			function(/* function */ callback){
-				window.setTimeout(callback, 1000 / 60);
-			}
-		);
-	}();
-
-	window.cancelAnimFrame = function(){
-		return (
-			window.cancelAnimationFrame       || 
-			window.webkitCancelAnimationFrame || 
-			window.mozCancelAnimationFrame    || 
-			window.oCancelAnimationFrame      || 
-			window.msCancelAnimationFrame     || 
-			function(id){
-				window.clearTimeout(id);
-			}
-		);
-	}();
-
-	function SVGEl(el) {
-		this.el = el;
-		this.image = this.el.previousElementSibling;
-		this.current_frame = 0;
-		this.total_frames = 120;
-		this.path = new Array();
-		this.length = new Array();
-		this.handle = 0;
-		this.init();
-	}
-
-	SVGEl.prototype.init = function() {
-		var self = this;
-		[].slice.call(this.el.querySelectorAll('path')).forEach(function(path, i) {
-			self.path[i] = path;
-			var l = self.path[i].getTotalLength();
-			self.length[i] = l;
-			self.path[i].style.strokeDasharray = l + ' ' + l; 
-			self.path[i].style.strokeDashoffset = l;
-		});
-	};
-
-	SVGEl.prototype.render = function() {
-		if(this.rendered) return;
-		this.rendered = true;
-		this.draw();
-	};
-
-	SVGEl.prototype.draw = function() {
-		var self = this,
-			progress = this.current_frame/this.total_frames;
-		if (progress > 1) {
-			window.cancelAnimFrame(this.handle);
-            self.fill();
-		} else {
-			this.current_frame++;
-			for(var j=0, len = this.path.length; j<len;j++){
-				this.path[j].style.strokeDashoffset = Math.floor(this.length[j] * (1 - progress));
-			}
-			this.handle = window.requestAnimFrame(function() {self.draw();});
-		}
-	};
-    
-    SVGEl.prototype.fill = function() {
-        var self = this,
-            currentColor = [255,255,255],
-            targetColor = [51,51,51],
-            strokeColor = [208,208,208],
-            increment = [1,1,1];
-
-        function startTransition() {
-            currentColor[0] -= increment[0];
-            currentColor[1] -= increment[1];
-            currentColor[2] -= increment[2];
-
-            var nextColor = "rgb(" + currentColor[0] + "," + currentColor[1] + "," + currentColor[2] + ")";
-            for(var p=0, len = self.path.length; p < len; p++) {
-                self.path[p].style.fill = nextColor;
-            }
-            
-            if (currentColor[0] == targetColor[0]) {
-                clearInterval(transition);
-            } else if (currentColor[0] <= strokeColor[0]) {
-                for(var a=0, leng = self.path.length; a < leng; a++) {
-                    var colorComponent = componentToHex(currentColor[0]);
-                    self.path[a].style.stroke = "#" + colorComponent + colorComponent + colorComponent;
-                }
-            }
-        }
-
-        var transition = setInterval(function() {
-            startTransition();
-        }, 1000/120);
-    };
-	
-	function init() {
-		var svgs = Array.prototype.slice.call(document.querySelectorAll('#logo-oe')),
-			svgArr = new Array();
-
-		svgs.forEach(function(el, i) {
-			var svg = new SVGEl(el);
-			svgArr[i] = svg;
-			setTimeout(function(el) {
-				return function() {
-					if(1) {
-						svg.render();
-					}
-				};
-			}(el), 1000); 
-		});
-	};
-
-	init();
-    
-    function componentToHex(c) {
-        var hex = c.toString(16);
-        return hex.length == 1 ? "0" + hex : hex;
-    }
 });
