@@ -50,32 +50,120 @@ $(function() {
     oe.effLogoName();
 
     // Logo drawing via SVG
-    var current_frame = 0;
-    var total_frames = 100;
-    var path = new Array();
-    var length = new Array();
-    for(var i = 0; i < 3; i++){
-        path[i] = document.getElementById('i'+i);
-        l = path[i].getTotalLength();
-        length[i] = l;
-        path[i].style.strokeDasharray = l + ' ' + l;
-        path[i].style.strokeDashoffset = l;
-    }
-    var handle = 0;
+    var docElem = window.document.documentElement;
+    window.requestAnimFrame = function(){
+		return (
+			window.requestAnimationFrame       || 
+			window.webkitRequestAnimationFrame || 
+			window.mozRequestAnimationFrame    || 
+			window.oRequestAnimationFrame      || 
+			window.msRequestAnimationFrame     || 
+			function(/* function */ callback){
+				window.setTimeout(callback, 1000 / 60);
+			}
+		);
+	}();
 
-    var draw = function() {
-        var progress = current_frame/total_frames;
-        if (progress > 1) {
-            window.cancelAnimationFrame(handle);
-        } else {
-            current_frame++;
-            for(var j=0; j<path.length;j++){
-                path[j].style.strokeDashoffset = Math.floor(length[j] * (1 - progress));
-            }
-            handle = window.requestAnimationFrame(draw);
-        }
+	window.cancelAnimFrame = function(){
+		return (
+			window.cancelAnimationFrame       || 
+			window.webkitCancelAnimationFrame || 
+			window.mozCancelAnimationFrame    || 
+			window.oCancelAnimationFrame      || 
+			window.msCancelAnimationFrame     || 
+			function(id){
+				window.clearTimeout(id);
+			}
+		);
+	}();
+
+	function SVGEl(el) {
+		this.el = el;
+		this.image = this.el.previousElementSibling;
+		this.current_frame = 0;
+		this.total_frames = 120;
+		this.path = new Array();
+		this.length = new Array();
+		this.handle = 0;
+		this.init();
+	}
+
+	SVGEl.prototype.init = function() {
+		var self = this;
+		[].slice.call(this.el.querySelectorAll('path')).forEach(function(path, i) {
+			self.path[i] = path;
+			var l = self.path[i].getTotalLength();
+			self.length[i] = l;
+			self.path[i].style.strokeDasharray = l + ' ' + l; 
+			self.path[i].style.strokeDashoffset = l;
+		});
+	};
+
+	SVGEl.prototype.render = function() {
+		if(this.rendered) return;
+		this.rendered = true;
+		this.draw();
+	};
+
+	SVGEl.prototype.draw = function() {
+		var self = this,
+			progress = this.current_frame/this.total_frames;
+		if (progress > 1) {
+			window.cancelAnimFrame(this.handle);
+            self.fill();
+		} else {
+			this.current_frame++;
+			for(var j=0, len = this.path.length; j<len;j++){
+				this.path[j].style.strokeDashoffset = Math.floor(this.length[j] * (1 - progress));
+			}
+			this.handle = window.requestAnimFrame(function() {self.draw();});
+		}
+	};
+    
+    SVGEl.prototype.fill = function() {
+        console.log(this.path.length);
+//        var self = this,
+//            currentColor = [255,255,255],
+//            targetColor = [0,0,0],
+//            increment = [1,1,1];
+//
+//        function startTransition() {
+//            currentColor[0] -= increment[0];
+//            currentColor[1] -= increment[1];
+//            currentColor[2] -= increment[2];
+//
+//            var nextColor = "rgb(" + currentColor[0] + "," + currentColor[1] + "," + currentColor[2] + ")";
+////            self.style.backgroundColor = nextColor;
+//            for(var p=0, len = this.path.length; p < len; p++) {
+//                this.path[j].style.fill = nextColor;
+//            }
+//
+//            if (currentColor[0] == targetColor[0]) {
+//                clearInterval(transition);
+//            }
+//        }
+//
+//        var transition = setInterval(function() {
+//            startTransition();
+//        }, 1000/60);
     };
-    setTimeout(function() {
-        draw();
-    }, 1000);
+	
+	function init() {
+		var svgs = Array.prototype.slice.call(document.querySelectorAll('#logo-oe')),
+			svgArr = new Array();
+
+		svgs.forEach(function(el, i) {
+			var svg = new SVGEl(el);
+			svgArr[i] = svg;
+			setTimeout(function(el) {
+				return function() {
+					if(1) {
+						svg.render();
+					}
+				};
+			}(el), 1000); 
+		});
+	};
+
+	init();
 });
