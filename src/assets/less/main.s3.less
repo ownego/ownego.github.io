@@ -1,5 +1,7 @@
 .s3 {
     .heading-wrapper {
+        position: relative;
+        z-index: 10;
         margin-top: 100px;
         margin-left: 15px;
         float: left;
@@ -41,7 +43,7 @@
     }
     form {
         margin-top: 20px;
-        
+
         .form-submit {
             position: relative;
             width: 100%;
@@ -73,7 +75,11 @@
         color: @white;
     }
     .copyright-line {
-        i, p, p span {
+        p {
+            color: @grey-dark;
+        }
+
+        i, p span {
             color: @white;
         }
     }

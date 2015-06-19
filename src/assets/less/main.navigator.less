@@ -105,16 +105,30 @@
 
 .nav-items {
     display: block;
+    position: relative;
     margin-left: 31px;
     margin-top: 75px;
     .font-light;
     .font-lg;
 
     span {
+        display: inline-block;
+        position: relative;
+    }
+
+    .nav-sub-text {
         display: block;
         .font-sm;
         color: @grey-light;
         padding: 0;
+    }
+
+    i {
+        position: absolute;
+        display: block;
+        top: 5px;
+        right: -40px;
+        font-size: 24px;
     }
 }
 

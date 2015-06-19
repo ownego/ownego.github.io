@@ -51,7 +51,7 @@ $(function() {
 
     // Logo drawing via SVG
     var current_frame = 0;
-    var total_frames = 120;
+    var total_frames = 100;
     var path = new Array();
     var length = new Array();
     for(var i = 0; i < 3; i++){
@@ -75,5 +75,7 @@ $(function() {
             handle = window.requestAnimationFrame(draw);
         }
     };
-    draw();
+    setTimeout(function() {
+        draw();
+    }, 1000);
 });

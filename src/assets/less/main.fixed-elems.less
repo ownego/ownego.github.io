@@ -15,6 +15,12 @@
             font-size: 19px;
         }
     }
+
+    .transition(color @animateSpeed linear);
+
+    [data-active-screen="2"] & {
+        color: @white;
+    }
 }
 
 .copyright-line {
