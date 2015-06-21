@@ -101,20 +101,9 @@
 
 // Screen 1
 .s1 {
-    .s-title,
-    .sub-title {
-        .fadeRight();
-    }
-
-    .s-title {
-        .animDelayLevel(@eff-s1-title);
-    }
-    .sub-title {
-        .animDelayLevel(@eff-s1-sub-title);
-    }
-    .desc {
+    .s-content {
         .fadeIn();
-        .animDelayLevel(@eff-s1-desc);
+        .animDelayLevel(@eff-s1-content);
     }
 }
 
@@ -125,7 +114,8 @@
         }
         .bounding-info {
             h4, span {
-                .fadeLeft();
+                .fadeIn();
+                .animDelayLevel(@eff-s2-bounding-title + @eff-s2-bounding-count);
             }
         }
 
@@ -137,32 +127,14 @@
                 .bounding-box {
                     .animDelayLevel(@eff-s2-bounding-box + @i);
                 }
-                .bounding-info {
-                    h4 {
-                        .animDelayLevel(@eff-s2-bounding-title + @i);
-                    }
-                    span {
-                        .animDelayLevel(@eff-s2-bounding-sub-title + @i);
-                    }
-                }
             }
             .generate-bounding(@n, (@i + 1));
         }
     }
 
-    .s-title,
-    .sub-title {
-        .fadeRight();
-    }
-    .s-title {
-        .animDelayLevel(@eff-s2-title);
-    }
-    .sub-title {
-        .animDelayLevel(@eff-s2-sub-title);
-    }
-    .desc {
+    .s-content {
         .fadeIn();
-        .animDelayLevel(@eff-s2-desc);
+        .animDelayLevel(@eff-s2-content);
     }
 }
 
@@ -173,7 +145,8 @@
         }
         .bounding-info {
             h4 {
-                .fadeLeft();
+                .fadeIn();
+                .animDelayLevel(@eff-s3-bounding-title + @eff-s3-bounding-count);
             }
         }
 
@@ -185,42 +158,19 @@
                 .bounding-box {
                     .animDelayLevel(@eff-s3-bounding-box + @i);
                 }
-                .bounding-info {
-                    h4 {
-                        .animDelayLevel(@eff-s3-bounding-title + @i);
-                    }
-                }
             }
             .generate-bounding(@n, (@i + 1));
         }
     }
     // Left side
     .heading-wrapper {
-        .s-title,
-        .sub-title {
-            .fadeLeft();
-        }
-        .s-title {
-            .animDelayLevel(@eff-s3-left-title);
-        }
-        .sub-title {
-            .animDelayLevel(@eff-s3-left-sub-title);
-        }
+        .fadeIn();
+        .animDelayLevel(@eff-s3-left-content);
     }
     // Right side
     .s-content {
-        .s-title {
-            .fadeRight();
-        }
-        .desc {
-            .fadeIn();
-        }
-        .s-title {
-            .animDelayLevel(@eff-s3-right-title);
-        }
-        .desc {
-            .animDelayLevel(@eff-s3-right-desc);
-        }
+        .fadeIn();
+        .animDelayLevel(@eff-s3-right-content);
     }
 
     .input-normal,
