@@ -1,5 +1,7 @@
 .s3 {
     .heading-wrapper {
+        position: relative;
+        z-index: 10;
         margin-top: 100px;
         margin-left: 15px;
         float: left;
@@ -24,10 +26,12 @@
         top: 55%;
         right: 15%;
         width: 100%;
-        color: @grey-light;
         .translate(0, -50%);
 
         .punchs {
+            color: @grey-light;
+            .transition(color @animateSpeed ease);
+
             &:nth-child(2) {
                 margin-right: 40px;
             }
@@ -37,10 +41,49 @@
             &:nth-child(4) {
                 margin-right: 120px;
             }
+
+            &:hover {
+                color: @white;
+
+                .bounding-box {
+                    &.box-border {
+                        border-color: @white;
+                    }
+                    i {
+                        color: @white;
+                    }
+                }
+            }
         }
     }
     form {
         margin-top: 20px;
+
+        .form-submit {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            .transition(all 300ms ease-in-out);
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .border-svg {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            stroke: @borderColor;
+            stroke-width: 2;
+        }
+
+        @media @ltDesktop {
+            .form-caution {
+                padding-top: 0;
+            }
+        }
     }
 }
 
@@ -55,7 +98,11 @@
         color: @white;
     }
     .copyright-line {
-        i, p, p span {
+        p {
+            color: @grey-dark;
+        }
+
+        i, p span {
             color: @white;
         }
     }

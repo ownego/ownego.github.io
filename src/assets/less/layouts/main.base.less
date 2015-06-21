@@ -1,0 +1,241 @@
+html, body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+body {
+    display: block;
+    color: @fontColor;
+    font-family: @fontFamily;
+    .font-light;
+    .font-xs;
+    background-color: @black;
+    overflow: hidden;
+    overflow: -moz-scrollbars-none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    &,
+    &:focus,
+    &:active,
+    &:hover {
+        outline: 0;
+        text-decoration: none;
+        color: inherit;
+    }
+}
+button {
+    display: inline-block;
+    margin: 0 1em;
+    border: none;
+    background: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+::scroll-bar {
+    display: none;
+}
+
+::-moz-selection {
+    background-color: @black;
+    color: @white;
+}
+::selection {
+    background-color: @black;
+    color: @white;
+}
+
+.underconstruction {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    > div {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        .translate(0, -50%);
+
+        h3 {
+            margin-top: 0;
+        }
+
+        p {
+            padding-bottom: 0;
+        }
+
+        i {
+            display: block;
+            font-size: 100px;
+            margin-bottom: 50px;
+
+            &.oeicon-sign-founders {
+                font-size: 80px;
+                line-height: 1em;
+                position: relative;
+                top: -10px;
+            }
+        }
+    }
+}
+
+/***** GENERAL *****/
+.main-screen {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    &.active {
+        z-index: 500;
+        opacity: 1;
+        left: 0;
+    }
+}
+.s-title {
+    .font-thin;
+    .font-xl;
+    .nvm;
+    padding-bottom: 15px;
+}
+
+.sub-title {
+    display: inline-block;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: @mainSpacing * 2;
+
+    .font-bold;
+    .font-md;
+    .font-sub;
+
+    span {
+        display: block;
+        padding: 5px 15px;
+        opacity: 1;
+        color: @black;
+        white-space: nowrap;
+        background-color: @white;
+        .transition(opacity @animateSpeed linear);
+    }
+
+    &:after {
+        content: attr(data-sub-content);
+        display: block;
+        float: left;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        height: 100%;
+        padding: 4px 14px;
+        border: 1px solid @white;
+        color: @white;
+        .transition(opacity 100ms linear);
+
+        .s1 & {
+            right: 0;
+            left: auto;
+        }
+    }
+
+    &:hover {
+        span {
+            opacity: 0;
+        }
+        &:after {
+            opacity: 1;
+        }
+    }
+}
+
+p {
+    .pb;
+    .nvm;
+}
+.fitscreen {
+    position: relative;
+}
+.s-content {
+    text-align: right;
+    color: @white;
+
+    .desc {
+        .font-thin;
+        color: @grey-dark;
+    }
+}
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: @white;
+
+    .load-content {
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        text-align: center;
+        .translate(-50%, -50%);
+    }
+    .chart {
+        span {
+            display: block;
+            position: absolute;
+            top: 49%;
+            left: 52%;
+            width: 100%;
+            font-size: 24px;
+            line-height: 1em;
+            text-align: center;
+            .translate(-50%, -50%);
+            .transition(color @animateSpeed*3 ease);
+
+            &:after {
+                content: attr(data-finish);
+                display: block;
+                position: absolute;
+                z-index: 10;
+                top: 0;
+                left: 0;
+                width: 100%;
+                font-size: 16px;
+                color: @black;
+                text-align: center;
+                opacity: 0;
+                .transition(opacity @animateSpeed*3 ease);
+            }
+
+        }
+        &.done {
+            span {
+                color: @white;
+
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .btn {
+        display: none;
+        position: absolute;
+        left: 0;
+        bottom: -100px;
+        width: 150px;
+        margin: 20px auto;
+    }
+    &.fade {
+        z-index: -1;
+    }
+}

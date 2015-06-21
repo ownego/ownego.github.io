@@ -15,14 +15,17 @@
     border-radius: 50%;
     padding-top: (@bounding-box-icon-size - @icon-size) / 2 - 2px;
 
+
     i {
         padding: 24px;
         font-size: @icon-size;
         color: @grey-light;
+        .transition(color @animateSpeed linear);
     }
 
     &.box-border {
         border: solid 1px @grey-light;
+        .transition(border @animateSpeed linear);
     }
 
 
@@ -32,9 +35,36 @@
         height: @bounding-box-size;
 
         img {
+            position: absolute;
+            top: 0;
+            left: 0;
             height: @bounding-box-size;
-            min-width: @bounding-box-size;
-            .grayscale(100%);
+            width: @bounding-box-size;
+            border-radius: 50%;
+            .transition(opacity @animateSpeed linear);
+
+            &.main-avt {
+                opacity: 1;
+                .grayscale(100%);
+            }
+
+            &.hover-avt {
+                z-index: 10;
+                opacity: 0;
+            }
+        }
+
+        a {
+            display: block;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+
+            &:hover {
+                .hover-avt {
+                    opacity: 1;
+                }
+            }
         }
     }
 }

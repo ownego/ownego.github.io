@@ -7,21 +7,25 @@
 // -----
 @import (reference)"_vars.less";
 
-// General
-// ------
-@import "_fonts.less";
-@import "_icons.less";
-@import "_mixins.less";
-@import "_shape.less";
-@import "_utilities.less";
-@import "_components.less";
-@import "_input-group.less";
+// Utilities
+// ---------
+@import "utilities/_fonts.less";
+@import "utilities/_icons.less";
+@import "utilities/_mixins.less";
+@import "utilities/_utilities.less";
+
+// Components
+// ----------
+@import "components/_input-group.less";
+@import "components/_punchs.less";
+@import "components/_shape.less";
+@import "bootstrap/less/tooltip.less";
 
 // Site
 // ----
-@import "main.base.less";
-@import "main.s1.less";
-@import "main.s2.less";
-@import "main.s3.less";
-@import "main.fixed-elems.less";
-@import "main.navigator.less";
+@import "layouts/main.base.less";
+@import "layouts/main.fixed-elems.less";
+@import "layouts/main.navigator.less";
+@import "layouts/main.s1.less";
+@import "layouts/main.s2.less";
+@import "layouts/main.s3.less";

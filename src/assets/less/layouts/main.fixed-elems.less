@@ -10,10 +10,21 @@
         margin-left: 15px;
         text-align: center;
         font-size: 18px;
+        .transition(all @animateSpeed ease);
 
         .oeicon-social-gplus {
             font-size: 19px;
         }
+
+        &:hover {
+            .scale(1.2, 1.2);
+        }
+    }
+
+    .transition(color @animateSpeed linear);
+
+    [data-active-screen="2"] & {
+        color: @white;
     }
 }
 

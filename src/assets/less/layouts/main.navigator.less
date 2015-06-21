@@ -33,7 +33,7 @@
     }
 
     &.close .lines {
-        background: transparent;
+        background: transparent !important;
         .transition(background @nav-as 0s ease);
 
         &:before, &:after{
@@ -87,6 +87,10 @@
     overflow-y: scroll;
     z-index: 600;
     .translate3d(0, -100%, 0);
+
+    &.active {
+        .translate3d(0, 0, 0);
+    }
 }
 
 .site-nav {
@@ -101,24 +105,37 @@
 
 .nav-items {
     display: block;
+    position: relative;
     margin-left: 31px;
     margin-top: 75px;
     .font-light;
     .font-lg;
 
     span {
+        display: inline-block;
+        position: relative;
+    }
+
+    .nav-sub-text {
         display: block;
         .font-sm;
         color: @grey-light;
         padding: 0;
     }
+
+    i {
+        position: absolute;
+        display: block;
+        top: 5px;
+        right: -40px;
+        font-size: 24px;
+    }
 }
 
-.active {
-    &.site-nav-wrapper {
-        .translate3d(0, 0, 0);
-    }
-    &.first-half-page {
+.first-half-page {
+    .transition(all @animateSpeed ease);
+
+    &.active {
         .opacity(0.3);
         .blur(5px);
     }

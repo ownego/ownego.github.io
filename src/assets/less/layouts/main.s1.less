@@ -7,7 +7,7 @@
     left: 0;
     .translate(0, -50%);
 
-    i {
+    .logo-container {
         display: block;
         float: left;
         font-size: 110px;
@@ -15,19 +15,25 @@
         margin-right: 20px;
     }
     h1 {
-        float: left;
         .font-bold;
         .font-xxl;
         .nvm;
+    }
+    .slogan {
+        display: block;
+        margin: 7px 0 0 2px;
+        color: @grey-light;
+        .font-light;
+        .font-sm;
+        letter-spacing: 0.2px;
+    }
 
-        span {
-            display: block;
-            margin: 7px 0 0 2px;
-            color: @grey-light;
-            .font-light;
-            .font-sm;
-            letter-spacing: 0.2px;
-        }
+    path {
+        fill: none;
+        stroke: @borderColor;
+        stroke-width: 2;
+
+        .transition(stroke @animateSpeed linear);
     }
 }
 
@@ -37,19 +43,4 @@
         bottom: 70px;
         right: 30px;
     }
-}
-
-#anim {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-}
-#anim:hover {
-    opacity: 1;
-}
-
-[data-active-screen="1"] .copyright-line .oeicon-logo {
-    display: none;
 }

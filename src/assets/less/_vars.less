@@ -16,8 +16,11 @@
 @bounding-box-icon-size: 80px;
 @icon-size: 30px;
 
-// Form
+// Utilities
 @borderColor: #d0d0d0;
+@tooltip-max-width: 300px;
+@tooltip-bg: @black;
+@tooltip-opacity: 1;
 
 // Others
 // ------
@@ -27,24 +30,15 @@
 /* === Responsive config === */
 // Tiny screen / phone
 // Note: Deprecated @screen-xs and @screen-phone as of v3.0.1
-@screen-md:                  990px;
-@screen-tn:                  320px;
-@screen-tn-min:              @screen-xs;
-@screen-tn-max:              (@screen-xs-min - 1);
-
+@screen-tn: 480px;
+@screen-tn-max: (@screen-tn - 1);
 
 // Below
-/* < 767  */ @mobletBelow: ~"only screen and (max-width: @{screen-xs-max})";
-/* > 767  */ @mobletAbove: ~"only screen and (min-width: @{screen-xs-max})";
-/* < 991  */ @tabletBelow: ~"only screen and (max-width: @{screen-md-min})";
-/* > 991  */ @desktopAbove: ~"only screen and (min-width: @{screen-md-min})";
-/* < 1199 */ @desktopBelow: ~"only screen and (max-width: @{screen-md-max})";
-
-/* > 480  */ @mobileAbove: ~"only screen and (min-width: @{screen-tn-min})";
-// Exactly
-/* o < 479 */          @mobile: ~"only screen and (max-width: @{screen-tn-max})";
-/* 480 < o < 767 */    @moblet: ~"only screen and (min-width: @{screen-xs-min}) and (max-width: @{screen-xs-max})";
-/* 768 < o < 991 */    @tablet: ~"only screen and (min-width: @{screen-sm-min}) and (max-width: @{screen-sm-max})";
-/* 992 < o < 1199*/    @desktop: ~"only screen and (min-width: @{screen-md-min}) and (max-width: @{screen-md-max})";
-/* 1200 < o */         @wide: ~"only screen and (min-width: @{screen-lg-min})";
-/* Retina */           @retina: ~"only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-moz-min-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)";
+/* < 479  */ @eMobile: ~"only screen and (max-width: @{screen-tn-max})";
+/* < 767  */ @ltMoblet: ~"only screen and (max-width: @{screen-xs-max})";
+/* >= 768  */ @gteMoblet: ~"only screen and (min-width: @{screen-sm-min})";
+/* < 991  */ @ltTablet: ~"only screen and (max-width: @{screen-sm-max})";
+/* >= 992  */ @gteTablet: ~"only screen and (min-width: @{screen-md-min})";
+/* < 1199 */ @ltDesktop: ~"only screen and (max-width: @{screen-md-max})";
+/* >= 1199 */ @gteDesktop: ~"only screen and (min-width: @{screen-md-max})";
+/* Retina */ @retina: ~"only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-moz-min-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)";

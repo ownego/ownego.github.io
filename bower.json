@@ -1,13 +1,19 @@
 {
-  "name": "ownego",
+  "name": "ownego-official",
   "version": "1.0.0",
-  "description": "Ownego official",
-  "license": "MIT",
+  "homepage": "http://ownego.com",
+  "authors": [
+    "JuzSer <sonnh@ownego.com>"
+  ],
   "private": true,
+  "description": "Ownego official site",
+  "license": "MIT",
   "dependencies": {
-      "jquery": "~1.11",
-      "bootstrap": "3.*",
-      "imagesloaded": "3.1.8",
-      "letterfx": "https://github.com/TuxSudo/letterfx"
+    "jquery": "~1.11",
+    "bootstrap": "3.*",
+    "imagesloaded": "3.1.8",
+    "textillate": "0.4.0",
+    "components-webfontloader": "1.6.3",
+    "jquery.easy-pie-chart": "2.1.6"
   }
 }
