@@ -1,7 +1,7 @@
 (function($, oe, document) {
     oe.loader = (function() {
         var loaderConfig = {
-            loaderDelay: 0, //default 500
+            loaderDelay: 500, //default 500
             loaderSelector: '#loader',
             loaderCircle: '#loadingCircle',
             fontPercent: 40,
