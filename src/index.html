@@ -30,9 +30,20 @@
     <meta name="msapplication-config" content="./favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ownego - Interactive Agency" />
+    <meta property="og:image" content="assets/img/logo.jpg" />
+    <meta property="og:description" content="We are a creative digital agency passionate about crafting beautiful and usable solutions. We believe that some things can be done differently, more interestingly and better." />
+    <meta property="og:url" content="http://ownego.com" />
+    <meta property="og:site_name" content="Ownego" />
+
+    <meta name="description" content="We are a creative digital agency passionate about crafting beautiful and usable solutions. We believe that some things can be done differently, more interestingly and better.">
+    <meta name="keywords" content="ownego, creative, agency, web solutions, web design, web development, mobile, applications, web service">
+
     <!-- Main CSS -->
     <!-- Font -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,300|Roboto+Condensed:700&amp;subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+<!--    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,300|Roboto+Condensed:700&amp;subset=latin,vietnamese' rel='stylesheet' type='text/css'>-->
     <!-- build:csslib ./assets/css/libs.css -->
     <link rel="stylesheet" href="./vendors/animate.css/animate.css" />
     <link rel="stylesheet" href="./assets/css/libs.css" />
@@ -95,7 +106,8 @@
                             <div class="punchs team-member">
                                 <div class="bounding-box">
                                     <a href="#">
-                                        <img src="./assets/img/avatar-1.png" alt="Duc IT." />
+                                        <img src="./assets/img/avatar-1.png" class="main-avt" alt="DucIt" />
+                                        <img src="./assets/img/avatar-1.png" class="hover-avt" alt="DucIt" />
                                     </a>
                                 </div>
                                 <div class="bounding-info">
@@ -109,7 +121,8 @@
                             <div class="punchs team-member">
                                 <div class="bounding-box">
                                     <a href="#">
-                                        <img src="./assets/img/avatar-2.png" alt="Minh NT." />
+                                        <img src="./assets/img/avatar-2.png" class="main-avt" alt="Minh NT." />
+                                        <img src="./assets/img/avatar-2.png" class="hover-avt" alt="Minh NT." />
                                     </a>
                                 </div>
                                 <div class="bounding-info">
@@ -123,7 +136,8 @@
                             <div class="punchs team-member">
                                 <div class="bounding-box">
                                     <a href="#">
-                                        <img src="./assets/img/avatar-3.png" alt="Hoan PC." />
+                                        <img src="./assets/img/avatar-3.png" class="main-avt" alt="Hoan NT." />
+                                        <img src="./assets/img/avatar-3.png" class="hover-avt" alt="Hoan NT." />
                                     </a>
                                 </div>
                                 <div class="bounding-info">
@@ -137,7 +151,8 @@
                             <div class="punchs team-member">
                                 <div class="bounding-box">
                                     <a href="#">
-                                        <img src="./assets/img/avatar-4.png" alt="Juz Ser." />
+                                        <img src="./assets/img/avatar-4.png" class="main-avt" alt="Juz Ser" />
+                                        <img src="./assets/img/avatar-4.png" class="hover-avt" alt="Juz Ser" />
                                     </a>
                                 </div>
                                 <div class="bounding-info">
@@ -329,21 +344,21 @@
     <div class="site-nav-wrapper">
         <div class="site-nav">
             <div class="nav-items-wrapper">
-                <a href="#" class="nav-items">
+                <a href="#" class="nav-items" data-screen-go="1">
                     <span>Home
                         <i class="oeicon-arrow-right"></i>
                     </span>
                     <span class="nav-sub-text">What ownego is</span>
                 </a>
 
-                <a href="#" class="nav-items">
+                <a href="#" class="nav-items" data-screen-go="2">
                     <span>Team
                         <i class="oeicon-arrow-right"></i>
                     </span>
                     <span class="nav-sub-text">Who we are and how we work</span>
                 </a>
 
-                <a href="#" class="nav-items">
+                <a href="#" class="nav-items" data-screen-go="3">
                     <span>Get in Touch
                         <i class="oeicon-arrow-right"></i>
                     </span>
@@ -353,19 +368,14 @@
         </div>
     </div>
 
-
-    <a href="#" id="nextBtn" class="next-btn">
-        Continue <i class="oeicon-arrow-right"></i>
-    </a>
-
     <div class="social-bar">
-        <a href="#" target="_blank" class="social-icon">
-            <i class="oeicon-social-gplus"></i>
+        <a href="#" target="_blank" class="social-icon" data-toggle="tooltip" data-placement="bottom" title="Connect with us">
+            <i class="oeicon-linkedin"></i>
         </a>
-        <a href="#" target="_blank" class="social-icon">
-            <i class="oeicon-social-twitter"></i>
+        <a href="#" target="_blank" class="social-icon" data-toggle="tooltip" data-placement="bottom" title="View sources on Github">
+            <i class="oeicon-github"></i>
         </a>
-        <a href="#" target="_blank" class="social-icon">
+        <a href="#" target="_blank" class="social-icon" data-toggle="tooltip" data-placement="bottom" title="Follow us">
             <i class="oeicon-social-facebook"></i>
         </a>
     </div>
@@ -387,14 +397,26 @@
     </div>
 
     <!-- Loading screen -->
+    <div class="loading" id="loader">
+        <div class="load-content">
+            <div class="chart" id="loadingCircle" data-percent="0"><span data-finish="Welcome">0%</span></div>
+            <button id="startBtn" class="btn btn-primary">Start</button>
+        </div>
+    </div>
 
     <!-- build:js ./assets/js/libs.js -->
     <script src="vendors/jquery/dist/jquery.js"></script>
-    <script src="vendors/snap.svg/dist/snap.svg-min.js"></script>
     <script src="vendors/letteringjs/jquery.lettering.js"></script>
     <script src="vendors/textillate/jquery.textillate.js"></script>
-    <script src="./assets/js/drawing.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="vendors/components-webfontloader/webfontloader.js"></script>
+    <script src="vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="vendors/jquery.easy-pie-chart/src/renderer/canvas.js"></script>
+    <script src="vendors/jquery.easy-pie-chart/src/easypiechart.js"></script>
+    <script src="vendors/jquery.easy-pie-chart/src/jquery.plugin.js"></script>
+    <script src="vendors/bootstrap/js/tooltip.js"></script>
+    <script src="./assets/js/oe.drawing.js"></script>
+    <script src="./assets/js/oe.main.js"></script>
+    <script src="./assets/js/oe.loader.js"></script>
     <!-- endbuild -->
 </body>
 </html>

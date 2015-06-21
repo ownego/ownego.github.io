@@ -38,6 +38,15 @@ button {
     display: none;
 }
 
+::-moz-selection {
+    background-color: @black;
+    color: @white;
+}
+::selection {
+    background-color: @black;
+    color: @white;
+}
+
 /***** GENERAL *****/
 .main-screen {
     position: absolute;
@@ -125,5 +134,72 @@ p {
     .desc {
         .font-thin;
         color: @grey-dark;
+    }
+}
+.loading {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: @white;
+
+    .load-content {
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        text-align: center;
+        .translate(-50%, -50%);
+    }
+    .chart {
+        span {
+            display: block;
+            position: absolute;
+            top: 49%;
+            left: 52%;
+            width: 100%;
+            font-size: 24px;
+            line-height: 1em;
+            text-align: center;
+            .translate(-50%, -50%);
+            .transition(color @animateSpeed*3 ease);
+
+            &:after {
+                content: attr(data-finish);
+                display: block;
+                position: absolute;
+                z-index: 10;
+                top: 0;
+                left: 0;
+                width: 100%;
+                font-size: 16px;
+                color: @black;
+                text-align: center;
+                opacity: 0;
+                .transition(opacity @animateSpeed*3 ease);
+            }
+
+        }
+        &.done {
+            span {
+                color: @white;
+
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .btn {
+        display: none;
+        position: absolute;
+        left: 0;
+        bottom: -100px;
+        width: 150px;
+        margin: 20px auto;
+    }
+    &.fade {
+        z-index: -1;
     }
 }

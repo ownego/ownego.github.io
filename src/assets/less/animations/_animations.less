@@ -84,8 +84,8 @@
         transform @eff-shape-speed ease @eff-shape-delay,
         right @eff-shape-speed ease @eff-shape-move-delay;
 
-    .s3.active ~ & {
-        .animation(shapeComin @eff-shape-s3-animspeed ease @eff-shape-s3-animdelay forwards);
+    &.eff-chain {
+        .transition(right @eff-shape-s3-animspeed ease);
     }
 }
 .bgs1 {

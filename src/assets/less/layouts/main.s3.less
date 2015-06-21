@@ -65,9 +65,11 @@
             margin: 0;
             .transition(all 300ms ease-in-out);
         }
+
         .input-wrapper {
             position: relative;
         }
+
         .border-svg {
             position: absolute;
             z-index: -1;
@@ -75,6 +77,12 @@
             left: 0;
             stroke: @borderColor;
             stroke-width: 2;
+        }
+
+        @media @ltDesktop {
+            .form-caution {
+                padding-top: 0;
+            }
         }
     }
 }

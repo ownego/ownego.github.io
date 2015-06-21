@@ -16,8 +16,11 @@
 @bounding-box-icon-size: 80px;
 @icon-size: 30px;
 
-// Form
+// Utilities
 @borderColor: #d0d0d0;
+@tooltip-max-width: 300px;
+@tooltip-bg: @black;
+@tooltip-opacity: 1;
 
 // Others
 // ------
@@ -27,8 +30,8 @@
 /* === Responsive config === */
 // Tiny screen / phone
 // Note: Deprecated @screen-xs and @screen-phone as of v3.0.1
-@screen-tn:                  480px;
-@screen-tn-max:              (@screen-tn - 1);
+@screen-tn: 480px;
+@screen-tn-max: (@screen-tn - 1);
 
 // Below
 /* < 479  */ @eMobile: ~"only screen and (max-width: @{screen-tn-max})";

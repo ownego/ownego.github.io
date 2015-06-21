@@ -1,3 +1,33 @@
+/*
+* === SVG Simple Drawing ===
+* Inspired by this one: http://tympanus.net/Development/SVGDrawingAnimation/
+* Fast & handed code by Ser. Made with love for ownego official site.
+* Require jQuery 1.11.
+* ------------
+* Just very fast coding, so maybe I made mistakes somewhere.
+* Please tell me if you find out them. I will really appreciate.
+*/
+(function ($) {
+    var DefaultOptions = {
+
+    };
+
+    var svgDrawing = function(options) {
+        this.init(options);
+    };
+    svgDrawing.prototype = {
+        init: function(options) {
+            $.extend(this.options, DefaultOptions, options);
+
+        }
+    }
+    $.fn.svgDrawing = function(options) {
+        options.target = this;
+        var svgdraw = new svgDrawing(options);
+    }
+})(jQuery)
+
+
 // Logo drawing via SVG
 SVGEl.prototype.defaults = {
     startFrame: 0,
