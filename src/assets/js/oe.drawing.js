@@ -8,136 +8,148 @@
 * Please tell me if you find out them. I will really appreciate.
 */
 (function ($) {
-    var DefaultOptions = {
-
+    $.fn.oeSvgDrawing = function(options) {
+        var svgDrawing = new oeSvgDraw(this, options);
     };
 
-    var svgDrawing = function(options) {
-        this.init(options);
+    $.fn.oeSvgDrawing.defaults = {
+        debug: false,
+        framesStart: 0,
+        framesTotal: 100,
+        framesFillTotal: 200,
+        colorCurrent: [255, 255, 255],
+        colorTarget: [51, 51, 51],
+        colorStroke: [208, 208, 208],
+        colorIncrement: [1, 1, 1]
     };
-    svgDrawing.prototype = {
-        init: function(options) {
-            $.extend(this.options, DefaultOptions, options);
 
+    var oeSvgDraw = function(element, options) {
+        if(element) {
+            this.$element = element;
+            this.options = $.extend({}, $.fn.oeSvgDrawing.defaults, options);
+            this.init();
         }
-    }
-    $.fn.svgDrawing = function(options) {
-        options.target = this;
-        var svgdraw = new svgDrawing(options);
-    }
-})(jQuery)
+    };
 
+    oeSvgDraw.prototype = {
+        constructor: oeSvgDraw,
 
-// Logo drawing via SVG
-SVGEl.prototype.defaults = {
-    startFrame: 0,
-    totalFrames: 100,
-    colorCurrent: [255, 255, 255],
-    colorTarget: [51, 51, 51],
-    colorStroke: [208, 208, 208],
-    colorIncrement: [1, 1, 1]
-};
+        debug: function(msg) {
+            if(this.options.debug)
+                console.log(msg);
+        },
 
-function SVGEl(el, options) {
-    var options = options || {};
-    this.config = {};
-    $.extend(this.config, this.defaults, options);
+        init: function() {
+            var self = this;
+            this.frameCurrent = this.options.framesStart;
+            this.path = new Array();
+            this.length = new Array();
+            this.handle = 0;
 
-    this.el = el;
-    this.image = this.el.previousElementSibling;
-    this.current_frame = this.config.startFrame;
-    this.total_frames = this.config.totalFrames;
-    this.path = new Array();
-    this.length = new Array();
-    this.handle = 0;
-    this.init();
-}
+            this.debug('Init! Ready to render ' + this.$element.selector);
 
-SVGEl.prototype.init = function() {
-    var self = this;
-    [].slice.call(this.el.querySelectorAll('path')).forEach(function(path, i) {
-        self.path[i] = path;
-        var l = self.path[i].getTotalLength();
-        self.length[i] = l;
-        self.path[i].style.strokeDasharray = l + ' ' + l;
-        self.path[i].style.strokeDashoffset = l;
+            // Find all paths in svg
+            //  and then set stroke, dash equal to their distance (length).
+            //  Ready to drawing.
+            var paths = this.$element.children('path');
+            this.pathCount = paths.size();
 
-        self.path[i].style.fill = 'rgb(' + self.config.colorCurrent[0] + ',' + self.config.colorCurrent[1] + ',' + self.config.colorCurrent[2] + ')';
-        self.path[i].style.stroke = 'rgb(' + self.config.colorStroke[0] + ',' + self.config.colorStroke[1] + ',' + self.config.colorStroke[2] + ')';
-    });
-};
+            paths.each(function(i, path) {
+                self.path[i] = path;
+                var len = self.path[i].getTotalLength();
+                self.length[i] = len;
+                self.path[i].style.strokeDasharray = len + ' ' + len;
+                self.path[i].style.strokeDashoffset = len;
 
-SVGEl.prototype.render = function() {
-    if(this.rendered) return;
-    this.rendered = true;
-    this.draw();
-};
+                self.path[i].style.fill   = 'rgb(' + self.options.colorCurrent[0] + ',\
+                                                 ' + self.options.colorCurrent[1] + ',\
+                                                 ' + self.options.colorCurrent[2] + ')';
+                self.path[i].style.stroke = 'rgb(' + self.options.colorStroke[0] + ',\
+                                                 ' + self.options.colorStroke[1] + ',\
+                                                 ' + self.options.colorStroke[2] + ')';
+            });
 
-SVGEl.prototype.draw = function() {
-    var self = this,
-        progress = this.current_frame/this.total_frames;
-    if (progress > 1) {
-        window.cancelAnimFrame(this.handle);
-        self.fill();
-    } else {
-        this.current_frame++;
-        for(var j=0, len = this.path.length; j<len;j++){
-            this.path[j].style.strokeDashoffset = Math.floor(this.length[j] * (1 - progress));
-        }
-        this.handle = window.requestAnimFrame(function() {self.draw();});
-    }
-};
+            this.render();
+        },
 
-SVGEl.prototype.fill = function() {
-    var self = this,
-        currentColor = this.config.colorCurrent,
-        targetColor = this.config.colorTarget,
-        strokeColor = this.config.colorStroke,
-        increment = this.config.colorIncrement;
+        render: function() {
+            this.debug('Render checking...');
+            if(this.rendered) return;
 
-    function startTransition() {
-        currentColor[0] += (currentColor[0] < targetColor[0]) ?  increment[0] : -increment[0];
-        currentColor[1] += (currentColor[1] < targetColor[1]) ?  increment[1] : -increment[1];
-        currentColor[2] += (currentColor[2] < targetColor[2]) ?  increment[2] : -increment[2];
+            this.debug('Passed checking! Drawing...');
+            this.rendered = true;
+            this.draw();
+        },
 
-        var nextColor = "rgb(" + currentColor[0] + "," + currentColor[1] + "," + currentColor[2] + ")";
-        for(var p=0, len = self.path.length; p < len; p++) {
-            self.path[p].style.fill = nextColor;
-        }
+        draw: function() {
+            var self = this;
+            var progress = this.frameCurrent/this.options.framesTotal;
 
-        if (currentColor[0] == targetColor[0]) {
-            clearInterval(transition);
-        } else if (currentColor[0] <= strokeColor[0]) {
-            for(var a=0, leng = self.path.length; a < leng; a++) {
-                self.path[a].style.stroke = 'transparent';
+            if (progress > 1) {
+                this.debug('Stop draw then fill the svg');
+                self.fill();
+                window.cancelAnimFrame(this.handle);
+            } else {
+                this.frameCurrent++;
+                for(var j = 0; j < self.pathCount; j++) {
+                    this.path[j].style.strokeDashoffset = Math.floor(this.length[j] * (1 - progress));
+                }
+                this.handle = window.requestAnimFrame(function() {self.draw();});
             }
+        },
+
+        fillLoop: function() {
+            var self = this,
+                currentColor = this.options.colorCurrent,
+                targetColor = this.options.colorTarget,
+                strokeColor = this.options.colorStroke,
+                increment = this.options.colorIncrement;
+
+            currentColor[0] += (currentColor[0] < targetColor[0]) ?  increment[0] : -increment[0];
+            currentColor[1] += (currentColor[1] < targetColor[1]) ?  increment[1] : -increment[1];
+            currentColor[2] += (currentColor[2] < targetColor[2]) ?  increment[2] : -increment[2];
+
+            var nextColor = 'rgb(' + currentColor[0] + ',' + currentColor[1] + ',' + currentColor[2] + ')';
+            for(var p = 0; p < self.pathCount; p++) {
+                self.path[p].style.fill = nextColor;
+            }
+
+            if(currentColor[0] == targetColor[0]) {
+                clearInterval(self.timerLoop);
+                this.debug('Drawing completed.');
+                delete this;
+            } else if(currentColor[0] <= strokeColor[0]) {
+                setTimeout(function() {
+                    for(var i = 0; i < self.pathCount; i++) {
+                        self.path[i].style.stroke = 'transparent';
+                    }
+                }, 500);
+            }
+        },
+
+        fill: function() {
+            var self = this;
+            self.timerLoop = setInterval(function() {
+                self.fillLoop();
+            }, 1000/self.options.framesFillTotal);
         }
     }
+})(window.jQuery);
 
-    var transition = setInterval(function() {
-        startTransition();
-    }, 1000/this.config.totalFrames);
-};
-
-function componentToHex(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-}
-
-window.requestAnimFrame = function(){
+window.requestAnimFrame = function() {
     return (
         window.requestAnimationFrame       ||
         window.webkitRequestAnimationFrame ||
         window.mozRequestAnimationFrame    ||
         window.oRequestAnimationFrame      ||
         window.msRequestAnimationFrame     ||
-        function(/* function */ callback){
+        function(callback){
             window.setTimeout(callback, 1000 / 60);
         }
     );
 }();
 
-window.cancelAnimFrame = function(){
+window.cancelAnimFrame = function() {
     return (
         window.cancelAnimationFrame       ||
         window.webkitCancelAnimationFrame ||
@@ -149,3 +161,5 @@ window.cancelAnimFrame = function(){
         }
     );
 }();
+
+

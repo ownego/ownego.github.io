@@ -27,7 +27,6 @@
                     }
                 });
 
-
                 oe.loader.fontLoader();
                 oe.loader.imageLoader();
             },

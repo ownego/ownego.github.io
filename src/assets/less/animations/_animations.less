@@ -1,22 +1,6 @@
 /* ===== It's show time ===== */
 // Fixed Elements
-.btn-nav,
-.social-icon,
 .copyright-line {
-    .animCore();
-    .animation-delay(0);
-    opacity: 0;
-
-    [data-active-screen] & {
-        .animation-name(fadeIn);
-    }
-}
-
-.copyright-line {
-    p, p span {
-        .transition(color @animateSpeed linear @animateSpeed*5);
-    }
-
     .oeicon-logo {
         .transition(opacity @animateSpeed linear @animateSpeed);
         opacity: 0;
