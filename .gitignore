@@ -8,3 +8,6 @@
 /dist/
 /assets/
 /favicons/
+
+#Eclipse
+.project
