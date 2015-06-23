@@ -14,6 +14,7 @@
     "imagesloaded": "3.1.8",
     "textillate": "0.4.0",
     "components-webfontloader": "1.6.3",
-    "jquery.easy-pie-chart": "2.1.6"
+    "jquery.easy-pie-chart": "2.1.6",
+    "supported-browser": "https://github.com/ownego/supported-browser.git"
   }
 }

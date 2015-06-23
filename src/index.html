@@ -46,6 +46,7 @@
     <!-- build:csslib ./assets/css/libs.css -->
     <link rel="stylesheet" href="./vendors/animate.css/animate.css" />
     <link rel="stylesheet" href="./assets/css/libs.css" />
+    <link rel="stylesheet" href="vendors/supported-browser/supportedbrowser.css" />
     <!-- endbuild -->
     <!-- build:cssmains ./assets/css/main.css -->
     <link rel="stylesheet" href="./assets/css/main.css" />
@@ -53,6 +54,13 @@
     <!-- build:cssanim ./assets/css/animations.css -->
     <link rel="stylesheet" href="./assets/css/animations.css" />
     <!-- endbuild -->
+    
+    <noscript>
+      <div style="position: fixed; top: 0px; left: 0px; z-index: 99999; 
+                height: 100%; width: 100%; background-color: #FFFFFF;">
+        Your browser does not support JavaScript!
+      </div>
+    </noscript>
 </head>
 <body>
     <main>
@@ -413,10 +421,12 @@
     <script src="vendors/jquery.easy-pie-chart/src/easypiechart.js"></script>
     <script src="vendors/jquery.easy-pie-chart/src/jquery.plugin.js"></script>
     <script src="vendors/bootstrap/js/tooltip.js"></script>
+    <script src="vendors/supported-browser/supportedbrowser.js"></script>
     <script src="./assets/js/oe.drawing.js"></script>
     <script src="./assets/js/oe.main.js"></script>
     <script src="./assets/js/oe.loader.js"></script>
     <script src="./assets/js/oe.console.js"></script>
+    <script src="./assets/js/oe.supportedbrowser.js"></script>
     <!-- endbuild -->
 
     <script>
