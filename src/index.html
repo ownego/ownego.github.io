@@ -271,7 +271,7 @@
                             </div>
 
                             <!-- Form -->
-                            <form>
+                            <form id="messageForm">
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <div class="input-wrapper">
@@ -311,13 +311,13 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-7 col-lg-8">
-                                        <small class="form-caution">Caution*: Careful, we will reply to you very fast as we are talking directly, please be sure you are ready.</small>
+                                    <div class="col-md-7 col-lg-8" id="cautionWrapper">
+                                        <small class="form-caution" id="errorContainer">Caution*: We will reply to you as soon as you send your message. Please check your inbox for an email from us.</small>
                                     </div>
 
                                     <div class="col-md-5 col-lg-4">
                                         <div class="input-wrapper">
-                                            <button type="submit" class="btn btn-primary form-submit">
+                                            <button type="submit" id="submitbtn" class="btn btn-primary form-submit">
                                                 <span>Send</span>
                                                 <i class="oeicon-fly"></i>
                                             </button>
@@ -391,6 +391,24 @@
         <i class="oeicon-logo"></i>
         <p>Copyright &copy; 2015 <span>ownego</span>. All Rights Reserved.</p>
     </div>
+    
+    <!-- Send form modal -->
+    <div class="modal fade" id="modalSendForm" tabindex="-1" role="dialog" aria-labelledby="SendBox" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4 class="modal-title">SEND MESSAGE</h4>
+                    <div class="modal-body-wrapper">
+                        <div class="g-recaptcha" data-sitekey="6Le-9QgTAAAAAP6zJASkbYa7Cmz-OiosA1yB0t18"></div>
+                        <p class="pb text-left" id="submitAlert">Are you sure to send this message?</p>
+                        <button class="btn send-btn" id="submitConfirm">
+                            <span>Send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Unsupported browsers modal -->
     <div class="modal fade" id="unsupportModal" tabindex="-1" role="dialog" aria-labelledby="unsupportModal" aria-hidden="true">
@@ -421,6 +439,9 @@
     <script src="vendors/jquery.easy-pie-chart/src/easypiechart.js"></script>
     <script src="vendors/jquery.easy-pie-chart/src/jquery.plugin.js"></script>
     <script src="vendors/bootstrap/js/tooltip.js"></script>
+    <script src="vendors/bootstrap/js/modal.js"></script>
+    <script src="vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
     <script src="vendors/supported-browser/supportedbrowser.js"></script>
     <script src="./assets/js/oe.drawing.js"></script>
     <script src="./assets/js/oe.main.js"></script>
