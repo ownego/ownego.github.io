@@ -1,47 +1,51 @@
 .s2 {
-    .s-content {
-        .vertical-center;
-        right: 30px;
-        text-align: left;
+  .s-content {
+    .vertical-center;
+    right: 30px;
+    text-align: left;
 
-        .desc i {
-            display: block;
-            font-size: 115px;
-            line-height: 0px;
-            margin-top: 25px;
-            color: @white;
-
-            &:before {
-                line-height: 50px;
-            }
-        }
-
-        .team-signature {
-            margin-top: 10px;
-
-            path {
-                fill: @white;
-                stroke: @borderColor;
-                stroke-width: 3;
-            }
-        }
+    @media @ltDesktop {
+      right: -50px;
     }
-    .punchs-wrapper {
-        .vertical-center;
-        width: 100%;
-        right: 25%;
 
-        .punchs {
-            &:nth-child(1) {
-                margin-right: 115px;
-            }
-            &:nth-child(2) {
-                margin-right: 70px;
-            }
-            &:nth-child(3) {
-                margin-right: 35px;
-            }
-        }
+    .desc i {
+      display: block;
+      font-size: 115px;
+      line-height: 0px;
+      margin-top: 25px;
+      color: @white;
+      &:before {
+        line-height: 50px;
+      }
     }
+    .team-signature {
+      margin-top: 10px;
+      path {
+        fill: @white;
+        stroke: @borderColor;
+        stroke-width: 3;
+      }
+    }
+  }
+  .punchs-wrapper {
+    .vertical-center;
+    width: 100%;
+    right: 25%;
+
+    @media @ltDesktop {
+      right: 20%;
+    }
+
+    .punchs {
+      &:nth-child(1) {
+        margin-right: 115px;
+      }
+      &:nth-child(2) {
+        margin-right: 70px;
+      }
+      &:nth-child(3) {
+        margin-right: 35px;
+      }
+    }
+  }
 }
-

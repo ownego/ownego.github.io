@@ -3,13 +3,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    
+
     // Check the token from the captcha via google
     $captchaSecretCode = '6Le-9QgTAAAAADEnwTSby6o5BdKDkt1QkqroT5gQ';
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$captchaSecretCode."&response=".$_POST['g-recaptcha-response']);
     $response = json_decode($response, true);
-    
-    
+
+
     if (!$_POST['name']) {
         $nameErr = 'Please enter your name';
     };
@@ -17,11 +17,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $emailErr = 'Please enter a valid email address';
     };
-    
+
     if (!$_POST['message']) {
         $messageErr = 'Please enter your message';
     };
-    
+
     // First check if the captcha is valid, then check all the required fields
     if($response["success"] === true) {
         if (!$nameErr && !$emailErr && !$messageErr) {
@@ -35,7 +35,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo '<small class="form-caution" id="errorContainer">Caution*: Please check your captcha again.</small>';
     }
 };
-
 
 function toSlack($message, $channel = array("@oe.sonnh", "@minhnt")) {
     $chaLen = count($channel);

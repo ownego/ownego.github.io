@@ -107,7 +107,3 @@
         };
     })();
 })(jQuery, window.oe, window.document);
-
-$(function() {
-    oe.loader.init();
-});

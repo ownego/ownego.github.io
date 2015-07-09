@@ -1,89 +1,96 @@
-// Animations core
-.animDelayLevel(@level: 0, @now: false) {
-    // the animations will be delayed by level.
-    //     Higher level means slower
-    //     put level = -5 as no delay
-    @extraDelay: 200ms * @level;
-
-
-    & when (@now = true) {
-        .animation-delay(1000ms + @extraDelay);
-    }
-
-    .active& {
-        .animation-delay(1000ms + @extraDelay);
-    }
+/* Animations core
+* AnimDelayLevel: the animations will be delayed by level.
+* @params:
+*   Level:
+*     Higher level means slower
+*     Default level is 0 (as 1s delayed)
+*     Level = -5 as no delay
+*   Now:
+*     The effect delay used for current selector or not
+*     Default is false, means delaying affects selector when it's actived via class [.active]
+*/
+.animDelayLevel(@level: 0, @now: false, @class: active) {
+  @extraDelay: 200ms * @level;
+  & when (@now = true) {
+    .animation-delay(1000ms + @extraDelay);
+  }
+  .@{class}& {
+    .animation-delay(1000ms + @extraDelay);
+  }
 }
+
 .animSetup {
-    .animation-duration(@animateSpeed*2);
-    .animation-fill-mode(both);
-    .animation-timing-function(cubic-bezier(.27, .35, .23, .96););
-    .animation-delay(0ms);
-    .animDelayLevel();
+  .animation-duration(@animateSpeed*2);
+  .animation-fill-mode(both);
+  .animation-timing-function(cubic-bezier(.27, .35, .23, .96););
+  .animation-delay(0ms);
+  .animDelayLevel();
 }
+
 .animCore() {
-    &:extend(.animSetup all);
+  &:extend(.animSetup all);
 }
 
-// Effects
-.fadeIn() {
-    .animCore();
-    .animation-name(fadeOut);
-
-    .main-screen.active& {
-        .animation-name(fadeIn);
-    }
+/* Effects block
+* How to:
+* Call the effect name with parent [active] class as param
+* Ex:
+* .class-name {.fadeIn(actived)}
+* So the [div.class-name] will fade in when its parent has class [.actived]
+* Default parent active class is [.active]
+*/
+.fadeIn(@class: active) {
+  .animCore();
+  .animation-name(fadeOut);
+  .@{class}& {
+    .animation-name(fadeIn);
+  }
 }
 
-.fadeUp() {
-    .animCore();
-    .animation-name(fadeOutUp);
-
-    .active& {
-        .animation-name(fadeInUp);
-    }
+.fadeUp(@class: active) {
+  .animCore();
+  .animation-name(fadeOutUp);
+  .@{class}& {
+    .animation-name(fadeInUp);
+  }
 }
 
-.fadeDown() {
-    .animCore();
-    .animation-name(fadeOutDown);
-
-    .active& {
-        .animation-name(fadeInDown);
-    }
+.fadeDown(@class: active) {
+  .animCore();
+  .animation-name(fadeOutDown);
+  .@{class}& {
+    .animation-name(fadeInDown);
+  }
 }
 
-.fadeLeft() {
-    .animCore();
-    .animation-name(fadeOutLeft);
-
-    .active& {
-        .animation-name(fadeInLeft);
-    }
+.fadeLeft(@class: active) {
+  .animCore();
+  .animation-name(fadeOutLeft);
+  .@{class}& {
+    .animation-name(fadeInLeft);
+  }
 }
 
-.fadeRight() {
-    .animCore();
-    .animation-name(fadeOutRight);
-
-    .active& {
-        .animation-name(fadeInRight);
-    }
+.fadeRight(@class: active) {
+  .animCore();
+  .animation-name(fadeOutRight);
+  .@{class}& {
+    .animation-name(fadeInRight);
+  }
 }
 
-.zoomIn() {
-    .animCore();
-    .animation-name(zoomOut);
-
-    .active& {
-        .animation-name(zoomIn);
-    }
+.zoomIn(@class: active) {
+  .animCore();
+  .animation-name(zoomOut);
+  .@{class}& {
+    .animation-name(zoomIn);
+  }
 }
 
-.logoFill() {
-    .animCore();
-
-    .active& {
-        .animation-name(logoFill);
-    }
+.slideInLeft(@class: active) {
+  .animCore();
+  .animation-name(slideOutLeft);
+  .@{class}& {
+    .animation-name(slideInLeft);
+  }
 }

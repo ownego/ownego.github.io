@@ -12,6 +12,10 @@
     .s1.active ~ & {
         right: 30%;
         .skew(-55deg, 0);
+
+        @media @ltDesktop {
+          .skew(-50deg, 0);
+        }
     }
     .s2.active ~ & {
         right: 54%;
