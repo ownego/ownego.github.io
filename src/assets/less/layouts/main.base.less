@@ -4,16 +4,20 @@ body {
   height: 100%;
   width: 100%;
 }
-
 body {
   display: block;
   color: @fontColor;
   font-family: @fontFamily;
   .font-light;
-  .font-xs;
+  font-size: 18px;
   background-color: @black;
   overflow: hidden;
   overflow: -moz-scrollbars-none;
+
+  @media @ltTablet {
+    overflow: auto;
+    overflow-x: hidden;
+  }
 }
 
 a {
@@ -51,7 +55,6 @@ button {
   color: @white;
 }
 /***** GENERAL *****/
-
 .main-screen {
   position: absolute;
   z-index: 2;
@@ -65,6 +68,11 @@ button {
     z-index: 500;
     opacity: 1;
     left: 0;
+  }
+
+  @media @ltTablet {
+    height: auto;
+    overflow: auto;
   }
 }
 
@@ -137,6 +145,10 @@ p {
 
 .fitscreen {
   position: relative;
+
+  @media @ltTablet {
+    height: auto !important;
+  }
 }
 
 .s-content {
@@ -148,6 +160,10 @@ p {
 
     @media @ltDesktop {
       min-width: 400px;
+    }
+
+    @media @ltTablet {
+      .font-light;
     }
   }
 }
@@ -213,5 +229,20 @@ p {
   }
   &.fade {
     z-index: -1;
+  }
+}
+
+.right-col {
+  float: right;
+
+  @media @ltTablet {
+    float: none;
+  }
+}
+.left-col {
+  float: left;
+
+  @media @ltTablet {
+    float: none;
   }
 }

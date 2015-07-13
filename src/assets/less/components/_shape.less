@@ -1,35 +1,57 @@
 .rectangle {
-    overflow: hidden;
-    position: absolute;
-    z-index: 10;
-    right: -50%;
-    top: 0;
-    width: 300%;
-    height: 100%;
-    background-color: @white;
+  overflow: hidden;
+  position: absolute;
+  z-index: 10;
+  right: -50%;
+  top: 0;
+  width: 300%;
+  height: 100%;
+  background-color: @white;
+  .skew(-55deg, 0);
+
+
+  .s1.active ~ & {
+    right: 30%;
     .skew(-55deg, 0);
 
-    .s1.active ~ & {
-        right: 30%;
-        .skew(-55deg, 0);
+    @media @ltDesktop {
+      .skew(-50deg, 0);
+    }
 
-        @media @ltDesktop {
-          .skew(-50deg, 0);
-        }
+    @media @ltTablet {
+      right: 0;
+      .skew(0, 0);
     }
-    .s2.active ~ & {
-        right: 54%;
-        .skew(15deg, 0);
-    }
-    .s3.active ~ & {
-        right: -50%;
-        .skew(0 ,0);
+  }
 
-        &.eff-chain {
-            right: -250%;
-            .skew(-20deg, 0);
-        }
+  .s2.active ~ & {
+    right: 54%;
+    .skew(15deg, 0);
+
+    @media @ltDesktop {
+      right: 61%;
     }
+
+    @media @ltTablet {
+      right: 100%;
+      .skew(0, 0);
+    }
+  }
+
+
+  .s3.active ~ & {
+    right: -50%;
+    .skew(0 ,0);
+
+    &.eff-chain {
+      right: -250%;
+      .skew(-20deg, 0);
+
+      @media @ltDesktop {
+        right: -245%;
+      }
+    }
+  }
 }
 .bgs1 {
     content: '';

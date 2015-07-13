@@ -1,11 +1,26 @@
 .s2 {
+  @media @ltTablet {
+    top: 0;
+    bottom: 0;
+  }
+
   .s-content {
     .vertical-center;
-    right: 30px;
+    right: 25%;
     text-align: left;
 
     @media @ltDesktop {
-      right: -50px;
+      right: 10%;
+    }
+
+    @media @ltTablet {
+      position: relative;
+      .translate(0, 0);
+      top: 0;
+      left: 0;
+      right: 0;
+      margin-top: 120px;
+      padding: 0 20px;
     }
 
     .desc i {
@@ -34,6 +49,10 @@
 
     @media @ltDesktop {
       right: 20%;
+    }
+    @media @ltTablet {
+      position: relative;
+      .translate(0, 0);
     }
 
     .punchs {

@@ -23,7 +23,7 @@ $(function() {
         "name": "Safari",
         "icon": "./assets/img/browser/safari.jpg",
         "url": "https:\/\/www.apple.com\/safari\/",
-        "version": "7"
+        "version": "5"
       },
       "opera": {
         "name": "Opera",

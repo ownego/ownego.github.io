@@ -12,6 +12,14 @@
       margin: 0;
       .translate(-50%, -50%);
 
+      @media @ltWideScreen {
+        top: 0;
+        left: 15px;
+        right: 15px;
+        bottom: 0;
+        .translate(0, 0);
+      }
+
       @media @eMobile {
         width: 90%;
       }
@@ -55,6 +63,12 @@
     outline: none !important;
     border: 0;
     margin: 0;
+
+    @media @ltDesktop {
+      top: -35px;
+      right: 5px;
+      color: @white;
+    }
   }
 }
 
@@ -75,9 +89,14 @@
   .modal-dialog {
     width: 90%;
 
+    @media @ltWideScreen {
+      width: auto;
+    }
+
     @media @ltDesktop {
       width: 500px;
-      top: 20px;
+      top: 100px;
+      left: 50%;
       .translate(-50%, 0);
     }
   }
@@ -92,14 +111,20 @@
     overflow: hidden;
     width: 50%;
 
+    @media @ltDesktop {
+      position: absolute;
+      z-index: 10;
+      width: @avtTabletSize;
+      height: @avtTabletSize;
+      border: 3px solid #fff;
+      top: -(@avtTabletSize/2);
+      left: 17px;
+    }
+
     &:before {
       content: '';
       display: block;
       padding-top: 100%;
-    }
-
-    @media @ltDesktop {
-
     }
   }
   .info-wrapper {
@@ -109,6 +134,10 @@
       content: '';
       display: block;
       padding-top: 100%;
+
+      @media @ltDesktop {
+        display: none;
+      }
     }
   }
   .info-main {
@@ -118,8 +147,18 @@
     right: 15px;
     bottom: 0;
     padding: 40px 50px;
+
+    @media @ltDesktop {
+      position: relative;
+      left: 0;
+      padding: 20px;
+    }
   }
   .info-head {
+    @media @ltDesktop {
+      margin-left: 170px;
+    }
+
     h3 {
       .font-bold;
       .font-lg;
@@ -141,6 +180,10 @@
     @media @gteDesktop {
       max-height: 400px;
     }
+
+    @media @ltDesktop {
+      margin-top: 40px;
+    }
   }
 
   .info-quote {
@@ -154,6 +197,7 @@
       margin-bottom: 8px;
       font-size: 24px;
       .font-thin;
+      line-height: 32px;
 
       &:before,
       &:after {
@@ -169,8 +213,19 @@
     right: 65px;
     font-size: 20px;
 
+    @media @ltDesktop {
+      top: 85px;
+      left: 32px;
+      bottom: auto;
+      width: @avtTabletSize;
+    }
+
     ul {
       margin: 0;
+
+      @media @ltDesktop {
+        text-align: center;
+      }
     }
 
     a {
@@ -203,6 +258,17 @@
       margin: 0 auto;
       .font-md;
       text-transform: uppercase;
+    }
+  }
+}
+
+@media @bwDesktopWide {
+  .modal-content {
+    &,
+    > .row,
+    .info-left,
+    .info-wrapper {
+      height: 100%;
     }
   }
 }

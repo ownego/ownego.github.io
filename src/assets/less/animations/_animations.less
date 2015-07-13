@@ -188,7 +188,9 @@
   }
 
   .info-wrapper {
-    .slideInLeft(in);
-    .animDelayLevel(@eff-team-modal-right, true);
+    @media @gteDesktop {
+      .slideInLeft(in);
+      .animDelayLevel(@eff-team-modal-right, true);
+    }
   }
 }
