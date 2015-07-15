@@ -1,6 +1,12 @@
 /* ===== It's show time ===== */
 
 // Fixed Elements
+body {
+  &:before {
+    .transition(background-color @animateSpeed linear @eff-header-body);
+  }
+}
+
 .copyright-line {
   .oeicon-logo {
     .transition(opacity @animateSpeed linear @animateSpeed);

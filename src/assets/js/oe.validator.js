@@ -2,11 +2,6 @@
   var $errorContainer = $('#errorContainer');
   var $cautionWrapper = $('#cautionWrapper');
 
-  var $inputName = $('#msgName');
-  var $inputEmail = $('#msgEmail');
-  var $inputMessage = $('#msgMessage');
-  var $inputCaptcha = $('#g-recaptcha-response');
-
   var $messageForm = $('#messageForm');
   var $modalForm = $('#modalSendForm');
   var $alertSubmit = $('#submitAlert');
@@ -60,6 +55,11 @@
 
 
   $('#submitConfirm').click(function () {
+    var $inputName = $('#msgName');
+    var $inputEmail = $('#msgEmail');
+    var $inputMessage = $('#msgMessage');
+    var $inputCaptcha = $('#g-recaptcha-response');
+
     if (!($inputCaptcha.val())) {
       $alertSubmit
         .addClass('red')
