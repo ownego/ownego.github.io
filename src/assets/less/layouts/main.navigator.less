@@ -26,10 +26,11 @@
     & .lines {
         .transition(background @nav-as @nav-as*2 ease);
 
-        &:before, &:after{
-            transform-origin: 50% 50%;
-            .transition(top @nav-as @nav-as*2 ease, transform @nav-as ease;);
-        }
+      &:before,
+      &:after{
+          transform-origin: 50% 50%;
+          .transition(top @nav-as @nav-as*2 ease, transform @nav-as ease;);
+      }
     }
 
     &.close .lines {
@@ -78,19 +79,24 @@
 
 // Navigation
 .site-nav-wrapper {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 66%;
-    overflow-y: scroll;
-    z-index: 600;
-    .translate3d(0, -100%, 0);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 66%;
+  overflow: visible;
+  z-index: 600;
+  .translate3d(0, -100%, 0);
 
-    &.active {
-        .translate3d(0, 0, 0);
-    }
+  &.active {
+    .translate3d(0, 0, 0);
+  }
+
+  @media @ltTablet {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .site-nav {
@@ -110,6 +116,11 @@
     margin-top: 75px;
     .font-light;
     .font-lg;
+
+  @media @ltMoblet {
+    margin-left: 20px;
+    margin-top: 50px;
+  }
 
     span {
         display: inline-block;
@@ -136,7 +147,69 @@
     .transition(all @animateSpeed ease);
 
     &.active {
-        .opacity(0.3);
-        .blur(5px);
+      .opacity(0.3);
+      .blur(5px);
     }
+}
+
+.whiteNav() {
+  .btn-nav .lines {
+    background-color: @white;
+    &:before, &:after {
+      background-color: @white;
+    }
+  }
+  .next-btn {
+    color: @white;
+  }
+  .copyright-line {
+    p {
+      color: @grey-dark;
+    }
+    i,
+    p span {
+      color: @white;
+    }
+  }
+  .nav-items-wrapper {
+    color: @white;
+  }
+}
+
+[data-active-screen="3"] {
+  @media @gteTablet {
+    .whiteNav();
+  }
+}
+
+@media @ltTablet {
+  .btn-nav {
+    top: 6px;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
+  }
+
+  .site-nav-wrapper {
+    &.active {
+      background-color: @white;
+    }
+  }
+
+  [data-active-screen="2"] {
+    .whiteNav();
+
+    .site-nav-wrapper {
+      &.active {
+        background-color: @black;
+      }
+    }
+  }
+}
+@media @ltMoblet {
+  .btn-nav {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }

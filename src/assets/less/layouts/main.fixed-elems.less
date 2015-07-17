@@ -1,71 +1,110 @@
 .social-bar {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    z-index: 1000;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 1000;
 
-    .social-icon {
-        display: block;
-        float: right;
-        margin-left: 15px;
-        text-align: center;
-        font-size: 18px;
-        .transition(all @animateSpeed ease);
+  .social-icon {
+    display: block;
+    float: right;
+    margin-left: 15px;
+    text-align: center;
+    font-size: 18px;
+    .transition(all @animateSpeed ease);
 
-        .oeicon-social-gplus {
-            font-size: 19px;
-        }
-
-        &:hover {
-            .scale(1.2, 1.2);
-        }
+    .oeicon-social-gplus {
+      font-size: 19px;
     }
 
-    .transition(color @animateSpeed linear);
-
-    [data-active-screen="2"] & {
-        color: @white;
+    &:hover {
+      .scale(1.2, 1.2);
     }
+
+    @media @ltDesktop {
+      margin-left: 20px;
+    }
+  }
+
+  .transition(color @animateSpeed linear);
+
+  [data-active-screen="2"] & {
+    color: @white;
+  }
+
+  @media @ltTablet {
+    top: 15px;
+    right: 20px;
+  }
+
+  @media @ltMoblet {
+    right: 15px;
+  }
 }
 
 .copyright-line {
-    position: fixed;
-    bottom: 20px;
-    left: 30px;
-    z-index: 1000;
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  z-index: 1000;
 
-    i {
-        font-size: 70px;
-        line-height: 1em;
-    }
+  @media @ltTablet {
+    display: none;
 
-    p {
-        font-size: 12px;
-        color: @grey-light;
-        padding: 10px 0 0 0;
+    .site-nav-wrapper.active ~ & {
+      display: block;
     }
+  }
 
-    span {
-        .font-regular;
-        color: @black;
+  @media @ltMoblet {
+    left: 20px;
+  }
+
+
+  i {
+    font-size: 70px;
+    line-height: 1em;
+
+    @media @ltDesktop {
+      display: none;
     }
+  }
+
+  p {
+    font-size: 12px;
+    color: @grey-light;
+    padding: 10px 0 0 0;
+  }
+
+  span {
+    .font-regular;
+    color: @black;
+  }
+
+  @media @ltTablet {
+    [data-active-screen="2"] & {
+      &,
+      span {
+        color: @white;
+      }
+    }
+  }
 }
 
 .next-btn {
-    display: block;
-    position: fixed;
-    top: 21px;
-    left: 80px;
-    text-align: right;
-    .font-sm;
-    z-index: 1000;
+  display: block;
+  position: fixed;
+  top: 21px;
+  left: 80px;
+  text-align: right;
+  .font-sm;
+  z-index: 1000;
 
-    i {
-        position: relative;
-        top: 3px;
-        margin-left: 5px;
-        font-size: 16px;
-        line-height: 1em;
-    }
+  i {
+    position: relative;
+    top: 3px;
+    margin-left: 5px;
+    font-size: 16px;
+    line-height: 1em;
+  }
 }
 

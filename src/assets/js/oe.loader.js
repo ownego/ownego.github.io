@@ -27,7 +27,6 @@
                     }
                 });
 
-
                 oe.loader.fontLoader();
                 oe.loader.imageLoader();
             },
@@ -108,7 +107,3 @@
         };
     })();
 })(jQuery, window.oe, window.document);
-
-$(function() {
-    oe.loader.init();
-});

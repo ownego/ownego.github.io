@@ -4,8 +4,10 @@
 /bower_components/
 /node_modules/
 /src/vendors/
-<<<<<<< Updated upstream
 /src/css/
-=======
->>>>>>> Stashed changes
 /src/assets/css/
+/dist/
+
+#Eclipse
+.project
+/src/index.html

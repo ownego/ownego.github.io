@@ -5,9 +5,11 @@
 @grey-light: #ababab;
 @grey-dark: #c8c8c8;
 
+
 // Text
 // ----
 @fontColor: @black;
+@fontSubColor: #505050;
 @fontFamily: "Roboto", sans-serif;
 @fontCondensed: "Roboto Condensed";
 
@@ -26,10 +28,13 @@
 // ------
 @mainSpacing: 10px;
 @animateSpeed: 300ms;
+@avtTabletSize: 150px;
 
 /* === Responsive config === */
 // Tiny screen / phone
 // Note: Deprecated @screen-xs and @screen-phone as of v3.0.1
+@screen-xl: 1400px;
+@screen-xl-max: (@screen-xl - 1);
 @screen-tn: 480px;
 @screen-tn-max: (@screen-tn - 1);
 
@@ -41,4 +46,6 @@
 /* >= 992  */ @gteTablet: ~"only screen and (min-width: @{screen-md-min})";
 /* < 1199 */ @ltDesktop: ~"only screen and (max-width: @{screen-md-max})";
 /* >= 1199 */ @gteDesktop: ~"only screen and (min-width: @{screen-md-max})";
+/* > 1199 & < 1399 */ @bwDesktopWide: ~"only screen and (min-width: @{screen-md-max}) and (max-width: @{screen-xl-max})";
+/* < 1399 */ @ltWideScreen: ~"only screen and (max-width: @{screen-xl-max})";
 /* Retina */ @retina: ~"only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-moz-min-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)";

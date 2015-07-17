@@ -1,0 +1,139 @@
+{% import '../macros/modals.html' as modals %}
+
+{% include '../vars/global.html' %}
+{% include '../vars/members.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block head %}
+  <!-- Meta Data -->
+  <meta charset="utf-8">
+  <title>{{ siteSettings.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {% include 'partials/favicons.html' %}
+
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ siteSettings.fbTitle }}" />
+  <meta property="og:image" content="{{ assetDir }}/img/logo.jpg" />
+  <meta property="og:description" content="{{ siteSettings.desc }}" />
+  <meta property="og:url" content="{{ siteSettings.url }}" />
+  <meta property="og:site_name" content="{{ siteSettings.siteName }}" />
+  <meta property="fb:admins" content="1216147695" />
+
+  <meta name="description" content="{{ siteSettings.fbDesc }}">
+  <meta name="keywords" content="{{ siteSettings.keywords }}">
+
+  {% block styles %}
+  <!-- Main CSS -->
+  <!-- build:csslib ./assets/css/libs.css -->
+  <link rel="stylesheet" href="{{ vendorDir }}/animate.css/animate.css" />
+  <link rel="stylesheet" href="{{ assetDir }}/css/libs.css" />
+  <link rel="stylesheet" href="{{ vendorDir }}/supported-browser/supportedbrowser.css" />
+  <!-- endbuild -->
+  <!-- build:cssmains ./assets/css/main.css -->
+  <link rel="stylesheet" href="{{ assetDir }}/css/main.css" />
+  <!-- endbuild -->
+  <!-- build:cssanim ./assets/css/animations.css -->
+  <link rel="stylesheet" href="{{ assetDir }}/css/animations.css" />
+  <!-- endbuild -->
+  {% endblock %}
+{% endblock %}
+</head>
+
+<body>
+  <!-- Under construction -->
+  <!-- Remove me when everything done -->
+  <div class="underconstruction container">
+      <div class="row">
+          <div class="col-sm-2 col-sm-offset-2 col-md-1 col-md-offset-4">
+              <i class="oeicon-logo"></i>
+          </div>
+          <div class="col-md-4 col-sm-6">
+              <h3>Coming soon..</h3>
+              <p>We are ready to launch. Just minor things remain.<br/>
+                  Please come back later.</p>
+              <i class="oeicon-sign-founders"></i>
+          </div>
+      </div>
+  </div>
+
+  {% include 'partials/noscript.html' %}
+  <main>
+    {% block main %}
+    {% endblock %}
+
+    <div class="rectangle st"></div>
+    <div class="bgs1"></div>
+  </main>
+
+  <!-- fixed elements -->
+  {% include 'components/navigation.html' %}
+  {% include 'components/social-bar.html' %}
+  {% include 'components/copyright.html' %}
+
+  <!-- Team Modals -->
+  {% for member in members %}
+    {{ modals.modalMember(member) }}
+  {% endfor %}
+
+  <!-- Service Modals -->
+
+  <!-- Send form modal -->
+  {% include '../modals/form.html' %}
+
+  <!-- Loading screen -->
+  <div class="loading" id="loader">
+    <div class="load-content">
+      <div class="chart" id="loadingCircle" data-percent="0">
+        <span data-finish="Welcome">0%</span>
+      </div>
+      <button id="startBtn" class="btn btn-primary">Start</button>
+    </div>
+  </div>
+
+  <script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
+  {% block scripts %}
+  <!-- build:js ./assets/js/libs.js -->
+  <script src="{{ vendorDir }}/jquery/dist/jquery.js"></script>
+  <script src="{{ vendorDir }}/letteringjs/jquery.lettering.js"></script>
+  <script src="{{ vendorDir }}/textillate/jquery.textillate.js"></script>
+  <script src="{{ vendorDir }}/components-webfontloader/webfontloader.js"></script>
+  <script src="{{ vendorDir }}/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script src="{{ vendorDir }}/jquery.easy-pie-chart/src/renderer/canvas.js"></script>
+  <script src="{{ vendorDir }}/jquery.easy-pie-chart/src/easypiechart.js"></script>
+  <script src="{{ vendorDir }}/jquery.easy-pie-chart/src/jquery.plugin.js"></script>
+  <script src="{{ vendorDir }}/bootstrap/js/tooltip.js"></script>
+  <script src="{{ vendorDir }}/bootstrap/js/modal.js"></script>
+  <script src="{{ vendorDir }}/jquery-validation/dist/jquery.validate.min.js"></script>
+  <script src="{{ vendorDir }}/supported-browser/supportedbrowser.js"></script>
+  <!-- endbuild -->
+  <script src="{{ assetDir }}/js/oe.drawing.js"></script>
+  <script src="{{ assetDir }}/js/oe.main.js"></script>
+  <script src="{{ assetDir }}/js/oe.loader.js"></script>
+  <script src="{{ assetDir }}/js/oe.console.js"></script>
+  <script src="{{ assetDir }}/js/oe.validator.js"></script>
+  <script src="{{ assetDir }}/js/oe.supportedbrowser.js"></script>
+  {% endblock %}
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', '{{ siteSettings.gaCode }}', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>

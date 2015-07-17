@@ -1,209 +1,207 @@
 /* ===== It's show time ===== */
-// Fixed Elements
-.btn-nav,
-.social-icon,
-.copyright-line {
-    .animCore();
-    .animation-delay(0);
-    opacity: 0;
 
-    [data-active-screen] & {
-        .animation-name(fadeIn);
-    }
+// Fixed Elements
+body {
+  &:before {
+    .transition(background-color @animateSpeed linear @eff-header-body);
+  }
 }
 
 .copyright-line {
-    p, p span {
-        .transition(color @animateSpeed linear @animateSpeed*5);
+  .oeicon-logo {
+    .transition(opacity @animateSpeed linear @animateSpeed);
+    opacity: 0;
+    [data-active-screen="2"] &, [data-active-screen="3"] & {
+      opacity: 1;
     }
-
-    .oeicon-logo {
-        .transition(opacity @animateSpeed linear @animateSpeed);
-        opacity: 0;
-
-        [data-active-screen="2"] &,
-        [data-active-screen="3"] & {
-            opacity: 1;
-        }
-    }
+  }
 }
 
 // Navigator
 .site-nav-wrapper {
-    .nav-items {
-        .fadeUp();
-        .animation-duration(@animateSpeed);
-        .animDelayLevel(@eff-nav-item1);
-
-        .nav-sub-text {
-            .fadeUp();
-            .animDelayLevel(@eff-nav-item1-sub);
-            .transition(color @animateSpeed linear);
-        }
-
-        &:nth-child(2) {
-            .animDelayLevel(@eff-nav-item2);
-            .nav-sub-text {.animDelayLevel(@eff-nav-item2-sub);}
-        }
-        &:nth-child(3) {
-            .animDelayLevel(@eff-nav-item3);
-            .nav-sub-text {.animDelayLevel(@eff-nav-item3-sub);}
-        }
-
-        i {
-            opacity: 0;
-            .translate(-20%, 0);
-            .transition(all @animateSpeed ease);
-        }
-
-        &:hover {
-            i {
-                opacity: 1;
-                .translate(0, 0);
-            }
-            .nav-sub-text {
-                color: @black;
-
-                [data-active-screen="3"] & {
-                    color: @white;
-                }
-            }
-        }
+  .nav-items {
+    .fadeUp();
+    .animation-duration(@animateSpeed);
+    .animDelayLevel(@eff-nav-item1);
+    .nav-sub-text {
+      .fadeUp();
+      .animDelayLevel(@eff-nav-item1-sub);
+      .transition(color @animateSpeed linear);
     }
+    &:nth-child(2) {
+      .animDelayLevel(@eff-nav-item2);
+      .nav-sub-text {
+        .animDelayLevel(@eff-nav-item2-sub);
+      }
+    }
+    &:nth-child(3) {
+      .animDelayLevel(@eff-nav-item3);
+      .nav-sub-text {
+        .animDelayLevel(@eff-nav-item3-sub);
+      }
+    }
+    i {
+      opacity: 0;
+      .translate(-20%, 0);
+      .transition(all @animateSpeed ease);
+    }
+    &:hover {
+      i {
+        opacity: 1;
+        .translate(0, 0);
+      }
+      .nav-sub-text {
+        color: @black;
+        [data-active-screen="3"] & {
+          color: @white;
+        }
+      }
+    }
+  }
 }
 
 // Main Background that we called Shape
 .rectangle {
-    -webkit-transition:
-        -webkit-transform @eff-shape-speed ease @eff-shape-delay,
-        right @eff-shape-speed ease @eff-shape-move-delay;
-    -moz-transition:
-        -moz-transform @eff-shape-speed ease @eff-shape-delay,
-        right @eff-shape-speed ease @eff-shape-move-delay;
-    transition:
-        transform @eff-shape-speed ease @eff-shape-delay,
-        right @eff-shape-speed ease @eff-shape-move-delay;
-
-    &.eff-chain {
-        .transition(right @eff-shape-s3-animspeed ease);
-    }
+  -webkit-transition: -webkit-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+  -moz-transition: -moz-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+  transition: transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+  &.eff-chain {
+    .transition(right @eff-shape-s3-animspeed ease);
+  }
 }
+
 .bgs1 {
-    .transition(opacity (@animateSpeed*2) ease-in @animateSpeed);
+  .transition(opacity (@animateSpeed*2) ease-in @animateSpeed);
 }
-.main-screen {
-    .transition(opacity @eff-shape-move-delay linear, left 1ms linear (@eff-shape-move-delay+200ms););
 
-    &.active {
-        .transition-delay(0ms);
-    }
+.main-screen {
+  .transition(opacity @eff-shape-move-delay linear, left 1ms linear (@eff-shape-move-delay+200ms);
+  );
+  &.active {
+    .transition-delay(0ms);
+  }
 }
 
 // Screen 1
-.s1 {
-    .s-content {
-        .fadeIn();
-        .animDelayLevel(@eff-s1-content);
-    }
+.main-screen.s1 {
+  .s-content {
+    .fadeIn();
+    .animDelayLevel(@eff-s1-content);
+  }
 }
 
-.s2 {
-    .punchs {
-        .bounding-box {
-            .zoomIn();
-        }
-        .bounding-info {
-            h4, span {
-                .fadeIn();
-                .animDelayLevel(@eff-s2-bounding-title + @eff-s2-bounding-count);
-            }
-        }
-
-        // Generate bounding items effects
-        .generate-bounding(@eff-s2-bounding-count);
-
-        .generate-bounding(@n, @i: 1) when (@i =< @n) {
-            &:nth-child(@{i}) {
-                .bounding-box {
-                    .animDelayLevel(@eff-s2-bounding-box + @i);
-                }
-            }
-            .generate-bounding(@n, (@i + 1));
-        }
+.main-screen.s2 {
+  .punchs {
+    .bounding-box {
+      .zoomIn();
     }
-
-    .s-content {
+    .bounding-info {
+      h4, span {
         .fadeIn();
-        .animDelayLevel(@eff-s2-content);
+        .animDelayLevel(@eff-s2-bounding-title + @eff-s2-bounding-count);
+      }
     }
+    // Generate bounding items effects
+    .generate-bounding(@eff-s2-bounding-count);
+    .generate-bounding(@n, @i: 1) when (@i=< @n) {
+      &:nth-child(@{i}) {
+        .bounding-box {
+          .animDelayLevel(@eff-s2-bounding-box + @i);
+        }
+      }
+      .generate-bounding(@n,(@i + 1));
+    }
+  }
+  .s-content {
+    .fadeIn();
+    .animDelayLevel(@eff-s2-content);
+  }
+
+  .first-half-page .s-title {
+    .fadeIn();
+    .animDelayLevel(@eff-s2-bounding-box);
+  }
 }
 
-.s3 {
-    .punchs {
+.main-screen.s3 {
+  .punchs {
+    .bounding-box {
+      .zoomIn();
+    }
+    .bounding-info {
+      h4 {
+        .fadeIn();
+        .animDelayLevel(@eff-s3-bounding-title + @eff-s3-bounding-count);
+      }
+    }
+    // Generate bounding items effects
+    .generate-bounding(@eff-s3-bounding-count);
+    .generate-bounding(@n,@i: 1) when (@i=< @n) {
+      &:nth-child(@{i}) {
         .bounding-box {
-            .zoomIn();
+          .animDelayLevel(@eff-s3-bounding-box + @i);
         }
-        .bounding-info {
-            h4 {
-                .fadeIn();
-                .animDelayLevel(@eff-s3-bounding-title + @eff-s3-bounding-count);
-            }
-        }
-
-        // Generate bounding items effects
-        .generate-bounding(@eff-s3-bounding-count);
-
-        .generate-bounding(@n, @i: 1) when (@i =< @n) {
-            &:nth-child(@{i}) {
-                .bounding-box {
-                    .animDelayLevel(@eff-s3-bounding-box + @i);
-                }
-            }
-            .generate-bounding(@n, (@i + 1));
-        }
+      }
+      .generate-bounding(@n, (@i + 1));
     }
-    // Left side
-    .heading-wrapper {
-        .fadeIn();
-        .animDelayLevel(@eff-s3-left-content);
+  }
+  // Left side
+  .heading-wrapper {
+    .fadeIn();
+    .animDelayLevel(@eff-s3-left-content);
+  }
+  // Right side
+  .s-content {
+    .fadeIn();
+    .animDelayLevel(@eff-s3-right-content);
+  }
+  .input-normal,
+  .form-caution,
+  .form-submit {
+    .fadeIn();
+    .animDelayLevel(@eff-s3-input-show);
+  }
+  line {
+    .animCore();
+    .animation-duration(@eff-delay-range * @eff-s3-input-draw-speed);
+    .animDelayLevel(@eff-s3-input-draw, true);
+    &.border-top {
+      .active& {
+        .animation-name(bdMoveRight);
+      }
     }
-    // Right side
-    .s-content {
-        .fadeIn();
-        .animDelayLevel(@eff-s3-right-content);
+    &.border-left {
+      .active& {
+        .animation-name(bdMoveUp);
+      }
     }
+    &.border-bottom {
+      .active& {
+        .animation-name(bdMoveLeft);
+      }
+    }
+    &.border-right {
+      .active& {
+        .animation-name(bdMoveDown);
+      }
+    }
+  }
+}
 
-    .input-normal,
-    .form-caution,
-    .form-submit {
-        .fadeIn();
-        .animDelayLevel(@eff-s3-input-show);
-    }
+// Team modal
+.modal.fade {
+  .transition-duration(@animateSpeed);
+}
+.guy-info {
+  .btn-close {
+    .zoomIn(in);
+    .animDelayLevel(@eff-team-modal-close, true);
+  }
 
-    line {
-        .animCore();
-        .animation-duration(@eff-delay-range * @eff-s3-input-draw-speed);
-        .animDelayLevel(@eff-s3-input-draw, true);
-
-        &.border-top {
-            .active& {
-                .animation-name(bdMoveRight);
-            }
-        }
-        &.border-left {
-            .active& {
-                .animation-name(bdMoveUp);
-            }
-        }
-        &.border-bottom {
-            .active& {
-                .animation-name(bdMoveLeft);
-            }
-        }
-        &.border-right {
-            .active& {
-                .animation-name(bdMoveDown);
-            }
-        }
+  .info-wrapper {
+    @media @gteDesktop {
+      .slideInLeft(in);
+      .animDelayLevel(@eff-team-modal-right, true);
     }
+  }
 }

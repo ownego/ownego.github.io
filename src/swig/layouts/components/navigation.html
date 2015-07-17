@@ -1,0 +1,21 @@
+<button class="btn-nav" id="btnNav" aria-label="Toggle Navigation">
+  <span class="lines-button arrow arrow-left">
+    <span class="lines"></span>
+  </span>
+</button>
+
+<div class="site-nav-wrapper">
+  <div class="site-nav">
+    <div class="nav-items-wrapper">
+      {% for nav in navigator %}
+      <a href="#" class="nav-items" data-screen-go="{{ loop.index }}">
+        <span>
+          {{ nav.title }}
+          <i class="oeicon-arrow-right"></i>
+        </span>
+        <span class="nav-sub-text">{{ nav.subTitle }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>

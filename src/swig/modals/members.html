@@ -1,0 +1,4 @@
+{% import '../macros/modals.html' as modals %}
+{% for member in members %}
+  {{ modals.modalMember(member) }}
+{% endfor %}
