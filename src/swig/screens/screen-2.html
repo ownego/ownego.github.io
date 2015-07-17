@@ -1,0 +1,37 @@
+{% import '../macros/team-member.html' as team %}
+
+{% set screenNo = 2 %}
+{% set screenClass = "s2" %}
+
+{% include '../vars/screen-2.html' %}
+
+<section class="{{ screenClass }} main-screen" data-screen-no="{{ screenNo }}">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-5 col-md-6 fitscreen right-col">
+        <div class="s-content">
+          <h2 class="s-title">
+            {{ screen2.title }}
+          </h2>
+          <h4 class="sub-title" data-sub-content="{{ screen2.subHover }}">
+            <span>{{ screen2.subTitle }}</span>
+          </h4>
+          <div class="desc">
+            {{ screen2.desc | safe }}
+            <div class="svg-drawing team-signature">
+              {% include 'partials/founders.html' %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-6 fitscreen first-half-page left-col">
+        <h3 class="s-title hidden-lg hidden-md">We are...</h3>
+        <div class="punchs-wrapper">
+          {% for obj in members %}
+            {{ team.member(obj) }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

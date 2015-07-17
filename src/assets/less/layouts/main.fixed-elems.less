@@ -19,6 +19,10 @@
     &:hover {
       .scale(1.2, 1.2);
     }
+
+    @media @ltDesktop {
+      margin-left: 20px;
+    }
   }
 
   .transition(color @animateSpeed linear);
@@ -30,6 +34,10 @@
   @media @ltTablet {
     top: 15px;
     right: 20px;
+  }
+
+  @media @ltMoblet {
+    right: 15px;
   }
 }
 
@@ -46,6 +54,11 @@
       display: block;
     }
   }
+
+  @media @ltMoblet {
+    left: 20px;
+  }
+
 
   i {
     font-size: 70px;

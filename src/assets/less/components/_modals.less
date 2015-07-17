@@ -34,25 +34,26 @@
     padding-right: 15px;
   }
   .modal-title {
-    margin: 10px 0 0;
+    margin: 0;
     padding-bottom: 5px;
     .font-thin;
-    font-size: 40px;
-    @media @eMobile {
-      font-size: 28px;
-    }
+    font-size: 30px;
   }
   .modal-body-wrapper {
     padding-top: 20px;
     border-top: 1px solid #d2d2d2;
-    text-align: center;
+
     p {
       padding-bottom: 10px;
-      padding-left: 30px;
     }
   }
   .g-recaptcha {
-    padding: 5px 0 20px 29px;
+    margin: 0 auto;
+    padding: 5px 0 20px;
+
+    > div > div {
+      margin: 0 auto;
+    }
   }
   .btn-close {
     position: absolute;
@@ -69,19 +70,45 @@
       right: 5px;
       color: @white;
     }
+
+    @media @ltMoblet {
+      bottom: 31px;
+      right: 30px;
+      top: auto;
+      color: @black;
+
+      &:before {
+        content: 'Back';
+        display: block;
+        font-style: italic;
+        font-size: 18px;
+      }
+
+      i {
+        display: none;
+      }
+    }
+  }
+}
+
+.modal.small {
+  .modal-dialog {
+    width: 360px;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    .translate(-50%, -50%);
   }
 }
 
 .send-btn {
   margin-top: 5px;
   margin-bottom: 8px;
-  width: 85%;
   color: @white;
   background-color: @black;
   .transition(all @animateSpeed ease);
   &:hover {
-    color: @black;
-    background-color: @white;
+    background-color: darken(@black, 5%);
   }
 }
 
@@ -98,6 +125,16 @@
       top: 100px;
       left: 50%;
       .translate(-50%, 0);
+    }
+
+    @media @ltMoblet {
+      top: 0;
+      bottom: 0;
+      left: 15px;
+      right: 15px;
+      width: auto;
+      background-color: @white;
+      .translate(0, 0);
     }
   }
   .modal-content {
@@ -119,6 +156,15 @@
       border: 3px solid #fff;
       top: -(@avtTabletSize/2);
       left: 17px;
+    }
+
+    @media @ltMoblet {
+      position: relative;
+      width: 100%;
+      height: auto;
+      border: 0;
+      left: auto;
+      top: 0;
     }
 
     &:before {
@@ -153,10 +199,18 @@
       left: 0;
       padding: 20px;
     }
+    @media @ltMoblet {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
   .info-head {
     @media @ltDesktop {
       margin-left: 170px;
+    }
+
+    @media @ltMoblet {
+      margin-left: 0;
     }
 
     h3 {
@@ -183,6 +237,13 @@
 
     @media @ltDesktop {
       margin-top: 40px;
+      max-height: none;
+    }
+
+    @media @ltMoblet {
+      margin-top: 20px;
+      margin-bottom: 80px;
+      font-size: 14px;
     }
   }
 
@@ -198,6 +259,11 @@
       font-size: 24px;
       .font-thin;
       line-height: 32px;
+
+      @media @ltMoblet {
+        font-size: 20px;
+        line-height: 26px;
+      }
 
       &:before,
       &:after {
@@ -220,11 +286,27 @@
       width: @avtTabletSize;
     }
 
+    @media @ltMoblet {
+      top: auto;
+      bottom: 30px;
+      left: 0;
+      width: auto;
+    }
+
     ul {
       margin: 0;
 
       @media @ltDesktop {
         text-align: center;
+      }
+
+      @media @ltMoblet {
+        text-align: left;
+
+        li {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
       }
     }
 

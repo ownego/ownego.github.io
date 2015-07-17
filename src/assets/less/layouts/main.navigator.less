@@ -117,6 +117,11 @@
     .font-light;
     .font-lg;
 
+  @media @ltMoblet {
+    margin-left: 20px;
+    margin-top: 50px;
+  }
+
     span {
         display: inline-block;
         position: relative;
@@ -144,15 +149,7 @@
     &.active {
       .opacity(0.3);
       .blur(5px);
-
-      @media @ltTablet {
-        &,
-        ~ div {
-          .opacity(0);
-        }
-      }
     }
-
 }
 
 .whiteNav() {
@@ -180,16 +177,39 @@
 }
 
 [data-active-screen="3"] {
-  .whiteNav();
+  @media @gteTablet {
+    .whiteNav();
+  }
 }
 
 @media @ltTablet {
   .btn-nav {
     top: 6px;
     left: 0;
-    margin: 0 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
   }
+
+  .site-nav-wrapper {
+    &.active {
+      background-color: @white;
+    }
+  }
+
   [data-active-screen="2"] {
     .whiteNav();
+
+    .site-nav-wrapper {
+      &.active {
+        background-color: @black;
+      }
+    }
+  }
+}
+@media @ltMoblet {
+  .btn-nav {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

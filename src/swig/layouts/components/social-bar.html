@@ -1,0 +1,7 @@
+<div class="social-bar">
+  {% for social in social %}
+  <a href="{{ social.link }}" target="_blank" class="social-icon" data-toggle="tooltip" data-placement="bottom" title="{{ social.title }}">
+    <i class="{{ social.icon }}"></i>
+  </a>
+  {% endfor %}
+</div>

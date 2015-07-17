@@ -106,5 +106,5 @@ $(function () {
   // to test
   $('#loader').hide();
   oe.switchScreens(1);
-//  $('#serviceModal1').modal('show');
+//  $('#modalSendForm').modal('show');
 });

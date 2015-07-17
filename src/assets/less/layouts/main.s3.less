@@ -1,4 +1,26 @@
 .s3 {
+  top: 0;
+  bottom: 0;
+
+  .fitscreen {
+    @media @ltTablet {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media @ltMoblet {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  @media @ltTablet {
+    .first-half-page {
+      padding-bottom: 20px;
+      background-color: @black;
+    }
+  }
+
   .heading-wrapper {
     position: absolute;
     top: 20%;
@@ -8,6 +30,18 @@
     .s-title {
       color: @white;
     }
+
+    @media @ltTablet {
+      position: relative;
+      top: 0;
+      left: 0;
+      float: none;
+      padding-top: 40px;
+    }
+
+    @media @eMobile {
+      padding-top: 20px;
+    }
   }
   .s-content {
     position: absolute;
@@ -16,6 +50,16 @@
     text-align: right;
     color: @black;
     .translate(0, -50%);
+
+    @media @ltTablet {
+      position: relative;
+      top: 0;
+      left: auto;
+      right: auto;
+      text-align: left;
+      margin: 30px 0;
+      .translate(0, 0);
+    }
 
     .desc {
       @media @ltDesktop {
@@ -39,9 +83,19 @@
       right: 11%;
     }
 
+    @media @ltTablet {
+      position: relative;
+      right: auto;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      .clearfix();
+      .translate(0, 0);
+    }
+
     .punchs {
       color: @grey-light;
       .transition(color @animateSpeed ease);
+
       &:nth-child(2) {
         margin-right: 40px;
       }
@@ -51,15 +105,24 @@
       &:nth-child(4) {
         margin-right: 120px;
       }
+
       &:hover {
-        color: @white;
-        .bounding-box {
-          &.box-border {
-            border-color: @white;
+        @media @gteTablet {
+          color: @white;
+          .bounding-box {
+            &.box-border {
+              border-color: @white;
+            }
+            i {
+              color: @white;
+            }
           }
-          i {
-            color: @white;
-          }
+        }
+      }
+
+      @media @ltTablet {
+        &.punchs {
+          margin: 0;
         }
       }
     }
@@ -89,6 +152,9 @@
       }
       @media @ltDesktop {
         padding-top: 0;
+      }
+      @media @ltTablet {
+        padding-bottom: 15px;
       }
     }
   }

@@ -5,6 +5,20 @@
   margin-bottom: 40px;
   text-align: right;
   overflow: hidden;
+
+  @media @ltTablet {
+    display: inline-block;
+    float: none;
+    width: 49%;
+    clear: none;
+    min-height: 80px;
+    text-align: left;
+  }
+
+  @media @ltMoblet {
+    width: 100%;
+    clear: both;
+  }
 }
 
 .bounding-box {
@@ -15,12 +29,16 @@
   border-radius: 50%;
   padding-top: (@bounding-box-icon-size - @icon-size) / 2 - 2px;
 
-
   i {
     padding: 24px;
     font-size: @icon-size;
     color: @grey-light;
     .transition(color @animateSpeed linear);
+  }
+
+  &.box-border {
+    border: solid 1px @grey-light;
+    .transition(border @animateSpeed linear);
   }
 
   @media @ltDesktop {
@@ -37,9 +55,11 @@
     }
   }
 
-  &.box-border {
-    border: solid 1px @grey-light;
-    .transition(border @animateSpeed linear);
+  @media @ltTablet {
+    position: absolute;
+    margin: 0 auto 5px;
+    top: 0;
+    left: 0;
   }
 
   .team-member & {
@@ -101,6 +121,16 @@
     margin-right: 15px;
   }
 
+  @media @ltTablet {
+    width: 100%;
+    padding-left: 80px;
+    margin: 0;
+
+    .team-member & {
+      padding-left: 100px;
+    }
+  }
+
   h4 {
     margin: 20px 0 0;
     .font-md;
@@ -111,12 +141,20 @@
       margin-top: 13px;
     }
 
+    @media @eMobile {
+      font-size: 18px;
+    }
+
     .team-member & {
       .font-lg;
       margin-bottom: 2px;
 
       @media @ltDesktop {
         font-size: 24px;
+      }
+
+      @media @ltTablet {
+        margin: 5px 0 0;
       }
     }
 

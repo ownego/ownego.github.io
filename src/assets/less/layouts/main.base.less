@@ -18,6 +18,10 @@ body {
     overflow: auto;
     overflow-x: hidden;
   }
+
+  @media @ltMoblet {
+    font-size: 14px;
+  }
 }
 
 a {
@@ -87,6 +91,10 @@ button {
     font-size: 40px;
     padding-bottom: 5px;
   }
+
+  @media @eMobile {
+    font-size: 30px;
+  }
 }
 
 .sub-title {
@@ -100,6 +108,10 @@ button {
 
   @media @ltDesktop {
     font-size: 18px;
+  }
+
+  @media @eMobile {
+    font-size: 16px;
   }
 
   span {
@@ -165,6 +177,11 @@ p {
 
     @media @ltTablet {
       .font-light;
+    }
+
+    @media @eMobile {
+      min-width: 0;
+      margin-bottom: 30px;
     }
   }
 }

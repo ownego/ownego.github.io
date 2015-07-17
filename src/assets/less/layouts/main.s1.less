@@ -15,14 +15,29 @@
   .logo-container {
     display: block;
     float: left;
-    font-size: 110px;
+    font-size: @logoWidth;
     line-height: 1em;
     margin-right: 20px;
+
+    @media @eMobile {
+      @logoW: 80px;
+
+      font-size: 0;
+
+      svg {
+        width: @logoW;
+        height: @logoW;
+      }
+    }
   }
   h1 {
     .font-bold;
     .font-xxl;
     .nvm;
+
+    @media @eMobile {
+      font-size: 42px;
+    }
   }
   .slogan {
     display: block;
@@ -31,6 +46,11 @@
     .font-light;
     .font-sm;
     letter-spacing: 0.2px;
+
+    @media @eMobile {
+      font-size: 11px;
+      margin-top: 3px;
+    }
   }
 
   path {
@@ -41,11 +61,19 @@
 }
 
 .s1 {
+  @media @ltMoblet {
+    bottom: 0;
+  }
+
   .first-half-page {
     @media @ltTablet {
       position: relative;
-      margin-top: 70px;
-      margin-left: 20px;
+      margin: 50px 5px 0;
+    }
+
+    @media @ltMoblet {
+      margin-left: 0;
+      margin-right: 0;
     }
   }
   .s-content {
@@ -57,7 +85,7 @@
       position: relative;
       right: 0;
       bottom: 0;
-      padding: 50px 15px 0;
+      padding: 50px 5px 0;
       text-align: left;
 
       .s-title {
@@ -80,6 +108,10 @@
           color: @black;
         }
       }
+    }
+    @media @ltMoblet {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }

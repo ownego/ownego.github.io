@@ -1,0 +1,12 @@
+{% macro punch(obj) %}
+<div class="punchs">
+  <div class="bounding-box box-border">
+    <a href="#">
+      {{ obj.icon | safe }}
+    </a>
+  </div>
+  <div class="bounding-info">
+    <h4><a href="#">{{ obj.title }}</a></h4>
+  </div>
+</div>
+{% endmacro %}
