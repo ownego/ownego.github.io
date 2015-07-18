@@ -11,6 +11,8 @@
 
   @media @ltTablet {
     position: fixed;
+    .skew(0, 0);
+    display: none;
   }
 
 
@@ -76,5 +78,9 @@
 
     .s1.active ~ & {
         opacity: 1;
+    }
+
+    @media @ltTablet {
+      display: none;
     }
 }

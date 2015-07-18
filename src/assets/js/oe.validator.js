@@ -67,8 +67,9 @@
     } else {
       // AJAX
       $.ajax({
-        url: 'ajax.php',
+        url: 'http://api.ownego.com/API/validation/',
         type: 'post',
+        async: true,
         data: {
           'name': $inputName.val(),
           'email': $inputEmail.val(),

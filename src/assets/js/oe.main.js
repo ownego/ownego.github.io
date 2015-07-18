@@ -10,19 +10,21 @@
   // Common functions
   var oe = {
     switchActions: function () {
-      $doc.on('click', '.nav-items', function(e) {
+      $doc.on('click', '[data-screen-go]', function(e) {
         oe.switchScreens($(this).attr('data-screen-go'));
       });
 
       $doc.on('keyup', function(e) {
         if($('body').hasClass('modal-open')) return;
-
         switch(e.keyCode) {
+          case 37: // Left
           case 38: // Up
             var curScreen = parseInt($body.attr('data-active-screen'));
             if(curScreen > 1)
               oe.switchScreens(curScreen - 1);
             break;
+
+          case 39: // Right
           case 40: // Down
             var curScreen = parseInt($body.attr('data-active-screen'));
             if(curScreen < config.screenCount)
@@ -36,6 +38,9 @@
       $body.attr('data-active-screen', targetScreen);
       $('.main-screen.active').removeClass('active');
       $('.main-screen[data-screen-no=' + targetScreen + ']').addClass('active');
+      setTimeout(function() {
+        $('body, html').scrollTop(0);
+      }, 200);
 
       // Draw a SVG per page
       if (targetScreen == 1) {
@@ -102,9 +107,4 @@ $(function () {
   // functions call
   oe.switchActions();
   oe.loader.init();
-
-  // to test
-  $('#loader').hide();
-  oe.switchScreens(1);
-//  $('#modalSendForm').modal('show');
 });

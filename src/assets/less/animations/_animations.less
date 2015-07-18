@@ -7,12 +7,14 @@ body {
   }
 }
 
-.copyright-line {
-  .oeicon-logo {
-    .transition(opacity @animateSpeed linear @animateSpeed);
-    opacity: 0;
-    [data-active-screen="2"] &, [data-active-screen="3"] & {
-      opacity: 1;
+@media @gteTablet {
+  .copyright-line {
+    .oeicon-logo {
+      .transition(opacity @animateSpeed linear @animateSpeed);
+      opacity: 0;
+      [data-active-screen="2"] &, [data-active-screen="3"] & {
+        opacity: 1;
+      }
     }
   }
 }
@@ -23,11 +25,13 @@ body {
     .fadeUp();
     .animation-duration(@animateSpeed);
     .animDelayLevel(@eff-nav-item1);
+
     .nav-sub-text {
       .fadeUp();
       .animDelayLevel(@eff-nav-item1-sub);
       .transition(color @animateSpeed linear);
     }
+
     &:nth-child(2) {
       .animDelayLevel(@eff-nav-item2);
       .nav-sub-text {
@@ -40,6 +44,7 @@ body {
         .animDelayLevel(@eff-nav-item3-sub);
       }
     }
+
     i {
       opacity: 0;
       .translate(-20%, 0);
@@ -61,24 +66,24 @@ body {
 }
 
 // Main Background that we called Shape
-.rectangle {
-  -webkit-transition: -webkit-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
-  -moz-transition: -moz-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
-  transition: transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
-  &.eff-chain {
-    .transition(right @eff-shape-s3-animspeed ease);
+@media @gteTablet {
+  .rectangle {
+    -webkit-transition: -webkit-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+    -moz-transition: -moz-transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+    transition: transform @eff-shape-speed ease @eff-shape-delay, right @eff-shape-speed ease @eff-shape-move-delay;
+    &.eff-chain {
+      .transition(right @eff-shape-s3-animspeed ease);
+    }
   }
-}
+  .bgs1 {
+    .transition(opacity (@animateSpeed*2) ease-in @animateSpeed);
+  }
 
-.bgs1 {
-  .transition(opacity (@animateSpeed*2) ease-in @animateSpeed);
-}
-
-.main-screen {
-  .transition(opacity @eff-shape-move-delay linear, left 1ms linear (@eff-shape-move-delay+200ms);
-  );
-  &.active {
-    .transition-delay(0ms);
+  .main-screen {
+    .transition(opacity @eff-shape-move-delay linear, left 1ms linear (@eff-shape-move-delay+200ms););
+    &.active {
+      .transition-delay(0ms);
+    }
   }
 }
 
@@ -87,6 +92,13 @@ body {
   .s-content {
     .fadeIn();
     .animDelayLevel(@eff-s1-content);
+  }
+  .logo {
+    path {
+      @media @ltTablet {
+        .animation(logoFill @animateSpeed linear 1400ms forwards);
+      }
+    }
   }
 }
 
@@ -155,34 +167,38 @@ body {
     .fadeIn();
     .animDelayLevel(@eff-s3-right-content);
   }
-  .input-normal,
-  .form-caution,
-  .form-submit {
-    .fadeIn();
-    .animDelayLevel(@eff-s3-input-show);
-  }
-  line {
-    .animCore();
-    .animation-duration(@eff-delay-range * @eff-s3-input-draw-speed);
-    .animDelayLevel(@eff-s3-input-draw, true);
-    &.border-top {
-      .active& {
-        .animation-name(bdMoveRight);
-      }
+
+  @media @gteTablet {
+    .input-normal,
+    .form-caution,
+    .form-submit {
+      .fadeIn();
+      .animDelayLevel(@eff-s3-input-show);
     }
-    &.border-left {
-      .active& {
-        .animation-name(bdMoveUp);
+
+    line {
+      .animCore();
+      .animation-duration(@eff-delay-range * @eff-s3-input-draw-speed);
+      .animDelayLevel(@eff-s3-input-draw, true);
+      &.border-top {
+        .active& {
+          .animation-name(bdMoveRight);
+        }
       }
-    }
-    &.border-bottom {
-      .active& {
-        .animation-name(bdMoveLeft);
+      &.border-left {
+        .active& {
+          .animation-name(bdMoveUp);
+        }
       }
-    }
-    &.border-right {
-      .active& {
-        .animation-name(bdMoveDown);
+      &.border-bottom {
+        .active& {
+          .animation-name(bdMoveLeft);
+        }
+      }
+      &.border-right {
+        .active& {
+          .animation-name(bdMoveDown);
+        }
       }
     }
   }

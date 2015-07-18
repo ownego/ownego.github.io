@@ -28,6 +28,7 @@
   .modal-content {
     .box-shadow(none);
     border-radius: 0;
+    border: 0;
   }
   .modal-body {
     padding-left: 15px;
@@ -69,11 +70,12 @@
       top: -35px;
       right: 5px;
       color: @white;
+      padding: 10px 3px 0 20px;
     }
 
     @media @ltMoblet {
-      bottom: 31px;
-      right: 30px;
+      bottom: 35px;
+      right: 15px;
       top: auto;
       color: @black;
 
@@ -82,6 +84,7 @@
         display: block;
         font-style: italic;
         font-size: 18px;
+        line-height: 1em;
       }
 
       i {
@@ -98,12 +101,30 @@
     left: 50%;
     right: auto;
     .translate(-50%, -50%);
+
+    @media @eMobile {
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      .translate(0, 0);
+      background-color: @white;
+    }
+  }
+
+  .row-nerf {
+    margin-left: -5px;
+    margin-right: -5px;
+
+    > div {
+      width: 50%;
+      padding: 0 5px;
+    }
   }
 }
 
 .send-btn {
-  margin-top: 5px;
-  margin-bottom: 8px;
   color: @white;
   background-color: @black;
   .transition(all @animateSpeed ease);
