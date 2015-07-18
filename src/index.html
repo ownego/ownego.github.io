@@ -127,6 +127,12 @@
           <div class="desc">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis metus ac est consequat tempus.</p><p>Mauris sed ante mattis magna vehicula pellentesque at a metus. Donec pretium arcu sed augue vehicula, ut rhoncus erat facilisis. In hac habitasse platea dictumst.</p>
           </div>
+          <div class="visible-sm visible-xs clearfix">
+            <button type="button" class="link-only next pull-right" data-screen-go="2">
+              <span>Next</span>
+              <i class="oeicon-arrow-right"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -253,6 +259,16 @@
 </div>
 
           
+        </div>
+        <div class="visible-sm visible-xs clearfix">
+          <button type="button" class="link-only back pull-left" data-screen-go="1">
+            <i class="oeicon-arrow-left"></i>
+            <span>Back</span>
+          </button>
+          <button type="button" class="link-only next pull-right" data-screen-go="3">
+            <span>Next</span>
+            <i class="oeicon-arrow-right"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -663,9 +679,18 @@
         <div class="modal-body-wrapper">
           <div class="g-recaptcha" data-sitekey="6Le-9QgTAAAAAP6zJASkbYa7Cmz-OiosA1yB0t18"></div>
           <p class="pb text-left" id="submitAlert">Are you sure to send this message?</p>
-          <button class="btn send-btn" id="submitConfirm">
-            <span>Send</span>
-          </button>
+          <div class="row-nerf clearfix">
+            <div class="pull-left">
+              <button class="btn btn-default" data-dismiss="modal">
+                <span>Cancel</span>
+              </button>
+            </div>
+            <div class="pull-right">
+              <button class="btn btn-primary" id="submitConfirm">
+                <span>Send</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -677,9 +702,24 @@
   <div class="loading" id="loader">
     <div class="load-content">
       <div class="chart" id="loadingCircle" data-percent="0">
-        <span data-finish="Welcome">0%</span>
+        <span data-finish="Start" id="startBtn">0%</span>
       </div>
-      <button id="startBtn" class="btn btn-primary">Start</button>
+      <div class="load-hint hidden-sm hidden-xs">
+        <p class="near">
+          <span class="key-btn"><i class="oeicon-key-up"></i></span>
+        </p>
+        <p class="pb">
+          <span class="key-btn"><i class="oeicon-key-left"></i></span>
+          <span class="key-btn"><i class="oeicon-key-down"></i></span>
+          <span class="key-btn"><i class="oeicon-key-right"></i></span>
+        </p>
+        <p>
+          <strong>Hint:</strong> You can use arrow keys to navigate our site
+        </p>
+      </div>
+      <div class="load-hint visible-xs visible-sm">
+        We always try to improve<br/>users experiments
+      </div>
     </div>
   </div>
 

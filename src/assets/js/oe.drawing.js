@@ -20,7 +20,9 @@
         colorCurrent: [255, 255, 255],
         colorTarget: [51, 51, 51],
         colorStroke: [208, 208, 208],
-        colorIncrement: [1, 1, 1]
+        colorIncrement: [1, 1, 1],
+        mobileDrawing: false,
+        mobileBreakpoint: 768
     };
 
     var oeSvgDraw = function(element, options) {
@@ -40,6 +42,11 @@
         },
 
         init: function() {
+            if(!this.options.mobileDrawing) {
+              var windowWidth = $(window).outerWidth();
+              if(windowWidth <= this.options.mobileBreakpoint) return;
+            }
+
             var self = this;
             this.frameCurrent = this.options.framesStart;
             this.path = new Array();

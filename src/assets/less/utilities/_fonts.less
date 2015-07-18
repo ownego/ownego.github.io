@@ -1,47 +1,60 @@
 .font-sub {
-    font-family: @fontCondensed;
+  font-family: @fontCondensed;
 }
+
 // Weight
 .font-thin {
-    font-weight: 100;
-}
-.font-light {
+  font-weight: 100;
+
+  @media @ltTablet {
     font-weight: 300;
+  }
 }
+
+.font-light {
+  font-weight: 300;
+}
+
 .font-regular {
-    font-weight: 400;
+  font-weight: 400;
 }
+
 .font-bold {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 // Size
 .font-xs {
-    font-size: 14px;
-    line-height: 20px;
+  font-size: 14px;
+  line-height: 20px;
 }
+
 .font-sm {
-    font-size: 16px;
-    line-height: 24px;
+  font-size: 16px;
+  line-height: 24px;
 }
+
 .font-md {
-    font-size: 24px;
-    line-height: 30px;
+  font-size: 24px;
+  line-height: 30px;
 }
+
 .font-lg {
-    font-size: 30px;
-    line-height: 38px;
+  font-size: 30px;
+  line-height: 38px;
 }
+
 .font-xl {
-    font-size: 48px;
-    line-height: 60px;
+  font-size: 48px;
+  line-height: 60px;
 }
+
 .font-xxl {
-    font-size: 60px;
-    line-height: 1em;
+  font-size: 60px;
+  line-height: 1em;
 }
 
 // Colors
 .text-white {
-    color: @white;
+  color: @white;
 }

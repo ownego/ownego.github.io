@@ -73,9 +73,24 @@
   <div class="loading" id="loader">
     <div class="load-content">
       <div class="chart" id="loadingCircle" data-percent="0">
-        <span data-finish="Welcome">0%</span>
+        <span data-finish="Start" id="startBtn">0%</span>
       </div>
-      <button id="startBtn" class="btn btn-primary">Start</button>
+      <div class="load-hint hidden-sm hidden-xs">
+        <p class="near">
+          <span class="key-btn"><i class="oeicon-key-up"></i></span>
+        </p>
+        <p class="pb">
+          <span class="key-btn"><i class="oeicon-key-left"></i></span>
+          <span class="key-btn"><i class="oeicon-key-down"></i></span>
+          <span class="key-btn"><i class="oeicon-key-right"></i></span>
+        </p>
+        <p>
+          <strong>Hint:</strong> You can use arrow keys to navigate our site
+        </p>
+      </div>
+      <div class="load-hint visible-xs visible-sm">
+        We always try to improve<br/>users experiments
+      </div>
     </div>
   </div>
 
