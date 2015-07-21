@@ -25,6 +25,17 @@ body {
     &[data-active-screen="3"] {
       background-color: @white;
     }
+
+    &.modal-open {
+      position: absolute;
+      height: 100%;
+      overflow: hidden;
+
+      main {
+        height: 100%;
+        overflow: hidden;
+      }
+    }
   }
 
   @media @ltMoblet {
@@ -95,6 +106,11 @@ button {
   @media @ltTablet {
     padding-top: 50px;
     height: auto;
+  }
+
+  .modal-open & {
+    height: 100%;
+    overflow: hidden;
   }
 }
 
