@@ -83,7 +83,7 @@
   <!-- Service Modals -->
 
   <!-- Send form modal -->
-  {% include '../modals/form.html' %}
+  {% include '../modals/captcha.html' %}
 
   <!-- Loading screen -->
   <div class="loading" id="loader">
@@ -126,12 +126,12 @@
   <script src="{{ vendorDir }}/jquery-validation/dist/jquery.validate.min.js"></script>
   <script src="{{ vendorDir }}/supported-browser/supportedbrowser.js"></script>
   <!-- endbuild -->
+  <script src="{{ assetDir }}/js/oe.supportedbrowser.js"></script>
   <script src="{{ assetDir }}/js/oe.drawing.js"></script>
   <script src="{{ assetDir }}/js/oe.main.js"></script>
   <script src="{{ assetDir }}/js/oe.loader.js"></script>
+  <script src="{{ assetDir }}/js/oe.messenger.js"></script>
   <script src="{{ assetDir }}/js/oe.console.js"></script>
-  <script src="{{ assetDir }}/js/oe.validator.js"></script>
-  <script src="{{ assetDir }}/js/oe.supportedbrowser.js"></script>
   {% endblock %}
 
   <script>

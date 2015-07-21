@@ -7,6 +7,7 @@
 /src/css/
 /src/assets/css/
 /dist/
+/src/*.html
 
 #Eclipse
 .project

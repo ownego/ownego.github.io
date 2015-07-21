@@ -90,11 +90,54 @@
 
 .form-caution {
   display: block;
-  padding-top: 5px;
+  padding-top: 7px;
   padding-bottom: 5px;
   padding-right: 10px;
   color: @grey-light;
   .font-light;
   font-size: 11px;
   text-align: left;
+  line-height: 18px;
+
+  &.success {
+    color: @green;
+  }
+
+  &.red,
+  &.success {
+    span:first-child {
+      display: none;
+    }
+  }
+}
+.confirm-btn {
+  span {
+    display: block;
+    position: relative;
+
+    &:after {
+      content: attr(data-sending);
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: @white;
+      background-color: @black;
+      text-indent: 0;
+      .animation(flash 2s linear infinite);
+    }
+  }
+
+  &.sending {
+    cursor: progress;
+
+    span {
+      text-indent: -9000px;
+
+      &:after {
+        display: block;
+      }
+    }
+  }
 }

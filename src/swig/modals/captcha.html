@@ -4,7 +4,7 @@
       <div class="modal-body">
         <h4 class="modal-title">SEND MESSAGE</h4>
         <div class="modal-body-wrapper">
-          <div class="g-recaptcha" data-sitekey="6Le-9QgTAAAAAP6zJASkbYa7Cmz-OiosA1yB0t18"></div>
+          <div class="g-recaptcha" data-sitekey="{{ siteSettings.captchaSiteKey }}"></div>
           <p class="pb text-left" id="submitAlert">Are you sure to send this message?</p>
           <div class="row-nerf clearfix">
             <div class="pull-left">
@@ -13,8 +13,8 @@
               </button>
             </div>
             <div class="pull-right">
-              <button class="btn btn-primary" id="submitConfirm">
-                <span>Send</span>
+              <button class="btn btn-primary confirm-btn" id="submitConfirm">
+                <span data-sending="Sending...">Send</span>
               </button>
             </div>
           </div>

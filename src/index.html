@@ -275,6 +275,7 @@
 </div>
 
           
+          <div class="other-members"><p>and other heroes...</p></div>
         </div>
         <div class="visible-sm visible-xs clearfix">
           <button type="button" class="link-only back pull-left" data-screen-go="1">
@@ -424,9 +425,10 @@
             </div>
 
             <div class="row">
-              <div class="col-md-7 col-lg-8" id="cautionWrapper">
+              <div class="col-md-7 col-lg-8">
                 <small class="form-caution" id="errorContainer">
-                Caution*: We will reply to you as soon as you send your message. Please check your inbox for an email from us.
+                  <span>Caution*: We will reply to you as soon as you send your message. Please check your inbox for an email from us.</span>
+                  <span id="errorMes"></span>
                 </small>
               </div>
 
@@ -693,7 +695,7 @@
       <div class="modal-body">
         <h4 class="modal-title">SEND MESSAGE</h4>
         <div class="modal-body-wrapper">
-          <div class="g-recaptcha" data-sitekey="6Le-9QgTAAAAAP6zJASkbYa7Cmz-OiosA1yB0t18"></div>
+          <div class="g-recaptcha" data-sitekey="6Ld9_gkTAAAAAMxf4TEUd1mbG0HZszOKYqaoBfAv"></div>
           <p class="pb text-left" id="submitAlert">Are you sure to send this message?</p>
           <div class="row-nerf clearfix">
             <div class="pull-left">
@@ -702,8 +704,8 @@
               </button>
             </div>
             <div class="pull-right">
-              <button class="btn btn-primary" id="submitConfirm">
-                <span>Send</span>
+              <button class="btn btn-primary confirm-btn" id="submitConfirm">
+                <span data-sending="Sending...">Send</span>
               </button>
             </div>
           </div>
@@ -755,12 +757,12 @@
   <script src="./vendors/jquery-validation/dist/jquery.validate.min.js"></script>
   <script src="./vendors/supported-browser/supportedbrowser.js"></script>
   <!-- endbuild -->
+  <script src="./assets/js/oe.supportedbrowser.js"></script>
   <script src="./assets/js/oe.drawing.js"></script>
   <script src="./assets/js/oe.main.js"></script>
   <script src="./assets/js/oe.loader.js"></script>
+  <script src="./assets/js/oe.messenger.js"></script>
   <script src="./assets/js/oe.console.js"></script>
-  <script src="./assets/js/oe.validator.js"></script>
-  <script src="./assets/js/oe.supportedbrowser.js"></script>
   
 
   <script>

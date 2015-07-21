@@ -129,6 +129,11 @@ body {
     .animDelayLevel(@eff-s2-content);
   }
 
+  .other-members {
+    .fadeIn();
+    .animDelayLevel(@eff-s2-other-members-text);
+  }
+
   .first-half-page .s-title {
     .fadeIn();
     .animDelayLevel(@eff-s2-bounding-box);
@@ -168,38 +173,44 @@ body {
     .animDelayLevel(@eff-s3-right-content);
   }
 
-  @media @gteTablet {
-    .input-normal,
-    .form-caution,
-    .form-submit {
-      .fadeIn();
-      .animDelayLevel(@eff-s3-input-show);
+  .input-normal,
+  .form-caution,
+  .form-submit {
+    .fadeIn();
+    .animDelayLevel(@eff-s3-input-show);
+
+    @media @ltTablet {
+      .animClear();
+    }
+  }
+
+  line {
+    .animCore();
+    .animation-duration(@eff-delay-range * @eff-s3-input-draw-speed);
+    .animDelayLevel(@eff-s3-input-draw, true);
+    &.border-top {
+      .active& {
+        .animation-name(bdMoveRight);
+      }
+    }
+    &.border-left {
+      .active& {
+        .animation-name(bdMoveUp);
+      }
+    }
+    &.border-bottom {
+      .active& {
+        .animation-name(bdMoveLeft);
+      }
+    }
+    &.border-right {
+      .active& {
+        .animation-name(bdMoveDown);
+      }
     }
 
-    line {
-      .animCore();
-      .animation-duration(@eff-delay-range * @eff-s3-input-draw-speed);
-      .animDelayLevel(@eff-s3-input-draw, true);
-      &.border-top {
-        .active& {
-          .animation-name(bdMoveRight);
-        }
-      }
-      &.border-left {
-        .active& {
-          .animation-name(bdMoveUp);
-        }
-      }
-      &.border-bottom {
-        .active& {
-          .animation-name(bdMoveLeft);
-        }
-      }
-      &.border-right {
-        .active& {
-          .animation-name(bdMoveDown);
-        }
-      }
+    @media @ltTablet {
+      .animClear();
     }
   }
 }
