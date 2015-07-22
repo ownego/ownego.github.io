@@ -110,7 +110,7 @@
     }
   }
 }
-.confirm-btn {
+.form-submit {
   span {
     display: block;
     position: relative;
@@ -137,6 +137,15 @@
 
       &:after {
         display: block;
+      }
+    }
+
+    &:hover {
+      &:before {
+        display: none;
+      }
+      span {
+        .translate(0, 0);
       }
     }
   }
