@@ -3,8 +3,7 @@
   var $errorMes = $('#errorMes');
 
   var $messageForm = $('#messageForm');
-  var $modalForm = $('#modalSendForm');
-  var $alertSubmit = $('#submitAlert');
+  var $smBtn = $('#submitbtn');
 
   // Form Validation
   $messageForm.validate({
@@ -19,13 +18,13 @@
 
     messages: {
       name: {
-        required: "Please enter your name"
+        required: "Oops, could you let us know your name?"
       },
       email: {
-        required: "Please enter your email",
-        email: "Please enter a valid email"
+        required: "We need your email to reply, we promise nobody will knows that. Shhh...",
+        email: "You should remember your email hah."
       },
-      message: "Please enter your message"
+      message: "Hard to say something? Com'on just tell us."
     },
     errorPlacement: function (error, element) {
       error.appendTo($errorContainer);
@@ -51,60 +50,50 @@
     submitHandler: function (form) {
       $('.input-normal').removeClass('error');
       $errorContainer.removeClass('success');
-      $alertSubmit.removeClass('red').html('Are you sure to send this message?')
       $errorMes.html('');
-      $modalForm.modal('show');
+
+      messenger();
     }
   });
 
-  $('#submitConfirm').click(function () {
-    var $smbtn = $(this);
-    $smbtn.addClass('sending').attr('disabled', 'disabled');
+  function messenger() {
+    $smBtn.addClass('sending').attr('disabled', 'disabled');
 
     var $inputName = $('#msgName');
     var $inputEmail = $('#msgEmail');
     var $inputMessage = $('#msgMessage');
-    var $inputCaptcha = $('#g-recaptcha-response');
 
-    if (!($inputCaptcha.val())) {
-      $alertSubmit
-        .addClass('red')
-        .html('Please check the captcha');
-    } else {
-      // AJAX
-      $.ajax({
-        url: 'http://api.ownego.com/API/validation',
-        type: 'post',
-        data: {
-          'name': $inputName.val(),
-          'email': $inputEmail.val(),
-          'message': $inputMessage.val(),
-          'g-recaptcha-response': $inputCaptcha.val()
-        },
-        success: function (res) {
-          if(res.success) {
-            $errorContainer.removeClass('red').addClass('success');
-            $errorMes.html('Your message has been sent successfully! We will reply your message very soon.');
-            $('.input-normal').val('');
-          } else {
-            var errors = '';
-            for(var i in res.errors) {
-              $('.input-normal[name=' + res.errors[i].field + ']').addClass('error');
-              errors += res.errors[i].message + '<br/>';
-            }
-            $errorContainer.addClass('red');
-            $errorMes.html(errors);
+    // AJAX
+    $.ajax({
+      url: 'http://api.ownego.com/API/validation',
+      type: 'post',
+      data: {
+        'name': $inputName.val(),
+        'email': $inputEmail.val(),
+        'message': $inputMessage.val()
+      },
+      success: function (res) {
+        if(res.success) {
+          $errorContainer.removeClass('red').addClass('success');
+          $errorMes.html('Your message has been flown to us!<br/>We will reply your message ASAP.');
+          $('.input-normal').val('');
+        } else {
+          var errors = '';
+          for(var i in res.errors) {
+            $('.input-normal[name=' + res.errors[i].field + ']').addClass('error');
+            errors += res.errors[i].message + '<br/>';
           }
-        },
-        error: function (xhr, desc, err) {
           $errorContainer.addClass('red');
-          $errorMes.html('Error*: There are some problems sending your message. Please try again later.');
-        },
-        complete: function() {
-          $smbtn.removeClass('sending').removeAttr('disabled');
-          $modalForm.modal('hide');
+          $errorMes.html(errors);
         }
-      }); // end ajax call
-    }
-  });
+      },
+      error: function (xhr, desc, err) {
+        $errorContainer.addClass('red');
+        $errorMes.html('Oops, sorry. Something went wrong when we try to receive your message. Could you try again later or contact us via contact@ownego.com');
+      },
+      complete: function() {
+        $smBtn.removeClass('sending').removeAttr('disabled');
+      }
+    }); // end ajax call
+  }
 })();

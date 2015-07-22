@@ -1,6 +1,7 @@
 (function (window, $) {
   var $doc = $(document);
   var $body = $('body');
+  var $grand = $('body, html');
 
   var config = {
     firstScreen: 1,
@@ -39,7 +40,7 @@
       $('.main-screen.active').removeClass('active');
       $('.main-screen[data-screen-no=' + targetScreen + ']').addClass('active');
       setTimeout(function() {
-        $('body, html').scrollTop(0);
+        $grand.scrollTop(0);
       }, 200);
 
       // Draw a SVG per page
@@ -57,7 +58,7 @@
         // Founders signature effect
         setTimeout(function () {
           $('#foundersSign').oeSvgDrawing({
-            framesTotal: 200,
+            framesTotal: 150,
             colorCurrent: [51, 51, 51],
             colorTarget: [255, 255, 255],
             colorStroke: [255, 255, 255]
