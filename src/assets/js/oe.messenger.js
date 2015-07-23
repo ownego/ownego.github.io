@@ -21,10 +21,10 @@
         required: "Oops, could you let us know your name?"
       },
       email: {
-        required: "We need your email to reply, we promise nobody will knows that. Shhh...",
-        email: "You should remember your email hah."
+        required: "We need your email to reply, we prefer dialogue to monologue :)",
+        email: "Sike, that's the wrong email!"
       },
-      message: "Hard to say something? Com'on just tell us."
+      message: "Don't be shy! Tell us anything that is bothering you."
     },
     errorPlacement: function (error, element) {
       error.appendTo($errorContainer);
