@@ -96,11 +96,11 @@
           <span class="key-btn"><i class="oeicon-key-right"></i></span>
         </p>
         <p>
-          <strong>Hint:</strong> You can use arrow keys to navigate our site
+          {{ loadingHint.desktop | safe }}
         </p>
       </div>
       <div class="load-hint visible-xs visible-sm">
-        We always try to improve<br/>users experiments
+        {{ loadingHint.mobile | safe }}
       </div>
     </div>
   </div>
