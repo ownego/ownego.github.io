@@ -75,7 +75,7 @@
       success: function (res) {
         if(res.success) {
           $errorContainer.removeClass('red').addClass('success');
-          $errorMes.html('Your message has been flown to us!<br/>We will reply your message ASAP.');
+          $errorMes.html('Your message has been flown to us! We will reply your message ASAP.');
           $('.input-normal').val('');
         } else {
           var errors = '';
