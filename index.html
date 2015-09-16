@@ -1,0 +1,43 @@
+<html>
+
+<script>
+  var x = 1600;
+  var odd = true;
+  var arr = [];
+  var count = 0;
+
+  // Create arr
+  for (i = 1; i <= x; ++i) {
+    arr.push(i);
+  }
+  console.log('counting...');
+  while (arr.length > 1) {
+    count++;
+    console.log('count: ' + count);
+
+    odd = (arr.length % 2) ? false : true;
+
+    for(var e = 0; e < arr.length; e++) {
+      if(!((e+1) % 2)) {
+        arr[e] = false;
+      }
+    }
+
+    var newArr = [];
+    if(!odd && arr.length > 2) {
+      newArr.push(0);
+    }
+    for(var i = 0; i < arr.length; i++) {
+      if(arr[i]) newArr.push(arr[i]);
+    }
+    arr = newArr;
+
+    if(arr.length < 3) {
+      var k = !arr[0] ? 1 : 0;
+      console.log('Result: ' + arr[k]);
+      break;
+    }
+  } // end while
+</script>
+
+</html>

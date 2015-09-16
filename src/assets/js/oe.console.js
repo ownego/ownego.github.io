@@ -1,11 +1,11 @@
 console.log("\
 ======================== ownego.com ========================\n\
 | Shhhh...\n\
-| Hi! Are you finding something or you wanna join with us?\n\
-| Maybe we are not big but... like you, we wanna know everything about the world.\n\
+| Hi! I see what you did there! Are you searching for something or you simply wanna know more about us?\n\
+| We are not big but just like you, we wanna know how stuff works and every little thing in the world!\n\
 | \n\
-| Hmm, and who know, maybe you are the one who we're finding to save the world together, huh?\n\
-| Just contact us if you are feeling confuse right now, after you read this hidden copy.\n\
+| And who knows? Great minds think alike, maybe you are the one we're finding for to save the world together!\n\
+| Contact us if you feel intrigued by this hidden copy :)\n\
 | --------------- \n\
 | Via: sonnh[at]ownego.com.\n\
 | You always be welcome :)\n\

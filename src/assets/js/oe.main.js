@@ -12,6 +12,7 @@
   var oe = {
     switchActions: function () {
       $doc.on('click', '[data-screen-go]', function(e) {
+        e.preventDefault();
         oe.switchScreens($(this).attr('data-screen-go'));
       });
 
@@ -36,6 +37,10 @@
     },
 
     switchScreens: function (targetScreen) {
+      // Give hash to the url
+      this.hashTracker(targetScreen);
+
+      // Setting up the screen active
       $body.attr('data-active-screen', targetScreen);
       $('.main-screen.active').removeClass('active');
       $('.main-screen[data-screen-no=' + targetScreen + ']').addClass('active');
@@ -75,6 +80,22 @@
       } else {
         $rect.removeClass('eff-chain');
       }
+    },
+
+    hashUrl: function() {
+      // Quick link to screen via hash on url
+      var hash = window.location.hash.replace('#', '');
+      var screenNo = 1;
+      if(hash) {
+        screenNo = $('[data-screen-hash='+ hash +']').attr('data-screen-no');
+      }
+      this.switchScreens(screenNo);
+    },
+
+    hashTracker: function(screenNo) {
+      // provide the hash to url via screen number
+      var screenHash = $('[data-screen-no=' + screenNo + ']').attr('data-screen-hash');
+      window.location.hash = '#' + screenHash;
     }
   };
 
