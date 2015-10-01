@@ -1,9 +1,11 @@
 {% macro modalMember(obj) %}
+{% if !obj.isprivate %}
 <div class="modal fade big guy-info" id="{{ obj.modalid }}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <article class="row">
         <div class="col-lg-6 info-left bg-full" style="background-image:url({{ obj.modal.avatar }});">
+          <img src="{{ obj.modal.avatar }}" alt="{{ obj.name }}" class="hidden" />
         </div>
         <div class="col-lg-6 info-wrapper">
           <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
@@ -12,7 +14,7 @@
               <h3>{{ obj.name }}</h3>
               <h5>{{ obj.alias }}</h5>
             </header>
-            <div class="info-content">
+            <div class="info-content scrollable">
               {{ obj.modal.content | safe }}
               <p class="info-quote">
                 <q>{{ obj.modal.quote.copy }}</q>
@@ -32,4 +34,25 @@
     </div>
   </div>
 </div>
+{% else %}
+<div class="modal fade small" id="{{ obj.modalid }}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4 class="modal-title">Coming soon...</h4>
+        <div class="modal-body-wrapper">
+          <div class="pb text-left">
+            <p>He's pretty shy so we will introduce him later.</p>
+          </div>
+          <div class="row-nerf clearfix">
+            <button class="btn btn-primary" data-dismiss="modal">
+              <span>Okay</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
 {% endmacro %}

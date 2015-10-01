@@ -56,7 +56,7 @@
   <meta property="og:image" content="./assets/img/logo.jpg" />
   <meta property="og:description" content="Ownego is a creative digital agency that is passionate about crafting beautiful and usable solutions. We are small but flexible, young but passionate. We let the mind explore new ideas and the brain make it possible. Things should be, and can be done differently, more interestingly and more exceptionally. That&#39;s our belief." />
   <meta property="og:url" content="http://ownego.com" />
-  <meta property="og:site_name" content="Ownego" />
+  <meta property="og:site_name" content="ownego" />
   <meta property="fb:admins" content="1216147695" />
 
   <meta name="description" content="Ownego is a creative digital agency that is passionate about crafting beautiful and usable solutions. We are small but flexible, young but passionate. We let the mind explore new ideas and the brain make it possible. Things should be, and can be done differently, more interestingly and more exceptionally. That&#39;s our belief.">
@@ -66,6 +66,7 @@
   <!-- Main CSS -->
   <!-- build:csslib ./assets/css/libs.css -->
   <link rel="stylesheet" href="./vendors/animate.css/animate.css" />
+  <link rel="stylesheet" href="./vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
   <link rel="stylesheet" href="./assets/css/libs.css" />
   <link rel="stylesheet" href="./vendors/supported-browser/supportedbrowser.css" />
   <!-- endbuild -->
@@ -218,7 +219,7 @@
         Hoan PC.
       </a>
     </h4>
-    <span>system, structure Thor</span>
+    <span>system engineer Thor</span>
   </div>
 </div>
 
@@ -489,15 +490,11 @@
 
   <div class="social-bar">
   
-  <a href="#" target="_blank" class="social-icon" data-toggle="tooltip" data-placement="bottom" title="Connect with us">
-    <i class="oeicon-linkedin"></i>
-  </a>
-  
   <a href="https://github.com/ownego/ownego.github.io" target="_blank" class="social-icon" data-toggle="tooltip" data-placement="bottom" title="View sources on Github">
     <i class="oeicon-github"></i>
   </a>
   
-  <a href="#" target="_blank" class="social-icon" data-toggle="tooltip" data-placement="bottom" title="Follow us">
+  <a href="https://www.facebook.com/ownego" target="_blank" class="social-icon" data-toggle="tooltip" data-placement="bottom" title="Follow us">
     <i class="oeicon-social-facebook"></i>
   </a>
   
@@ -512,35 +509,33 @@
   <!-- Team Modals -->
   
     
+
 <div class="modal fade big guy-info" id="guyModal1" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <article class="row">
         <div class="col-lg-6 info-left bg-full" style="background-image:url(./assets/img/team/person-1.jpg);">
+          <img src="./assets/img/team/person-1.jpg" alt="Minh Duc Nghiem" class="hidden" />
         </div>
         <div class="col-lg-6 info-wrapper">
           <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
           <div class="info-main">
             <header class="info-head">
-              <h3>Duc Nghiem Minh</h3>
+              <h3>Minh Duc Nghiem</h3>
               <h5>algorithm Hulk</h5>
             </header>
-            <div class="info-content">
-                <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Suspendisse non augue et velit dignissim facilisis a at tortor.  Donec feugiat porta ante, vitae pellentesque libero pulvinar eget.  Fusce eu mi et nisl consectetur tempor quis sit amet leo.  </p>  <p>  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  In luctus nunc ut orci semper, vel blandit odio hendrerit.  </p>  <br>  <p>  <strong>Bike:</strong> Sometimes you can catch me sitting on street with a small tea cup... I belong to street.  </p>  
+            <div class="info-content scrollable">
+                <p>  Starting to mess around with computers since middle school  and with his special interest in numbers,  Duc easily becomes ownego&#39;s savior whenever we encounter logical or algebraic problems.  </p>  <p>  To Duc, every work can be done in just several hours of extreme concentration.  He considers a perfect working environment cannot lack of music.  You can easily find him on the office with his in-ear headphones, typing rapidly on his keyboard.  </p>  <p>  One his concentration mode has turned on, even earthquake can hardly pull him out of his train of thoughts.  </p>  <p>  Probably those points explain why his hobby almost always require high concentration, like billiards.  He challenges everyone in ownego whenever he has a chance,  so it&#39;s better not to let him learn that you know how to play billiards (there&#39;s a high chance that you can win though).  </p>  <br>  <p>  <strong>Headphones destroyer:</strong> He has at least THREE in-ear headphones that has one side broken (and soon to be his newest lol)  </p>  
               <p class="info-quote">
-                <q>Imagination is more important than knowledge.</q>
-                - <strong>Albert Einstein</strong>
+                <q>Stay hungry, stay foolish.</q>
+                - <strong>Steve Jobs</strong>
               </p>
             </div>
           </div>
           <div class="info-connect clearfix">
             <ul class="list-inline">
               
-              <li><a href="#" target="_blank"><i class="oeicon-social-facebook"></i></a></li>
-              
-              <li><a href="#" target="_blank"><i class="oeicon-linkedin"></i></a></li>
-              
-              <li><a href="#" target="_blank"><i class="oeicon-social-twitter"></i></a></li>
+              <li><a href="https://vn.linkedin.com/in/ducminhnghiem" target="_blank"><i class="oeicon-linkedin"></i></a></li>
               
             </ul>
           </div>
@@ -550,77 +545,62 @@
   </div>
 </div>
 
+
   
     
-<div class="modal fade big guy-info" id="guyModal2" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="modal fade small" id="guyModal2" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <article class="row">
-        <div class="col-lg-6 info-left bg-full" style="background-image:url(./assets/img/team/person-1.jpg);">
-        </div>
-        <div class="col-lg-6 info-wrapper">
-          <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
-          <div class="info-main">
-            <header class="info-head">
-              <h3>Hoan &quot;Phi cong&quot;</h3>
-              <h5>system, structure Thor</h5>
-            </header>
-            <div class="info-content">
-                <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Suspendisse non augue et velit dignissim facilisis a at tortor.  Donec feugiat porta ante, vitae pellentesque libero pulvinar eget.  Fusce eu mi et nisl consectetur tempor quis sit amet leo.  </p>  <p>  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  In luctus nunc ut orci semper, vel blandit odio hendrerit.  </p>  <br>  <p>  <strong>Bike:</strong> Sometimes you can catch me sitting on street with a small tea cup... I belong to street.  </p>  
-              <p class="info-quote">
-                <q>Imagination is more important than knowledge.</q>
-                - <strong>Albert Einstein</strong>
-              </p>
-            </div>
+      <div class="modal-body">
+        <h4 class="modal-title">Coming soon...</h4>
+        <div class="modal-body-wrapper">
+          <div class="pb text-left">
+            <p>He's pretty shy so we will introduce him later.</p>
           </div>
-          <div class="info-connect clearfix">
-            <ul class="list-inline">
-              
-              <li><a href="#" target="_blank"><i class="oeicon-social-facebook"></i></a></li>
-              
-              <li><a href="#" target="_blank"><i class="oeicon-linkedin"></i></a></li>
-              
-              <li><a href="#" target="_blank"><i class="oeicon-social-twitter"></i></a></li>
-              
-            </ul>
+          <div class="row-nerf clearfix">
+            <button class="btn btn-primary" data-dismiss="modal">
+              <span>Okay</span>
+            </button>
           </div>
         </div>
-      </article>
+      </div>
     </div>
   </div>
 </div>
 
+
   
     
+
 <div class="modal fade big guy-info" id="guyModal3" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <article class="row">
-        <div class="col-lg-6 info-left bg-full" style="background-image:url(./assets/img/team/person-1.jpg);">
+        <div class="col-lg-6 info-left bg-full" style="background-image:url(./assets/img/team/person-3.jpg);">
+          <img src="./assets/img/team/person-3.jpg" alt="Tien Minh Nguyen" class="hidden" />
         </div>
         <div class="col-lg-6 info-wrapper">
           <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
           <div class="info-main">
             <header class="info-head">
-              <h3>Minh Nguyen Tien</h3>
+              <h3>Tien Minh Nguyen</h3>
               <h5>full stack technical Iron Man</h5>
             </header>
-            <div class="info-content">
-                <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Suspendisse non augue et velit dignissim facilisis a at tortor.  Donec feugiat porta ante, vitae pellentesque libero pulvinar eget.  Fusce eu mi et nisl consectetur tempor quis sit amet leo.  </p>  <p>  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  In luctus nunc ut orci semper, vel blandit odio hendrerit.  </p>  <br>  <p>  <strong>Bike:</strong> Sometimes you can catch me sitting on street with a small tea cup... I belong to street.  </p>  
+            <div class="info-content scrollable">
+                <p>  "Who is the most dedicated man in ownego?",  there is only one answer to that question, it&#39;s "Minh".  He would always try to perfect everything he&#39;s done and be responsible for his position.  He&#39;s good in every field he knows, it&#39;s just that... he knows every field...  </p>  <p>  Embodied in every product he created is his passion and responsibility,  no one can complain anything about those completed products.  </p>  <p>  Whenever feeling stressed or encountering some strange bugs, he often sings some of his favorite melodies.  This helps him, but not us, and after just about 5 minutes,  we often have to plug in-ear headphones into our ear as a last resort.  </p>  <br>  <p>  <strong>Fun fact:</strong> Shaving every 2 weeks and soccer is his only hobby.  </p>  
               <p class="info-quote">
-                <q>Imagination is more important than knowledge.</q>
-                - <strong>Albert Einstein</strong>
+                <q>So they&#39;ll hang me in the morning, Ere this long night is done, They&#39;ll hang me in the morning And I&#39;ll never see the sun.</q>
+                - <strong>3:10 to Yuma</strong>
               </p>
             </div>
           </div>
           <div class="info-connect clearfix">
             <ul class="list-inline">
               
-              <li><a href="#" target="_blank"><i class="oeicon-social-facebook"></i></a></li>
+              <li><a href="https://vn.linkedin.com/pub/tien-minh-nguyen/90/781/51b" target="_blank"><i class="oeicon-linkedin"></i></a></li>
               
-              <li><a href="#" target="_blank"><i class="oeicon-linkedin"></i></a></li>
-              
-              <li><a href="#" target="_blank"><i class="oeicon-social-twitter"></i></a></li>
+              <li><a href="https://github.com/minhntownego" target="_blank"><i class="oeicon-github"></i></a></li>
               
             </ul>
           </div>
@@ -630,13 +610,16 @@
   </div>
 </div>
 
+
   
     
+
 <div class="modal fade big guy-info" id="guyModal4" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <article class="row">
         <div class="col-lg-6 info-left bg-full" style="background-image:url(./assets/img/team/person-1.jpg);">
+          <img src="./assets/img/team/person-1.jpg" alt="Hoang Son Nguyen" class="hidden" />
         </div>
         <div class="col-lg-6 info-wrapper">
           <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
@@ -645,10 +628,10 @@
               <h3>Hoang Son Nguyen</h3>
               <h5>creative Capatino</h5>
             </header>
-            <div class="info-content">
-                <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Suspendisse non augue et velit dignissim facilisis a at tortor.  Donec feugiat porta ante, vitae pellentesque libero pulvinar eget.  Fusce eu mi et nisl consectetur tempor quis sit amet leo.  </p>  <p>  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  In luctus nunc ut orci semper, vel blandit odio hendrerit.  </p>  <br>  <p>  <strong>Bike:</strong> Sometimes you can catch me sitting on street with a small tea cup... I belong to street.  </p>  
+            <div class="info-content scrollable">
+                <p>A valuable man</p>  <p>  He&#39;s a man who&#39;s suitable for a job requiring creativity and high quality.  He has a flexible mind and great problem solving skill...  </p>  <p>  Normally he has a very open mind and let his mind explore  new ideas from designing to other abstract concepts in physics,  but once he starts to work, his mind becomes critical, thinking systematically to make the most optimal product.  Every little problem must be addressed,  to the point of nitpicking (in a good way of course).  Because of that, everyone in the team is confident when working with him.  </p>  <p>  Other than designing, he also likes photography,  playing soft &amp; slow solo melodies on his beloved guitar,  and he especially love Hanoi.  He seldom posts status on his facebook, but when he does,  the chance of you seeing that post being related to Hanoi is pretty high, about 69%.  </p>  <p>  <strong></strong>  </p>  
               <p class="info-quote">
-                <q>Imagination is more important than knowledge.</q>
+                <q>You can&#39;t blame gravity for falling in love.</q>
                 - <strong>Albert Einstein</strong>
               </p>
             </div>
@@ -669,6 +652,7 @@
     </div>
   </div>
 </div>
+
 
   
 
@@ -735,6 +719,7 @@
   <script src="./vendors/jquery-validation/dist/jquery.validate.min.js"></script>
   <script src="./vendors/supported-browser/supportedbrowser.js"></script>
   <script src="./vendors/js-cookie/src/js.cookie.js"></script>
+  <script src="./vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
   <!-- endbuild -->
   <script src="./assets/js/oe.supportedbrowser.js"></script>
   <script src="./assets/js/oe.drawing.js"></script>

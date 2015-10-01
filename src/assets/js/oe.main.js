@@ -1,4 +1,4 @@
-(function (window, $) {
+(function(window, $) {
   var $doc = $(document);
   var $body = $('body');
   var $grand = $('body, html');
@@ -10,7 +10,7 @@
 
   // Common functions
   var oe = {
-    switchActions: function () {
+    switchActions: function() {
       $doc.on('click', '[data-screen-go]', function(e) {
         e.preventDefault();
         oe.switchScreens($(this).attr('data-screen-go'));
@@ -36,7 +36,7 @@
       });
     },
 
-    switchScreens: function (targetScreen) {
+    switchScreens: function(targetScreen) {
       // Give hash to the url
       this.hashTracker(targetScreen);
 
@@ -61,7 +61,7 @@
         });
       } else if (targetScreen == 2) {
         // Founders signature effect
-        setTimeout(function () {
+        setTimeout(function() {
           $('#foundersSign').oeSvgDrawing({
             framesTotal: 150,
             colorCurrent: [51, 51, 51],
@@ -74,7 +74,7 @@
       // Special chain
       var $rect = $('.rectangle');
       if (targetScreen == 3) {
-        setTimeout(function () {
+        setTimeout(function() {
           $rect.addClass('eff-chain');
         }, 800);
       } else {
@@ -103,20 +103,20 @@
   window.oe = oe;
 })(window, jQuery);
 
-$(function () {
+$(function() {
   // Some elements must fit the screen height
   //  so I create a specific class for all of 'em
   var screenHeight = $(window).outerHeight();
   $('.fitscreen').height(screenHeight);
 
   // Navigation button
-  $('.btn-nav').click(function (e) {
+  $('.btn-nav').click(function(e) {
     e.stopPropagation();
     $('.lines-button').toggleClass('close');
     $('.site-nav-wrapper, .first-half-page').toggleClass('active');
   });
 
-  $('body, html').click(function () {
+  $('body, html').click(function() {
     $navBtn = $('.lines-button');
     if ($navBtn.hasClass('close')) {
       $navBtn.removeClass('close');
@@ -125,6 +125,13 @@ $(function () {
   });
 
   $('[data-toggle="tooltip"]').tooltip();
+  $('.scrollable').mCustomScrollbar({
+    theme: 'rounded-dark',
+    mouseWheel: {
+      enable: true,
+      scrollAmount: 2000
+    }
+  });
 
   // functions call
   oe.switchActions();
