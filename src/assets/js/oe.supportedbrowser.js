@@ -5,7 +5,7 @@ $(function() {
         "name": "Google Chrome",
         "icon": "./assets/img/browser/chrome.jpg",
         "url": "http:\/\/www.google.com\/chrome\/",
-        "version": "34"
+        "version": "30"
       },
       "firefox": {
         "name": "Mozilla Firefox",
@@ -13,7 +13,7 @@ $(function() {
         "url": "https:\/\/www.mozilla.org\/en-US\/firefox\/products\/",
         "version": "31"
       },
-      "ie": {
+      "msie": {
         "name": "Internet Explorer",
         "icon": "./assets/img/browser/ie.jpg",
         "url": "http:\/\/windows.microsoft.com\/en-us\/internet-explorer\/download-ie",
@@ -23,7 +23,7 @@ $(function() {
         "name": "Safari",
         "icon": "./assets/img/browser/safari.jpg",
         "url": "https:\/\/www.apple.com\/safari\/",
-        "version": "5"
+        "version": "4"
       },
       "opera": {
         "name": "Opera",

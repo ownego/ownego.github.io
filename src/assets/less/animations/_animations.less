@@ -107,11 +107,19 @@ body {
   .punchs {
     .bounding-box {
       .zoomIn();
+
+      @media @ltTablet {
+        .animClear();
+      }
     }
     .bounding-info {
       h4, span {
         .fadeIn();
         .animDelayLevel(@eff-s2-bounding-title + @eff-s2-bounding-count);
+
+        @media @ltTablet {
+          .animClear();
+        }
       }
     }
     // Generate bounding items effects
@@ -130,14 +138,51 @@ body {
     .animDelayLevel(@eff-s2-content);
   }
 
-  .other-members {
-    .fadeIn();
-    .animDelayLevel(@eff-s2-other-members-text);
-  }
-
   .first-half-page .s-title {
     .fadeIn();
     .animDelayLevel(@eff-s2-bounding-box);
+  }
+
+  // Punchs pages
+  .punchs-control {
+    .fadeIn();
+    .animDelayLevel(@eff-s2-other-members-text);
+
+    @media @ltTablet {
+      .animClear();
+    }
+  }
+  .punchs-group {
+    .transition-transform(@eff-s2-punchs-group-speed ease-out @eff-s2-punchs-group-delay, opacity @eff-s2-punchs-group-delay linear;);
+
+    @media @ltTablet {
+      .animClear();
+    }
+
+    .punchs {
+      .transition-transform(1ms ease-out);
+
+      &:nth-child(1) {
+        .transition-delay(@eff-s2-punchs-1-delay);
+        .transition-duration(@eff-s2-punchs-1-duration);
+      }
+      &:nth-child(2) {
+        .transition-delay(@eff-s2-punchs-2-delay);
+        .transition-duration(@eff-s2-punchs-2-duration);
+      }
+      &:nth-child(3) {
+        .transition-delay(@eff-s2-punchs-3-delay);
+        .transition-duration(@eff-s2-punchs-3-duration);
+      }
+      &:nth-child(4) {
+        .transition-delay(@eff-s2-punchs-4-delay);
+        .transition-duration(@eff-s2-punchs-4-duration);
+      }
+
+      @media @ltTablet {
+        .animClear();
+      }
+    }
   }
 }
 
@@ -146,11 +191,19 @@ body {
   .punchs {
     .bounding-box {
       .zoomIn();
+
+      @media @ltTablet {
+        .animClear();
+      }
     }
     .bounding-info {
       h4 {
         .fadeIn();
         .animDelayLevel(@eff-s3-bounding-title + @eff-s3-bounding-count);
+
+        @media @ltTablet {
+          .animClear();
+        }
       }
     }
     // Generate bounding items effects
@@ -222,11 +275,6 @@ body {
   .transition-duration(@animateSpeed);
 }
 .guy-info {
-  .btn-close {
-    .zoomIn(in);
-    .animDelayLevel(@eff-team-modal-close, true);
-  }
-
   .info-wrapper {
     @media @gteDesktop {
       .slideInLeft(in);

@@ -46,7 +46,22 @@
 @eff-s2-bounding-box: @eff-s2-desc + 1;
 @eff-s2-bounding-title: @eff-s2-bounding-box + 2;
 @eff-s2-bounding-sub-title: @eff-s2-bounding-title + 1;
-@eff-s2-other-members-text: @eff-s2-bounding-box * @eff-s2-bounding-count;
+@eff-s2-other-members-text: @eff-s2-bounding-box + 1;
+
+@eff-s2-punchs-group-speed: 1200ms;
+@eff-s2-punchs-group-delay: 300ms;
+@eff-s2-punchs-extra: 300ms;
+@eff-s2-punchs-range: @eff-s2-punchs-group-speed + 200ms;
+@eff-s2-punchs-1-delay: @eff-s2-punchs-group-delay;
+@eff-s2-punchs-1-duration: @eff-s2-punchs-range - @eff-s2-punchs-1-delay;
+@eff-s2-punchs-2-delay: @eff-s2-punchs-1-delay + 500ms;
+@eff-s2-punchs-2-duration: @eff-s2-punchs-range - @eff-s2-punchs-2-delay + @eff-s2-punchs-extra;
+@eff-s2-punchs-3-delay: @eff-s2-punchs-2-delay + 250ms;
+@eff-s2-punchs-3-duration: @eff-s2-punchs-range - @eff-s2-punchs-3-delay + @eff-s2-punchs-extra;
+@eff-s2-punchs-4-delay: @eff-s2-punchs-3-delay + 100ms;
+@eff-s2-punchs-4-duration: @eff-s2-punchs-range - @eff-s2-punchs-4-delay + @eff-s2-punchs-extra;
+
+
 
 // s3 ready
 @eff-s3-left-title: @eff-shape-s3-animdelay-level + @eff-shape-s3-animspeed-level + 2;

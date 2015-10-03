@@ -4,17 +4,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <article class="row">
-        <div class="col-lg-6 info-left bg-full" style="background-image:url({{ obj.modal.avatar }});">
-          <img src="{{ obj.modal.avatar }}" alt="{{ obj.name }}" class="hidden" />
-        </div>
-        <div class="col-lg-6 info-wrapper">
+        <div class="col-lg-6 col-lg-offset-3 info-wrapper">
+          <div class="info-left bg-full" style="background-image:url({{ obj.modal.avatar }});">
+            <img src="{{ obj.modal.avatar }}" alt="{{ obj.name }}" class="hidden" />
+          </div>
           <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
           <div class="info-main">
             <header class="info-head">
               <h3>{{ obj.name }}</h3>
               <h5>{{ obj.alias }}</h5>
             </header>
-            <div class="info-content scrollable">
+            <div class="info-content">
               {{ obj.modal.content | safe }}
               <p class="info-quote">
                 <q>{{ obj.modal.quote.copy }}</q>

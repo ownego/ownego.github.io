@@ -22,6 +22,8 @@
           case 37: // Left
           case 38: // Up
             var curScreen = parseInt($body.attr('data-active-screen'));
+            // Callback
+            if(oe.switchCallback(curScreen, 'prev')) break;
             if(curScreen > 1)
               oe.switchScreens(curScreen - 1);
             break;
@@ -29,6 +31,8 @@
           case 39: // Right
           case 40: // Down
             var curScreen = parseInt($body.attr('data-active-screen'));
+            // Callback
+            if(oe.switchCallback(curScreen, 'next')) break;
             if(curScreen < config.screenCount)
               oe.switchScreens(curScreen + 1);
             break;
@@ -125,15 +129,9 @@ $(function() {
   });
 
   $('[data-toggle="tooltip"]').tooltip();
-  $('.scrollable').mCustomScrollbar({
-    theme: 'rounded-dark',
-    mouseWheel: {
-      enable: true,
-      scrollAmount: 2000
-    }
-  });
 
   // functions call
-  oe.switchActions();
   oe.loader.init();
+  oe.punchs.init();
+  oe.switchActions();
 });

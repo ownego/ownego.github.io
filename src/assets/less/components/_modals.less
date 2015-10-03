@@ -60,42 +60,50 @@
       margin: 0 auto;
     }
   }
+
   .btn-close {
     position: absolute;
     z-index: 1000;
     top: 20px;
-    right: 15px;
+    right: 20px;
     font-size: 20px;
     outline: none !important;
     border: 0;
     margin: 0;
+    color: @black;
 
-    @media @ltDesktop {
-      top: -35px;
-      right: 5px;
+    .guy-info& {
+      top: -40px;
+      right: 0;
       color: @white;
-      padding: 10px 3px 0 20px;
-    }
 
-    @media @ltMoblet {
-      bottom: 35px;
-      right: 15px;
-      top: auto;
-      color: @black;
-
-      &:before {
-        content: 'Back';
-        display: block;
-        font-style: italic;
-        font-size: 18px;
-        line-height: 1em;
+      @media @ltDesktop {
+        top: -45px;
+        right: 5px;
+        color: @white;
+        padding: 10px 3px 0 20px;
       }
 
-      i {
-        display: none;
+      @media @ltMoblet {
+        bottom: 35px;
+        right: 15px;
+        top: auto;
+        color: @black;
+
+        &:before {
+          content: 'Back';
+          display: block;
+          font-style: italic;
+          font-size: 18px;
+          line-height: 1em;
+        }
+
+        i {
+          display: none;
+        }
       }
     }
-  }
+    }
 }
 
 .modal.small {
@@ -139,14 +147,22 @@
 
 .modal.big {
   .modal-dialog {
-    width: 90%;
+    width: 100%;
+    bottom: auto;
+
+    @media @gteDesktop {
+      left: auto;
+      top: (@avtDesktopSize * 0.4) + 30px;
+      margin-bottom: 30px;
+      .translate(0, 0);
+    }
 
     @media @ltWideScreen {
       width: auto;
     }
 
     @media @ltDesktop {
-      width: 500px;
+      width: 600px;
       top: 100px;
       left: 50%;
       .translate(-50%, 0);
@@ -168,28 +184,33 @@
   }
 
   .info-left {
-    position: relative;
+    position: absolute;
     z-index: 20;
     overflow: hidden;
-    width: 50%;
+    width: @avtDesktopSize;
+    height: @avtDesktopSize;
+    top: -(@avtDesktopSize * 0.4);
+    left: 61px;
+    border: 6px solid @white;
 
     @media @ltDesktop {
-      position: absolute;
       z-index: 10;
       width: @avtTabletSize;
       height: @avtTabletSize;
-      border: 3px solid #fff;
       top: -(@avtTabletSize/2);
       left: 17px;
+      border: 3px solid @white;
     }
 
     @media @ltMoblet {
       position: relative;
-      width: 100%;
+      width: auto;
       height: auto;
       border: 0;
       left: auto;
       top: 0;
+      margin-left: -15px;
+      margin-right: -15px;
     }
 
     &:before {
@@ -201,23 +222,12 @@
   .info-wrapper {
     background-color: @white;
 
-    &:before {
-      content: '';
-      display: block;
-      padding-top: 100%;
-
-      @media @ltDesktop {
-        display: none;
-      }
-    }
   }
   .info-main {
-    position: absolute;
     top: 0;
     left: 15px;
     right: 15px;
-    bottom: 0;
-    padding: 40px 30px 40px 50px;
+    padding: 20px 30px 40px 50px;
 
     @media @ltDesktop {
       position: relative;
@@ -230,6 +240,11 @@
     }
   }
   .info-head {
+
+    @media @gteDesktop {
+      margin-left: 230px;
+    }
+
     @media @ltDesktop {
       margin-left: 170px;
     }
@@ -253,15 +268,12 @@
   }
   .info-content {
     overflow: auto;
-    margin: 30px 0;
+    margin: 50px 0;
     .font-sm;
-
-    @media @gteDesktop {
-      max-height: 400px;
-    }
 
     @media @ltDesktop {
       margin-top: 40px;
+      margin-bottom: 20px;
       max-height: none;
     }
 
@@ -300,13 +312,13 @@
   .info-connect {
     position: absolute;
     bottom: 35px;
-    left: 55px;
+    left: 60px;
     right: 65px;
     font-size: 20px;
 
     @media @ltDesktop {
       top: 85px;
-      left: 32px;
+      left: 16px;
       bottom: auto;
       width: @avtTabletSize;
     }
@@ -314,7 +326,7 @@
     @media @ltMoblet {
       top: auto;
       bottom: 30px;
-      left: 0;
+      left: 5px;
       width: auto;
     }
 
@@ -372,7 +384,6 @@
 
 @media @bwDesktopWide {
   .modal-content {
-    &,
     > .row,
     .info-left,
     .info-wrapper {

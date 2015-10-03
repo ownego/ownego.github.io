@@ -45,6 +45,14 @@
     [data-active-screen="2"] & {
       background-color: fadeOut(@black, 10%);
     }
+
+    .site-nav-wrapper.active ~ & {
+      background-color: @white;
+
+      [data-active-screen="2"] & {
+        background-color: @black;
+      }
+    }
   }
 
   @media @ltMoblet {

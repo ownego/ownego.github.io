@@ -27,10 +27,16 @@
       <div class="col-lg-7 col-md-6 fitscreen first-half-page left-col">
         <h3 class="s-title hidden-lg hidden-md">We are...</h3>
         <div class="punchs-wrapper">
+          <div class="punchs-group active">
           {% for obj in members %}
             {{ team.member(obj) }}
+          {% if !(loop.index % 4) %}
+          </div>
+          <div class="punchs-group">
+          {% endif %}
           {% endfor %}
-          <div class="other-members"><p>and other heroes...</p></div>
+          </div>
+          <div class="punchs-control" id="punchsControl">&nbsp;</div>
         </div>
         <div class="visible-sm visible-xs clearfix">
           <button type="button" class="link-only back pull-left" data-screen-go="1">

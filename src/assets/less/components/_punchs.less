@@ -6,6 +6,11 @@
   text-align: right;
   overflow: hidden;
 
+  &.team-member {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   @media @ltTablet {
     display: inline-block;
     float: none;
@@ -100,6 +105,7 @@
 
     a {
       display: block;
+      position: relative;
       height: 100%;
       border-radius: 50%;
       overflow: hidden;
@@ -163,5 +169,72 @@
     .font-xs;
     .font-light;
     color: @grey-light;
+  }
+}
+
+.punchs-modal {
+  .bounding-box {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+.omember-box {
+  margin-bottom: 30px;
+}
+.omember-info {
+  h3 {
+    .font-light;
+  }
+  h5 {
+    .font-light;
+    color: @grey-light;
+  }
+}
+
+
+@media @gteTablet {
+  .punchs-group {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    .translate(150px, 100%);
+    .opacity(0);
+
+    &.active {
+      .opacity(1);
+      .translate(0, -50%);
+    }
+  }
+  .punchs-group {
+    .punchs {
+      .translate(115px, 420%);
+
+      .active& {
+        .translate(0, 0);
+      }
+    }
+  }
+  .punchs-control {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    .transform(translate(0, -50%) rotate(-15deg););
+
+    @media @ltTablet {
+      display: none;
+    }
+  }
+  .punchs-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: @borderColor;
+    margin: 10px 0;
+    border-radius: 50%;
+
+    &.active {
+      background-color: darken(@grey-light, 20%);
+    }
   }
 }
