@@ -1,9 +1,11 @@
 (function ($, oe, document) {
   oe.loader = (function () {
     var loaderConfig = {
-      loaderDelay: 0, //default 500
+      loaderVer: '0.1.915',
+      loaderDelay: 200, //default 500
       loaderSelector: '#loader',
       loaderCircle: '#loadingCircle',
+      fontFamilies: ['Raleway:700:latin', 'Lato:400,400italic,700,300:latin'],
       fontPercent: 40,
       imgPercent: 60,
       point: 0,
@@ -14,9 +16,11 @@
 
     return {
       init: function () {
+        this.returnChecker();
+
         // Draw loading circle
         $circle.easyPieChart({
-          barColor: '#333',
+          barColor: '#5c5c5c',
           trackColor: '#ebebeb',
           scaleColor: false,
           lineCap: 'square',
@@ -63,8 +67,7 @@
         var fontLoaded = 0;
         WebFont.load({
           google: {
-            families: ['Roboto Condensed:700:latin,vietnamese',
-                                   'Roboto:100,300,400,700:latin,vietnamese']
+            families: loaderConfig.fontFamilies
           },
           active: function () {
             var val = loaderConfig.fontPercent - fontLoaded;
@@ -79,7 +82,7 @@
       },
 
       imageLoader: function () {
-        var  imgCount = $('img').size();
+        var imgCount = $('img').size();
         var imgValue = Math.floor(loaderConfig.imgPercent / imgCount);
         var imgLoaded = 0;
 
@@ -96,11 +99,26 @@
       end: function () {
         $loader.on('click', '#startBtn', function () {
           setTimeout(function () {
-            oe.switchScreens(1);
+            oe.hashUrl();
           }, 500);
           $loader.hide(); // Hide the loader
         });
         $circle.addClass('done');
+      },
+
+      returnChecker: function() {
+        var lastVer = Cookies.get('oe-ver');
+
+        // If last version is too old
+        //  Need to load data again
+        if(!lastVer || lastVer != loaderConfig.loaderVer) {
+          Cookies.set('oe-ver', loaderConfig.loaderVer);
+        } else {
+          setTimeout(function () {
+            oe.hashUrl();
+          }, 200);
+          $loader.hide(); // Hide the loader
+        }
       }
     };
   })();

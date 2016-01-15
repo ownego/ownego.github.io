@@ -16,6 +16,7 @@
     "components-webfontloader": "1.6.3",
     "jquery.easy-pie-chart": "2.1.6",
     "supported-browser": "https://github.com/ownego/supported-browser.git",
-    "jquery-validation": "1.13.1"
+    "jquery-validation": "1.13.1",
+    "js-cookie": "*"
   }
 }

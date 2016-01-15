@@ -1,7 +1,7 @@
 {% macro punch(obj) %}
 <div class="punchs">
   <div class="bounding-box box-border">
-    <a href="#">
+    <a href="#" data-toggle="modal" data-target="#{{ obj.modalid }}">
       {{ obj.icon | safe }}
     </a>
   </div>

@@ -1,7 +1,6 @@
 {% import '../macros/modals.html' as modals %}
 
 {% include '../vars/global.html' %}
-{% include '../vars/members.html' %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,22 +44,6 @@
 </head>
 
 <body>
-  <!-- Under construction -->
-  <!-- Remove me when everything done -->
-  <div class="underconstruction container">
-      <div class="row">
-          <div class="col-sm-2 col-sm-offset-2 col-md-1 col-md-offset-4">
-              <i class="oeicon-logo"></i>
-          </div>
-          <div class="col-md-4 col-sm-6">
-              <h3>Coming soon..</h3>
-              <p>We are ready to launch. Just minor things remain.<br/>
-                  Please come back later.</p>
-              <i class="oeicon-sign-founders"></i>
-          </div>
-      </div>
-  </div>
-
   {% include 'partials/noscript.html' %}
   <main>
     {% block main %}
@@ -76,9 +59,11 @@
   {% include 'components/copyright.html' %}
 
   <!-- Team Modals -->
-  {% for member in members %}
-    {{ modals.modalMember(member) }}
+  {% for project in projects %}
+    {{ modals.modalProject(project) }}
   {% endfor %}
+
+  {% include '../modals/services.html' %}
 
   <!-- Loading screen -->
   <div class="loading" id="loader">
@@ -120,13 +105,16 @@
   <script src="{{ vendorDir }}/bootstrap/js/modal.js"></script>
   <script src="{{ vendorDir }}/jquery-validation/dist/jquery.validate.min.js"></script>
   <script src="{{ vendorDir }}/supported-browser/supportedbrowser.js"></script>
-  <!-- endbuild -->
+  <script src="{{ vendorDir }}/js-cookie/src/js.cookie.js"></script>
+
   <script src="{{ assetDir }}/js/oe.supportedbrowser.js"></script>
   <script src="{{ assetDir }}/js/oe.drawing.js"></script>
   <script src="{{ assetDir }}/js/oe.main.js"></script>
   <script src="{{ assetDir }}/js/oe.loader.js"></script>
+  <script src="{{ assetDir }}/js/oe.punchs.js"></script>
   <script src="{{ assetDir }}/js/oe.messenger.js"></script>
   <script src="{{ assetDir }}/js/oe.console.js"></script>
+  <!-- endbuild -->
   {% endblock %}
 
   <script>

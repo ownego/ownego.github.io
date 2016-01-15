@@ -4,6 +4,7 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  text-rendering: optimizeLegibility;
   -webkit-overflow-scrolling: touch;
 
   @media @ltTablet {
@@ -216,7 +217,8 @@ button {
       left: auto;
     }
   }
-  &:hover {
+  &:hover,
+  &.active {
     span {
       opacity: 0;
     }
@@ -300,6 +302,7 @@ p {
     position: absolute;
     top: 40%;
     left: 50%;
+    .transformZ();
     .translate(-50%, -50%);
 
     span {
@@ -311,6 +314,7 @@ p {
       font-size: 18px;
       line-height: 1em;
       text-align: center;
+      .transformZ();
       .translate(-50%, -50%);
       .transition(color @animateSpeed*3 ease);
 

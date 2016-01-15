@@ -3,27 +3,13 @@
 }
 
 .modal {
-  &.fade {
-    .modal-dialog {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: auto;
-      margin: 0;
-      .translate(-50%, -50%);
-
-      @media @ltWideScreen {
-        top: 0;
-        left: 15px;
-        right: 15px;
-        bottom: 0;
-        .translate(0, 0);
-      }
-
-      @media @eMobile {
-        width: 90%;
-      }
-    }
+  .modal-dialog {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    width: auto;
+    margin: 0;
+    .translate(-50%, 0);
   }
   .modal-content {
     .box-shadow(none);
@@ -60,40 +46,59 @@
       margin: 0 auto;
     }
   }
+
   .btn-close {
     position: absolute;
     z-index: 1000;
     top: 20px;
-    right: 15px;
+    right: 20px;
     font-size: 20px;
     outline: none !important;
     border: 0;
     margin: 0;
+    color: @black;
 
-    @media @ltDesktop {
-      top: -35px;
-      right: 5px;
+    .guy-info& {
+      top: -40px;
+      right: 0;
       color: @white;
-      padding: 10px 3px 0 20px;
+
+      @media @ltDesktop {
+        top: -45px;
+        right: 5px;
+        color: @white;
+        padding: 10px 3px 0 20px;
+      }
+
+      @media @ltMoblet {
+        bottom: 35px;
+        right: 15px;
+        top: auto;
+        color: @black;
+
+        &:before {
+          content: 'Back';
+          display: block;
+          font-style: italic;
+          font-size: 18px;
+          line-height: 1em;
+        }
+
+        i {
+          display: none;
+        }
+      }
     }
+  }
+}
 
-    @media @ltMoblet {
-      bottom: 35px;
-      right: 15px;
-      top: auto;
-      color: @black;
-
-      &:before {
-        content: 'Back';
-        display: block;
-        font-style: italic;
-        font-size: 18px;
-        line-height: 1em;
-      }
-
-      i {
-        display: none;
-      }
+.modal {
+  .modal-dialog {
+    .fade& {
+      .translate(0, 50px);
+    }
+    .in& {
+      .translate(0, 0);
     }
   }
 }
@@ -137,215 +142,105 @@
   }
 }
 
-.modal.big {
+// Project modals
+.project-info {
   .modal-dialog {
-    width: 90%;
-
-    @media @ltWideScreen {
-      width: auto;
-    }
-
-    @media @ltDesktop {
-      width: 500px;
-      top: 100px;
-      left: 50%;
-      .translate(-50%, 0);
-    }
-
-    @media @ltMoblet {
-      top: 0;
-      bottom: 0;
-      left: 15px;
-      right: 15px;
-      width: auto;
-      background-color: @white;
-      .translate(0, 0);
-    }
-  }
-  .modal-content {
-    border: 0;
-    background-color: transparent;
-  }
-
-  .info-left {
-    position: relative;
-    z-index: 20;
-    overflow: hidden;
-    width: 50%;
-
-    @media @ltDesktop {
-      position: absolute;
-      z-index: 10;
-      width: @avtTabletSize;
-      height: @avtTabletSize;
-      border: 3px solid #fff;
-      top: -(@avtTabletSize/2);
-      left: 17px;
-    }
-
-    @media @ltMoblet {
-      position: relative;
-      width: 100%;
-      height: auto;
-      border: 0;
-      left: auto;
-      top: 0;
-    }
-
-    &:before {
-      content: '';
-      display: block;
-      padding-top: 100%;
-    }
-  }
-  .info-wrapper {
+    top: 0;
+    left: 100px;
+    right: 100px;
     background-color: @white;
 
-    &:before {
-      content: '';
-      display: block;
-      padding-top: 100%;
-
-      @media @ltDesktop {
-        display: none;
-      }
-    }
-  }
-  .info-main {
-    position: absolute;
-    top: 0;
-    left: 15px;
-    right: 15px;
-    bottom: 0;
-    padding: 40px 50px;
-
-    @media @ltDesktop {
-      position: relative;
+    @media @ltTablet {
       left: 0;
-      padding: 20px;
-    }
-    @media @ltMoblet {
-      padding-left: 0;
-      padding-right: 0;
+      right: 0;
     }
   }
-  .info-head {
-    @media @ltDesktop {
-      margin-left: 170px;
-    }
 
-    @media @ltMoblet {
-      margin-left: 0;
-    }
+  .modal-content {
+    padding: 30px 0 0;
+    .font-regular;
+  }
+}
+.prji-title {
+  .font-bold;
+  .font-lg;
+  margin: 0 0 10px;
 
-    h3 {
-      .font-bold;
-      .font-lg;
-      margin-top: 10px;
+  @media @eMobile {
+    .font-md;
+    margin-top: 20px;
+  }
+}
+.prji-desc {
+  .font-xs;
+}
+.prji-stats {
+  .font-sm;
+  color: @grey-light;
+  margin-bottom: 10px;
+
+  @media @eMobile {
+    .font-xs;
+  }
+
+  span {
+    display: inline-block;
+    margin-right: 30px;
+
+    @media @eMobile {
+      display: block;
       margin-bottom: 5px;
     }
-    h5 {
-      .nvm;
-      .font-thin;
-      .font-sm;
-      color: @grey-light;
-    }
   }
-  .info-content {
-    overflow: auto;
-    margin: 30px 0;
-    .font-sm;
 
-    @media @gteDesktop {
-      max-height: 400px;
-    }
+  a {
+    text-decoration: underline;
 
-    @media @ltDesktop {
-      margin-top: 40px;
-      max-height: none;
-    }
-
-    @media @ltMoblet {
-      margin-top: 20px;
-      margin-bottom: 80px;
-      font-size: 14px;
+    &:hover {
+      color: @black;
+      text-decoration: none;
     }
   }
 
-  .info-quote {
-    padding: 3px 0 3px 20px;
-    margin-top: 40px;
-    border-left: 3px solid @borderColor;
-    font-size: 12px;
+  i {
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+    font-size: 18px;
+    color: darken(@grey-light, 20%);
+  }
+}
+.prj-head {
+  padding: 0 30px;
 
-    q {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 24px;
-      .font-thin;
-      line-height: 32px;
+  @media @eMobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.prj-gallery {
+  margin-top: 10px;
+  background-color: #f7f7f7;
+  text-align: center;
 
-      @media @ltMoblet {
-        font-size: 20px;
-        line-height: 26px;
-      }
+  @media @eMobile {
+    padding: 15px;
+  }
 
-      &:before,
-      &:after {
-        content: '';
-      }
+  .prj-ss {
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
     }
   }
 
-  .info-connect {
-    position: absolute;
-    bottom: 35px;
-    left: 55px;
-    right: 65px;
-    font-size: 20px;
-
-    @media @ltDesktop {
-      top: 85px;
-      left: 32px;
-      bottom: auto;
-      width: @avtTabletSize;
-    }
-
-    @media @ltMoblet {
-      top: auto;
-      bottom: 30px;
-      left: 0;
-      width: auto;
-    }
-
-    ul {
-      margin: 0;
-
-      @media @ltDesktop {
-        text-align: center;
-      }
-
-      @media @ltMoblet {
-        text-align: left;
-
-        li {
-          padding-left: 10px;
-          padding-right: 10px;
-        }
-      }
-    }
-
-    a {
-      display: block;
-      .transition(all @animateSpeed ease);
-
-      &:hover {
-        .scale(1.2, 1.2);
-      }
-    }
+  img {
+    margin: 0 auto;
   }
 }
 
+// Service modals
 .services-modal.big {
   .info-left {
     background-color: #f4f4f4;
@@ -371,7 +266,6 @@
 
 @media @bwDesktopWide {
   .modal-content {
-    &,
     > .row,
     .info-left,
     .info-wrapper {
@@ -379,3 +273,4 @@
     }
   }
 }
+

@@ -22,11 +22,13 @@ body {
 // Navigator
 .site-nav-wrapper {
   .nav-items {
+    .transformZ();
     .fadeUp();
     .animation-duration(@animateSpeed);
     .animDelayLevel(@eff-nav-item1);
 
     .nav-sub-text {
+      .transformZ();
       .fadeUp();
       .animDelayLevel(@eff-nav-item1-sub);
       .transition(color @animateSpeed linear);
@@ -47,6 +49,7 @@ body {
 
     i {
       opacity: 0;
+      .transformZ();
       .translate(-20%, 0);
       .transition(all @animateSpeed ease);
     }
@@ -102,15 +105,24 @@ body {
   }
 }
 
+// Screen 2
 .main-screen.s2 {
   .punchs {
     .bounding-box {
       .zoomIn();
+
+      @media @ltTablet {
+        .animClear();
+      }
     }
     .bounding-info {
       h4, span {
         .fadeIn();
         .animDelayLevel(@eff-s2-bounding-title + @eff-s2-bounding-count);
+
+        @media @ltTablet {
+          .animClear();
+        }
       }
     }
     // Generate bounding items effects
@@ -129,26 +141,72 @@ body {
     .animDelayLevel(@eff-s2-content);
   }
 
-  .other-members {
-    .fadeIn();
-    .animDelayLevel(@eff-s2-other-members-text);
-  }
-
   .first-half-page .s-title {
     .fadeIn();
     .animDelayLevel(@eff-s2-bounding-box);
   }
+
+  // Punchs pages
+  .punchs-control {
+    .fadeIn();
+    .animDelayLevel(@eff-s2-other-members-text);
+
+    @media @ltTablet {
+      .animClear();
+    }
+  }
+  .punchs-group {
+    .transition-transform(@eff-s2-punchs-group-speed ease-out @eff-s2-punchs-group-delay, opacity @eff-s2-punchs-group-delay linear;);
+
+    @media @ltTablet {
+      .animClear();
+    }
+
+    .punchs {
+      .transition-transform(1ms ease-out);
+
+      &:nth-child(1) {
+        .transition-delay(@eff-s2-punchs-1-delay);
+        .transition-duration(@eff-s2-punchs-1-duration);
+      }
+      &:nth-child(2) {
+        .transition-delay(@eff-s2-punchs-2-delay);
+        .transition-duration(@eff-s2-punchs-2-duration);
+      }
+      &:nth-child(3) {
+        .transition-delay(@eff-s2-punchs-3-delay);
+        .transition-duration(@eff-s2-punchs-3-duration);
+      }
+      &:nth-child(4) {
+        .transition-delay(@eff-s2-punchs-4-delay);
+        .transition-duration(@eff-s2-punchs-4-duration);
+      }
+
+      @media @ltTablet {
+        .animClear();
+      }
+    }
+  }
 }
 
+// Screen 3
 .main-screen.s3 {
   .punchs {
     .bounding-box {
       .zoomIn();
+
+      @media @ltTablet {
+        .animClear();
+      }
     }
     .bounding-info {
       h4 {
         .fadeIn();
         .animDelayLevel(@eff-s3-bounding-title + @eff-s3-bounding-count);
+
+        @media @ltTablet {
+          .animClear();
+        }
       }
     }
     // Generate bounding items effects
@@ -176,6 +234,7 @@ body {
   .input-normal,
   .form-caution,
   .form-submit {
+    .transformZ();
     .fadeIn();
     .animDelayLevel(@eff-s3-input-show);
 
@@ -220,11 +279,6 @@ body {
   .transition-duration(@animateSpeed);
 }
 .guy-info {
-  .btn-close {
-    .zoomIn(in);
-    .animDelayLevel(@eff-team-modal-close, true);
-  }
-
   .info-wrapper {
     @media @gteDesktop {
       .slideInLeft(in);

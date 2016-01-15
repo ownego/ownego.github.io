@@ -1,11 +1,13 @@
 {% macro modalMember(obj) %}
+{% if !obj.isprivate %}
 <div class="modal fade big guy-info" id="{{ obj.modalid }}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <article class="row">
-        <div class="col-lg-6 info-left bg-full" style="background-image:url({{ obj.modal.avatar }});">
-        </div>
-        <div class="col-lg-6 info-wrapper">
+        <div class="col-lg-6 col-lg-offset-3 info-wrapper">
+          <div class="info-left bg-full" style="background-image:url({{ obj.modal.avatar }});">
+            <img src="{{ obj.modal.avatar }}" alt="{{ obj.name }}" class="hidden" />
+          </div>
           <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
           <div class="info-main">
             <header class="info-head">
@@ -27,6 +29,62 @@
               {% endfor %}
             </ul>
           </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="modal fade small" id="{{ obj.modalid }}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4 class="modal-title">Coming soon...</h4>
+        <div class="modal-body-wrapper">
+          <div class="pb text-left">
+            <p>He's pretty shy so we will introduce him later.</p>
+          </div>
+          <div class="row-nerf clearfix">
+            <button class="btn btn-primary" data-dismiss="modal">
+              <span>Okay</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro modalProject(obj) %}
+<div class="modal fade big project-info" id="{{ obj.modalid }}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <article class="project-content">
+        <div class="prj-head">
+          <div class="prj-head-fix">
+            <h1 class="prji-title">{{ obj.name }}</h1>
+            <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
+          </div>
+          <div class="prji-stats">
+            <span><i class="oeicon-link"></i><a href="{{ obj.link }}">{{ obj.link }}</a></span>
+            {% if obj.partner %}
+            <span><i class="oeicon-google-circles"></i>Agency Partner: <a href="{{ obj.partner.link }}">{{ obj.partner.name }}</a></span>
+            {% endif %}
+          </div>
+          <div class="row">
+            <div class="prji-desc col-md-8">
+              <p>{{ obj.shortcontent | safe }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="prj-gallery">
+          {% for ss in obj.modal.screenshot %}
+          <div class="prj-ss">
+            <img src="{{ ss.img }}" class="img-responsive" alt="{{ ss.title }}" />
+          </div>
+          {% endfor %}
         </div>
       </article>
     </div>

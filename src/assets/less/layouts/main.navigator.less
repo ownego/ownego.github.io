@@ -19,6 +19,7 @@
 .lines-button {
   line-height: 1px;
   .transition(@nav-as);
+
   &:active {
     transition: 0;
   }
@@ -35,12 +36,15 @@
       }
     }
   }
+
   &.close .lines {
     background: transparent !important;
     .transition(background @nav-as 0s ease);
+
     &:before, &:after {
       top: 0;
       width: @nav-size;
+      .transformZ();
 
       @media @gteTablet {
         .transition(top @nav-as ease, transform @nav-as @nav-as*2 ease;
@@ -94,12 +98,13 @@
   overflow: visible;
   z-index: 600;
   .translate3d(0, -100%, 0);
+
   &.active {
     .translate3d(0, 0, 0);
   }
   @media @ltTablet {
     width: 100%;
-    height: 100%;
+    height: 200%;
   }
 }
 
