@@ -32,7 +32,7 @@
     // Focus the last active or first invalid element on submit
     focusInvalid: true,
     // If nothing is entered, all rules are skipped
-    onfocusout: true,
+    onfocusout: false,
     onkeyup: false,
 
     // Show only one error at a time
