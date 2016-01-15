@@ -37,6 +37,6 @@ $(function() {
       "content": "We built our website using latest technology. This makes our website faster and easier to use. Unfortunately, your browser does not support those technology. Download one of these great browsers below and you will be on your way."
     },
     "version_text": "Version",
-    "background": "rgba(0, 0, 0, 0.6)"
+    "background": "#fff"
   });
 });
