@@ -30,6 +30,21 @@ $(function() {
         "icon": "./assets/img/browser/opera.jpg",
         "url": "http:\/\/www.opera.com\/",
         "version": "30"
+      },
+      "mobile": {
+        "name": "mobile", // dont change this
+        "ios": {
+          "name": "Safari",
+          "version": "4"
+        },
+        "android": {
+          "safari": "4",
+          "chrome": "30"
+        },
+        "others": {
+          "safari": "4",
+          "msie": "10"
+        }
       }
     },
     "msg": {

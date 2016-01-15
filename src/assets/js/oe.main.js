@@ -84,6 +84,12 @@
       } else {
         $rect.removeClass('eff-chain');
       }
+
+      ga('send','event', {
+        eventCategory: 'layout',
+        eventAction: 'Switch to screen' + targetScreen,
+        eventLabel: 'Switch to screen' + targetScreen
+      });
     },
 
     hashUrl: function() {
@@ -135,4 +141,5 @@ $(function() {
 
   oe.punchs.init();
   oe.switchActions();
+  oe.eventTracking.init();
 });

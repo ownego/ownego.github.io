@@ -50,13 +50,21 @@
   .btn-close {
     position: absolute;
     z-index: 1000;
-    top: 20px;
+    top: -5px;
     right: 20px;
     font-size: 20px;
     outline: none !important;
     border: 0;
     margin: 0;
     color: @black;
+
+    @media @ltTablet {
+      top: -10px;
+      right: 15px;
+    }
+    @media @eMobile {
+      top: 5px;
+    }
 
     .guy-info& {
       top: -40px;
@@ -159,6 +167,10 @@
   .modal-content {
     padding: 30px 0 0;
     .font-regular;
+
+    @media @eMobile {
+      padding-top: 15px;
+    }
   }
 }
 .prji-title {
@@ -168,7 +180,7 @@
 
   @media @eMobile {
     .font-md;
-    margin-top: 20px;
+    padding-top: 30px;
   }
 }
 .prji-desc {
@@ -211,6 +223,7 @@
   }
 }
 .prj-head {
+  position: relative;
   padding: 0 30px;
 
   @media @eMobile {
