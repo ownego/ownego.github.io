@@ -1,7 +1,6 @@
 {% import '../macros/modals.html' as modals %}
 
 {% include '../vars/global.html' %}
-{% include '../vars/members.html' %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,8 +59,8 @@
   {% include 'components/copyright.html' %}
 
   <!-- Team Modals -->
-  {% for member in members %}
-    {{ modals.modalMember(member) }}
+  {% for project in projects %}
+    {{ modals.modalProject(project) }}
   {% endfor %}
 
   {% include '../modals/services.html' %}
@@ -107,7 +106,7 @@
   <script src="{{ vendorDir }}/jquery-validation/dist/jquery.validate.min.js"></script>
   <script src="{{ vendorDir }}/supported-browser/supportedbrowser.js"></script>
   <script src="{{ vendorDir }}/js-cookie/src/js.cookie.js"></script>
-  <!-- endbuild -->
+
   <script src="{{ assetDir }}/js/oe.supportedbrowser.js"></script>
   <script src="{{ assetDir }}/js/oe.drawing.js"></script>
   <script src="{{ assetDir }}/js/oe.main.js"></script>
@@ -115,6 +114,7 @@
   <script src="{{ assetDir }}/js/oe.punchs.js"></script>
   <script src="{{ assetDir }}/js/oe.messenger.js"></script>
   <script src="{{ assetDir }}/js/oe.console.js"></script>
+  <!-- endbuild -->
   {% endblock %}
 
   <script>

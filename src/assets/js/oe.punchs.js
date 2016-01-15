@@ -32,11 +32,9 @@
       var index = (event == 'next') ? curDot + 1 : curDot - 1;
 
       if(index < pageCount && index > -1) {
-        console.log('ok');
         oe.punchs.changePunchs(index);
         return true;
       } else {
-        console.log('not ok');
         return false;
       }
     }

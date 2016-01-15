@@ -1,9 +1,10 @@
-{% import '../macros/team-member.html' as team %}
+{% import '../macros/projects.html' as pj %}
 
 {% set screenNo = 2 %}
 {% set screenClass = "s2" %}
 
 {% include '../vars/screen-2.html' %}
+{% include '../vars/projects.html' %}
 
 <section class="{{ screenClass }} main-screen" data-screen-no="{{ screenNo }}" data-screen-hash="team">
   <div class="container-fluid">
@@ -25,11 +26,11 @@
         </div>
       </div>
       <div class="col-lg-7 col-md-6 fitscreen first-half-page left-col">
-        <h3 class="s-title hidden-lg hidden-md">We are...</h3>
+        <h3 class="s-title hidden-lg hidden-md">Our projects</h3>
         <div class="punchs-wrapper">
           <div class="punchs-group active">
-          {% for obj in members %}
-            {{ team.member(obj) }}
+          {% for obj in projects %}
+            {{ pj.project(obj) }}
           {% if !(loop.index % 4) %}
           </div>
           <div class="punchs-group">

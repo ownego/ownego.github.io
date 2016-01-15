@@ -79,11 +79,11 @@
       height: @bounding-box-size;
       width: @bounding-box-size;
       border-radius: 50%;
+      .transformZ();
       .transition(opacity @animateSpeed linear);
 
       &.main-avt {
         opacity: 1;
-        .grayscale(100%);
       }
       &.hover-avt {
         z-index: 10;
@@ -198,7 +198,8 @@
     position: absolute;
     right: 0;
     top: 50%;
-    .translate(150px, 100%);
+    .transformZ();
+    .translate(150px, 200%);
     .opacity(0);
 
     &.active {
@@ -208,6 +209,7 @@
   }
   .punchs-group {
     .punchs {
+      .transformZ();
       .translate(115px, 420%);
 
       .active& {
@@ -219,6 +221,7 @@
     position: absolute;
     top: 50%;
     right: -10px;
+    .transformZ();
     .transform(translate(0, -50%) rotate(-15deg););
 
     @media @ltTablet {

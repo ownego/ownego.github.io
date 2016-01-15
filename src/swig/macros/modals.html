@@ -56,3 +56,38 @@
 </div>
 {% endif %}
 {% endmacro %}
+
+{% macro modalProject(obj) %}
+<div class="modal fade big project-info" id="{{ obj.modalid }}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <article class="project-content">
+        <div class="prj-head">
+          <div class="prj-head-fix">
+            <h1 class="prji-title">{{ obj.name }}</h1>
+            <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
+          </div>
+          <div class="prji-stats">
+            <span><i class="oeicon-link"></i><a href="{{ obj.link }}">{{ obj.link }}</a></span>
+            {% if obj.partner %}
+            <span><i class="oeicon-google-circles"></i>Agency Partner: <a href="{{ obj.partner.link }}">{{ obj.partner.name }}</a></span>
+            {% endif %}
+          </div>
+          <div class="row">
+            <div class="prji-desc col-md-8">
+              <p>{{ obj.shortcontent | safe }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="prj-gallery">
+          {% for ss in obj.modal.screenshot %}
+          <div class="prj-ss">
+            <img src="{{ ss.img }}" class="img-responsive" alt="{{ ss.title }}" />
+          </div>
+          {% endfor %}
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+{% endmacro %}

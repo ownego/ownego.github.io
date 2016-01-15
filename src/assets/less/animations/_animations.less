@@ -22,11 +22,13 @@ body {
 // Navigator
 .site-nav-wrapper {
   .nav-items {
+    .transformZ();
     .fadeUp();
     .animation-duration(@animateSpeed);
     .animDelayLevel(@eff-nav-item1);
 
     .nav-sub-text {
+      .transformZ();
       .fadeUp();
       .animDelayLevel(@eff-nav-item1-sub);
       .transition(color @animateSpeed linear);
@@ -47,6 +49,7 @@ body {
 
     i {
       opacity: 0;
+      .transformZ();
       .translate(-20%, 0);
       .transition(all @animateSpeed ease);
     }
@@ -231,6 +234,7 @@ body {
   .input-normal,
   .form-caution,
   .form-submit {
+    .transformZ();
     .fadeIn();
     .animDelayLevel(@eff-s3-input-show);
 
