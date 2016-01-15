@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head lang="en" manifest="oe.appcache">
 {% block head %}
   <!-- Meta Data -->
   <meta charset="utf-8">
@@ -90,7 +90,6 @@
     </div>
   </div>
 
-  <script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
   {% block scripts %}
   <!-- build:js ./assets/js/libs.js -->
   <script src="{{ vendorDir }}/jquery/dist/jquery.js"></script>
