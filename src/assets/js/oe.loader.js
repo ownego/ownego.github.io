@@ -1,7 +1,7 @@
 (function ($, oe, document) {
   oe.loader = (function () {
     var loaderConfig = {
-      loaderVer: '0.1.915',
+      loaderVer: '1.0.115',
       loaderDelay: 200, //default 500
       loaderSelector: '#loader',
       loaderCircle: '#loadingCircle',
