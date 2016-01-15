@@ -68,9 +68,9 @@
             <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close"><i class="oeicon-close"></i></button>
           </div>
           <div class="prji-stats">
-            <span><i class="oeicon-link"></i><a href="{{ obj.link }}">{{ obj.link }}</a></span>
+            <span><i class="oeicon-link"></i><a href="{{ obj.link }}" target="_blank">{{ obj.link }}</a></span>
             {% if obj.partner %}
-            <span><i class="oeicon-google-circles"></i>Agency Partner: <a href="{{ obj.partner.link }}">{{ obj.partner.name }}</a></span>
+            <span><i class="oeicon-google-circles"></i>Agency Partner: <a href="{{ obj.partner.link }}" target="_blank">{{ obj.partner.name }}</a></span>
             {% endif %}
           </div>
           <div class="row">
