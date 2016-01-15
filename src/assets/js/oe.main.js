@@ -108,11 +108,6 @@
 })(window, jQuery);
 
 $(function() {
-  // Some elements must fit the screen height
-  //  so I create a specific class for all of 'em
-  var screenHeight = $(window).outerHeight();
-  $('.fitscreen').height(screenHeight);
-
   // Navigation button
   $('.btn-nav').click(function(e) {
     e.stopPropagation();
@@ -132,6 +127,12 @@ $(function() {
 
   // functions call
   oe.loader.init();
+
+  // Some elements must fit the screen height
+  //  so I create a specific class for all of 'em
+  var screenHeight = $(window).outerHeight();
+  $('.fitscreen').height(screenHeight);
+
   oe.punchs.init();
   oe.switchActions();
 });
