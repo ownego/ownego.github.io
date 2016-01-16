@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head lang="en" manifest="oe.appcache">
+<head>
 {% block head %}
   <!-- Meta Data -->
   <meta charset="utf-8">
@@ -32,11 +32,7 @@
   <link rel="stylesheet" href="{{ vendorDir }}/animate.css/animate.css" />
   <link rel="stylesheet" href="{{ assetDir }}/css/libs.css" />
   <link rel="stylesheet" href="{{ vendorDir }}/supported-browser/supportedbrowser.css" />
-  <!-- endbuild -->
-  <!-- build:cssmains ./assets/css/main.css -->
   <link rel="stylesheet" href="{{ assetDir }}/css/main.css" />
-  <!-- endbuild -->
-  <!-- build:cssanim ./assets/css/animations.css -->
   <link rel="stylesheet" href="{{ assetDir }}/css/animations.css" />
   <!-- endbuild -->
   {% endblock %}

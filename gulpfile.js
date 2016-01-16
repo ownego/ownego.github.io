@@ -103,6 +103,7 @@ gulp.task('dist:dev', ['dev:swig', 'dev:less'], function() {
         '!'+config.app.src+'/assets/css',
         '!'+config.app.src+'/assets/less/**',
         '!'+config.app.src+'/assets/less',
+        '!'+config.app.src+'/assets/js/**',
         '!'+config.app.src+'/assets/js',
         '!'+config.app.src+'/swig/**',
         '!'+config.app.src+'/swig',
