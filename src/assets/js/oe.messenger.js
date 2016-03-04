@@ -5,6 +5,11 @@
   var $messageForm = $('#messageForm');
   var $smBtn = $('#submitbtn');
 
+  // Disable Keymove on form focused
+  $('.input-normal').on('keyup', function(e) {
+    return false;
+  });
+
   // Form Validation
   $messageForm.validate({
     rules: {
