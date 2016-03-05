@@ -2,7 +2,7 @@
   oe.loader = (function () {
     var loaderConfig = {
       loaderVer: '1.0.118',
-      loaderDelay: 0, //default 500
+      loaderDelay: 200, //default 500
       loaderSelector: '#loader',
       loaderCircle: '#loadingCircle',
       fontFamilies: ['Raleway:700:latin', 'Lato:400,400italic,700,300:latin'],
