@@ -1,7 +1,7 @@
 (function ($, oe, document) {
   oe.loader = (function () {
     var loaderConfig = {
-      loaderVer: '1.0.118',
+      loaderVer: '1.0.1125',
       loaderDelay: 200, //default 500
       loaderSelector: '#loader',
       loaderCircle: '#loadingCircle',
@@ -118,7 +118,7 @@
         // If last version is too old
         //  Need to load data again
         if(!lastVer || lastVer != loaderConfig.loaderVer) {
-          Cookies.set('oe-ver', loaderConfig.loaderVer, { expires: 14 });
+          Cookies.set('oe-ver', loaderConfig.loaderVer, { expires: 60 });
         } else {
           setTimeout(function () {
             oe.hashUrl();
