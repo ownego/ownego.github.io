@@ -1,8 +1,8 @@
 (function ($, oe, document) {
   oe.loader = (function () {
     var loaderConfig = {
-      loaderVer: '1.0.1125',
-      loaderDelay: 200, //default 500
+      loaderVer: '1.1.0',
+      loaderDelay: 100, //default 500
       loaderSelector: '#loader',
       loaderCircle: '#loadingCircle',
       fontFamilies: ['Raleway:700:latin', 'Lato:400,400italic,700,300:latin'],
@@ -82,11 +82,11 @@
       },
 
       imageLoader: function () {
-        var imgCount = $('img').size();
+        var imgCount = $('img[src]').size();
         var imgValue = Math.floor(loaderConfig.imgPercent / imgCount);
         var imgLoaded = 0;
 
-        $('body').imagesLoaded()
+        $('img[src]').imagesLoaded({background: true})
           .progress(function (instance, image) {
             imgLoaded += imgValue;
             oe.loader.pushValue(imgValue);
@@ -97,24 +97,22 @@
       },
 
       end: function () {
-        $loader.on('click', '#startBtn', function () {
-          setTimeout(function () {
-            oe.hashUrl();
-          }, 500);
+        setTimeout(function () {
+          oe.hashUrl();
           $loader.hide(); // Hide the loader
+        }, 1000);
 
-          ga('send','event', {
-            eventCategory: 'layout',
-            eventAction: 'Start button',
-            eventLabel: 'Start button'
-          });
+        ga('send','event', {
+          eventCategory: 'layout',
+          eventAction: 'Start button',
+          eventLabel: 'Start button'
         });
+
         $circle.addClass('done');
       },
 
       returnChecker: function() {
         var lastVer = Cookies.get('oe-ver');
-
         // If last version is too old
         //  Need to load data again
         if(!lastVer || lastVer != loaderConfig.loaderVer) {

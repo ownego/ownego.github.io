@@ -18,24 +18,67 @@
 
       $doc.on('keyup', function(e) {
         if($('body').hasClass('modal-open')) return;
+
+        var curScreen = parseInt($body.attr('data-active-screen'));
+
         switch(e.keyCode) {
           case 37: // Left
           case 38: // Up
-            var curScreen = parseInt($body.attr('data-active-screen'));
-            // Callback
             if(oe.switchCallback(curScreen, 'prev')) break;
-            if(curScreen > 1)
+            if(curScreen > 1) {
               oe.switchScreens(curScreen - 1);
+            }
             break;
 
           case 39: // Right
           case 40: // Down
-            var curScreen = parseInt($body.attr('data-active-screen'));
-            // Callback
             if(oe.switchCallback(curScreen, 'next')) break;
-            if(curScreen < config.screenCount)
+            if(curScreen < config.screenCount) {
               oe.switchScreens(curScreen + 1);
+            }
             break;
+        }
+      });
+    },
+
+    scrollActions: function() {
+      // Scroll detection to change screen
+      var lethargy = new Lethargy(20, 120, 0.3);
+      var isSwitching = false;
+
+      $(window).bind('mousewheel DOMMouseScroll wheel MozMousePixelScroll', function(e) {
+        if($('body').hasClass('modal-open')) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        var curScreen = parseInt($body.attr('data-active-screen'));
+
+        if (!isSwitching) {
+          isSwitching = true;
+
+          if (lethargy.check(e) == 1) { // Scroll Up
+            if(!oe.switchCallback(curScreen, 'prev')) {
+              if(curScreen > 1) {
+                oe.switchScreens(curScreen - 1);
+              }
+            }
+
+          }
+          else if (lethargy.check(e) == "-1") { // Scroll Down
+            console.log(1)
+            if(oe.switchCallback(curScreen, 'next')) {
+
+            } else {
+              if(curScreen < config.screenCount) {
+                oe.switchScreens(curScreen + 1);
+              }
+            }
+          }
+
+          setTimeout(function () {
+            isSwitching = false;
+          }, 2000);
         }
       });
     },
@@ -137,9 +180,14 @@ $(function() {
   // Some elements must fit the screen height
   //  so I create a specific class for all of 'em
   var screenHeight = $(window).outerHeight();
+  var screenWidth = $(window).outerWidth();
   $('.fitscreen').height(screenHeight);
 
   oe.punchs.init();
   oe.switchActions();
+  if(screenWidth > 1023) {
+    oe.scrollActions();
+  }
   oe.eventTracking.init();
+  oe.imgLazy.init();
 });

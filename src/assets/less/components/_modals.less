@@ -156,6 +156,7 @@
     top: 0;
     left: 100px;
     right: 100px;
+    min-height: 100%;
     background-color: @white;
 
     @media @ltTablet {
@@ -243,17 +244,40 @@
   @media @eMobile {
     padding: 15px;
   }
+}
+.prj-ss {
+  position: relative;
+  margin-top: 20px;
+  min-height: 100px;
 
-  .prj-ss {
-    margin-top: 20px;
+  &:first-child {
+    margin-top: 0;
+  }
 
-    &:first-child {
-      margin-top: 0;
-    }
+  span {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    .font-xs;
+    .transformZ();
+    .animation(flash 2s linear infinite);
   }
 
   img {
+    position: relative;
+    z-index: 10;
     margin: 0 auto;
+    .opacity(1);
+    .transition(opacity @animateSpeed ease-out);
+  }
+
+  &.loading {
+    img {
+      .opacity(0);
+    }
   }
 }
 

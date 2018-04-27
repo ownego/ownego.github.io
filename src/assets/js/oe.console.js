@@ -8,7 +8,7 @@ console.log("\
 | Contact us if you feel intrigued by this hidden copy :)\n\
 | --------------- \n\
 | Via: sonnh[at]ownego.com.\n\
-| You always be welcome :)\n\
+| You will always be welcomed :)\n\
 ============================================================\n\n\
              _____      ___ __   ___  __ _  ___        \n\
             / _ \\ \\ /\\ / / '_ \\ / _ \\/ _` |/ _ \\ \n\
