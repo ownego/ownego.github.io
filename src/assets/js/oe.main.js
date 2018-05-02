@@ -57,7 +57,7 @@
         if (!isSwitching) {
           isSwitching = true;
 
-          if (lethargy.check(e) == 1) { // Scroll Up
+          if (lethargy.check(e) === 1) { // Scroll Up
             if(!oe.switchCallback(curScreen, 'prev')) {
               if(curScreen > 1) {
                 oe.switchScreens(curScreen - 1);
@@ -65,8 +65,7 @@
             }
 
           }
-          else if (lethargy.check(e) == "-1") { // Scroll Down
-            console.log(1)
+          else if (lethargy.check(e) === -1) { // Scroll Down
             if(oe.switchCallback(curScreen, 'next')) {
 
             } else {
