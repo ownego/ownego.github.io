@@ -70,7 +70,7 @@
 
     // AJAX
     $.ajax({
-      url: 'http://api.ownego.com/API/validation',
+      url: 'https://api.ownego.com/API/validation',
       type: 'post',
       data: {
         'name': $inputName.val(),
