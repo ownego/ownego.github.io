@@ -1,8 +1,0 @@
-User-agent: *
-Disallow: /src/
-Disallow: /gulpfile.js
-Disallow: /package.json
-Disallow: /.gitignore
-Disallow: /.bowerrc
-Disallow: /CNAME
-Disallow: /bower.json

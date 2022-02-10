@@ -1,0 +1,34 @@
+@mixin sc-clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+@mixin rotate3d($x, $y, $z, $w) {
+  transform: rotate3d($x, $y, $z, $w);
+}
+
+@mixin blur($x) {
+  filter:blur($x);
+}
+
+@mixin grayscale($p) {
+  filter:grayscale($p);
+}
+
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}
+
+@mixin transition-transform($p) {
+  transition: transform $p;
+}
+
+@mixin transformZ() {
+  transform: translate3d(0, 0, 0);
+}
+

@@ -1,0 +1,226 @@
+// Navigation button
+// Based on inspirations via http://sarasoueidan.com/demos/navicon-transformicons/
+$nav-size: 28px;
+$nav-as: .2s;
+
+.btn-nav {
+  display: inline-block;
+  padding: $nav-size/2 $nav-size/4;
+  position: fixed;
+  top: 15px;
+  left: 10px;
+  line-height: 1px;
+  user-select: none;
+  outline: 0;
+  box-shadow: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.lines-button {
+  line-height: 1px;
+  transition-duration: $nav-as;
+
+  &:active {
+    transition-duration: 0;
+  }
+  & .lines {
+    @include gteTablet {
+      transition: background-color $nav-as $nav-as*2 ease;
+    }
+
+    &:before, &:after {
+      transform-origin: 50% 50%;
+
+      @include gteTablet {
+        transition: top $nav-as $nav-as*2 ease, transform $nav-as ease;
+      }
+    }
+  }
+
+  &.close .lines {
+    background: transparent !important;
+    transition: background-color $nav-as 0s ease;
+
+    &:before, &:after {
+      top: 0;
+      width: $nav-size;
+      transform: translateZ(0);
+
+      @include gteTablet {
+        transition: top $nav-as ease, transform $nav-as $nav-as*2 ease;
+      }
+    }
+    &:before {
+      transform: rotate3d(0, 0, 1, 45deg);
+    }
+    &:after {
+      transform: rotate3d(0, 0, 1, -45deg);
+    }
+  }
+}
+
+.line {
+  display: inline-block;
+  width: $nav-size;
+  border-radius: $nav-size/7;
+  height: 3px;
+  background: $black;
+  transition: $nav-as;
+}
+
+.lines {
+  @extend .line;
+  position: relative;
+
+  &:before, &:after {
+    @extend .line;
+    position: absolute;
+    left: 0;
+    content: '';
+    transform-origin: $nav-size/14 center;
+  }
+  &:before {
+    top: $nav-size/4;
+  }
+  &:after {
+    top: -$nav-size/4;
+  }
+}
+
+// Navigation
+.site-nav-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 66%;
+  overflow: visible;
+  z-index: -1;
+  visibility: hidden;
+
+  &.active {
+    z-index: 600;
+    visibility: visible;
+  }
+
+  @include ltTablet {
+    width: 100%;
+    height: 200%;
+  }
+}
+
+.site-nav {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-items-wrapper {
+  position: absolute;
+  top: 45px;
+}
+
+.nav-items {
+  display: block;
+  position: relative;
+  margin-left: 31px;
+  margin-top: 75px;
+  @include font-light;
+  @include font-lg;
+
+  @include ltMoblet {
+    margin-left: 20px;
+    margin-top: 50px;
+  }
+  span {
+    display: inline-block;
+    position: relative;
+  }
+  .nav-sub-text {
+    display: block;
+    @include font-sm;
+    color: $grey-light;
+    padding: 0;
+  }
+  i {
+    position: absolute;
+    display: block;
+    top: 5px;
+    right: -40px;
+    font-size: 24px;
+  }
+}
+
+.first-half-page {
+  @include gteTablet {
+    transition: all $animateSpeed ease;
+
+    &.active {
+      opacity: 0.3;
+      @include blur(5px);
+    }
+  }
+}
+
+@mixin whiteNav(){
+  .btn-nav .lines {
+    background-color: $white;
+    &:before, &:after {
+      background-color: $white;
+    }
+  }
+  .next-btn {
+    color: $white;
+  }
+  .copyright-line {
+    p {
+      color: $grey-dark;
+    }
+    i,
+    p span {
+      color: $white;
+    }
+  }
+  .nav-items-wrapper {
+    color: $white;
+  }
+}
+
+[data-active-screen="3"] {
+  @include gteTablet {
+    @include whiteNav();
+  }
+}
+
+@include ltTablet {
+  .btn-nav {
+    top: 6px;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
+  }
+
+  .site-nav-wrapper {
+    &.active {
+      background-color: $white;
+    }
+  }
+
+  [data-active-screen="2"] {
+    @include whiteNav();
+    .site-nav-wrapper {
+      &.active {
+        background-color: $black;
+      }
+    }
+  }
+}
+
+@include ltMoblet {
+  .btn-nav {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

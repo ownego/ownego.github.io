@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "ownego-official";
+  src:url(./assets/fonts/ownego-official.eot);
+  src:
+    url(./assets/fonts/ownego-official.woff) format("woff"),
+    url(./assets/fonts/ownego-official.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "ownego-official" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="oeicon-"]:before,
+[class*="oeicon-"]:before {
+  font-family: "ownego-official" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.oeicon-close:before {
+  content: "\61";
+}
+.oeicon-devices:before {
+  content: "\62";
+}
+.oeicon-nav:before {
+  content: "\63";
+}
+.oeicon-paint:before {
+  content: "\64";
+}
+.oeicon-rocket:before {
+  content: "\65";
+}
+.oeicon-sign-founders:before {
+  content: "\66";
+}
+.oeicon-social-facebook:before {
+  content: "\67";
+}
+.oeicon-social-gplus:before {
+  content: "\68";
+}
+.oeicon-social-twitter:before {
+  content: "\69";
+}
+.oeicon-wrench:before {
+  content: "\6a";
+}
+.oeicon-arrow-right:before {
+  content: "\6b";
+}
+.oeicon-fly:before {
+  content: "\6c";
+}
+.oeicon-logo:before {
+  content: "\6d";
+}
+.oeicon-linkedin:before {
+  content: "\6e";
+}
+.oeicon-github:before {
+  content: "\6f";
+}
+.oeicon-arrow-left:before {
+  content: "\70";
+}
+.oeicon-key-up:before {
+  content: "\71";
+}
+.oeicon-key-down:before {
+  content: "\72";
+}
+.oeicon-key-left:before {
+  content: "\73";
+}
+.oeicon-key-right:before {
+  content: "\74";
+}
+.oeicon-angle-right:before {
+  content: "\75";
+}
+.oeicon-link:before {
+  content: "\76";
+}
+.oeicon-google-circles:before {
+  content: "\77";
+}
+
+

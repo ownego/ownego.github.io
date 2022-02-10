@@ -1,0 +1,149 @@
+.input-normal {
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  @include font-sm;
+  border: solid 1px $borderColor;
+  outline: none;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  font-family: Arial, sans-serif;
+  appearance: none;
+  transition: border ease-in .2s;
+
+  &:focus {
+    border-color: $black;
+  }
+
+  &.form-text-area {
+    height: 150px;
+    vertical-align: top;
+
+    @include ltDesktop {
+      height: 160px;
+    }
+  }
+  &.error {
+    border-color: #db5151;
+  }
+}
+
+.btn {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  outline: none !important;
+  border: 1px solid $black;
+  border-radius: 0;
+
+  &.btn-default {
+    @include font-sm;
+  }
+  &.btn-primary {
+    color: $white;
+    @include font-sm;
+    background-color: $black;
+  }
+}
+
+.form-submit {
+  span {
+    display: block;
+    transition: all $animateSpeed ease;
+  }
+
+  i {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    opacity: 0;
+    color: $black;
+    transition: all $animateSpeed ease;
+  }
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: $white;
+    transform: translate(100%, 0);
+    transition: all $animateSpeed ease;
+  }
+  &:hover {
+    &:before {
+      transform: translate(0, 0);
+    }
+    span {
+      transform: translate(-25px, 0);
+    }
+    i {
+      right: 15px;
+      opacity: 1;
+    }
+  }
+}
+
+.form-caution {
+  display: block;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  color: $grey-light;
+  @include font-light;
+  font-size: 12px;
+  text-align: left;
+  line-height: 18px;
+
+  &.success {
+    color: $green;
+  }
+}
+.form-submit {
+  span {
+    display: block;
+    position: relative;
+
+    &:after {
+      content: attr(data-sending);
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: $white;
+      background-color: $black;
+      text-indent: 0;
+      transform: translateZ(0);
+      animation: flash 2s linear infinite;
+    }
+  }
+
+  &.sending {
+    cursor: progress;
+
+    span {
+      text-indent: -9000px;
+
+      &:after {
+        display: block;
+      }
+    }
+
+    &:hover {
+      &:before {
+        display: none;
+      }
+      span {
+        transform: translate(0, 0);
+      }
+    }
+  }
+}

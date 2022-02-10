@@ -1,0 +1,91 @@
+// Rectangle-maker
+@mixin rectangle-maker($ratio) {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    display: block;
+    padding-bottom: ($ratio * 100%);
+  }
+
+  .rec-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@mixin clearfix() {
+  &:after,
+  &::before {
+    content: " ";
+    display: table;
+  }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+@mixin eMobile() {
+  @media only screen and (max-width: $screen-tn-max) {
+    @content;
+  }
+}
+
+@mixin ltMoblet() {
+  @media only screen and (max-width: $screen-xs-max) {
+    @content;
+  }
+}
+
+@mixin gteMoblet() {
+  @media only screen and (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin ltTablet() {
+  @media only screen and (max-width: $screen-sm-max) {
+    @content;
+  }
+}
+
+@mixin gteTablet() {
+  @media only screen and (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin ltDesktop() {
+  @media only screen and (max-width: $screen-md-max) {
+    @content;
+  }
+}
+
+@mixin gteDesktop() {
+  @media only screen and (min-width: $screen-md-max) {
+    @content;
+  }
+}
+
+@mixin bwDesktopWide() {
+  @media only screen and (min-width: $screen-md-max) and (max-width: $screen-xl-max) {
+    @content;
+  }
+}
+
+@mixin ltWideScreen() {
+  @media only screen and (max-width: $screen-xl-max) {
+    @content;
+  }
+}
+
+@mixin retina() {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-moz-min-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}

@@ -1,0 +1,241 @@
+.punchs {
+  float: right;
+  clear: both;
+  position: relative;
+  margin-bottom: 40px;
+  text-align: right;
+  overflow: hidden;
+
+  &.project-item {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  @include ltTablet {
+    display: inline-block;
+    float: none;
+    width: 49%;
+    clear: none;
+    min-height: 80px;
+    text-align: left;
+  }
+
+  @include ltMoblet {
+    width: 100%;
+    clear: both;
+  }
+}
+
+.bounding-box {
+  float: right;
+  overflow: hidden;
+  width: $bounding-box-icon-size;
+  height: $bounding-box-icon-size;
+  border-radius: 50%;
+  padding-top: ($bounding-box-icon-size - $icon-size) / 2 - 2px;
+
+  i {
+    padding: 24px;
+    font-size: $icon-size;
+    color: $grey-light;
+    transition: color $animateSpeed linear;
+  }
+
+  &.box-border {
+    border: solid 1px $grey-light;
+    transition: border $animateSpeed linear;
+  }
+
+  @include ltDesktop {
+    $bounding-box-icon-size: 60px;
+    $icon-size-sm: $icon-size - 10px;
+
+    width: $bounding-box-icon-size;
+    height: $bounding-box-icon-size;
+    padding-top: ($bounding-box-icon-size - $icon-size-sm) / 2 - 2px;
+
+    i {
+      padding: 0 19px;
+      font-size: $icon-size-sm;
+    }
+  }
+
+  @include ltTablet {
+    position: absolute;
+    margin: 0 auto 5px;
+    top: 0;
+    left: 0;
+  }
+
+  .project-item & {
+    padding-top: 0;
+    width: $bounding-box-size;
+    height: $bounding-box-size;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: $bounding-box-size;
+      width: $bounding-box-size;
+      border-radius: 50%;
+      transform: translateZ(0);
+      transition: opacity $animateSpeed linear;
+
+      &.main-avt {
+        opacity: 1;
+      }
+      &.hover-avt {
+        z-index: 10;
+        opacity: 0;
+      }
+    }
+
+    @include ltDesktop {
+      $bounding-box-size: 80px;
+
+      width: $bounding-box-size;
+      height: $bounding-box-size;
+
+      img {
+        height: $bounding-box-size;
+        width: $bounding-box-size;
+      }
+    }
+
+    a {
+      display: block;
+      position: relative;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+
+      &:hover {
+        .hover-avt {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.bounding-info {
+  float: left;
+  margin-right: 30px;
+
+  @include ltDesktop {
+    margin-right: 15px;
+  }
+
+  @include ltTablet {
+    width: 100%;
+    padding-left: 80px;
+    margin: 0;
+
+    .project-item & {
+      padding-left: 100px;
+    }
+  }
+
+  h4 {
+    margin: 20px 0 0;
+    @include font-md;
+    @include font-light;
+
+    @include ltDesktop {
+      font-size: 20px;
+      margin-top: 13px;
+    }
+
+    @include eMobile {
+      font-size: 18px;
+    }
+
+    .project-item & {
+      @include font-lg;
+      margin-bottom: 2px;
+
+      @include ltDesktop {
+        font-size: 24px;
+      }
+
+      @include ltTablet {
+        margin: 5px 0 0;
+      }
+    }
+  }
+
+  span {
+    display: block;
+    @include font-xs;
+    @include font-light;
+    color: $grey-light;
+  }
+}
+
+.punchs-modal {
+  .bounding-box {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+.omember-box {
+  margin-bottom: 30px;
+}
+.omember-info {
+  h3 {
+    @include font-light;
+  }
+  h5 {
+    @include font-light;
+    color: $grey-light;
+  }
+}
+
+
+@include gteTablet {
+  .punchs-group {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(150px, 200%);
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+  }
+  .punchs-group {
+    .punchs {
+      transform: translate(115px, 420%);
+
+      @at-root .active#{&} {
+        transform: translate(0, 0);
+      }
+    }
+  }
+  .punchs-control {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translate(0, -50%) rotate(-15deg);
+
+    @include ltTablet {
+      display: none;
+    }
+  }
+  .punchs-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: $borderColor;
+    margin: 10px 0;
+    border-radius: 50%;
+
+    &.active {
+      background-color: darken($grey-light, 20%);
+    }
+  }
+}

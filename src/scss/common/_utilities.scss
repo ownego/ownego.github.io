@@ -1,0 +1,55 @@
+@mixin bg-full() {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+@mixin bg-black() {
+  background-color: #282828;
+}
+
+// Aligment
+// --------
+@mixin vmiddle-inline() {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+@mixin vmiddle() {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+// Spacing
+// -------
+@mixin pdin-container() {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+@mixin pb() {
+  padding-bottom: $mainSpacing;
+}
+
+@mixin pt() {
+  padding-top: $mainSpacing;
+}
+
+@mixin nvp() {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@mixin nm() {
+  margin: 0;
+}
+
+@mixin nvm() {
+  margin-top: 0;
+  margin-bottom: 0;
+}

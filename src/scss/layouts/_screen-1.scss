@@ -1,0 +1,129 @@
+.logo {
+  $logoWidth: 110px;
+  $logoHeight: 110px;
+
+  position: absolute;
+  top: 40%;
+  left: 0;
+  transform: translate(0, -50%);
+
+  @include ltTablet {
+    position: relative;
+    transform: translate(0, 0);
+  }
+
+  .logo-container {
+    display: block;
+    float: left;
+    font-size: $logoWidth;
+    line-height: 1em;
+    margin-right: 20px;
+
+    @include eMobile {
+      $logoW: 80px;
+
+      font-size: 0;
+
+      svg {
+        width: $logoW;
+        height: $logoW;
+      }
+    }
+  }
+
+  h1 {
+    @include font-bold;
+    @include font-xxl;
+    @include nvm;
+
+    @include eMobile {
+      font-size: 42px;
+    }
+  }
+
+  .slogan {
+    display: block;
+    margin: 7px 0 0 2px;
+    color: $grey-light;
+    @include font-light;
+    @include font-sm;
+    letter-spacing: 0.2px;
+
+    @include eMobile {
+      font-size: 11px;
+      margin-top: 3px;
+    }
+  }
+
+  path {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 2;
+  }
+}
+
+.logo-text {
+  opacity: 0;
+
+  .svg-drawing.oe-svg--drawing ~ &,
+  .svg-drawing.oe-svg--filled ~ & {
+    opacity: 1;
+  }
+}
+
+.s1 {
+  @include ltMoblet {
+    bottom: 0;
+    right: 0;
+  }
+
+  .first-half-page {
+    @include ltTablet {
+      position: relative;
+      margin: 50px 5px 0;
+    }
+
+    @include ltMoblet {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  .s-content {
+    position: absolute;
+    bottom: 70px;
+    right: 30px;
+
+    @include ltTablet {
+      position: relative;
+      right: 0;
+      bottom: 0;
+      padding: 50px 5px 0;
+      text-align: left;
+
+      .s-title {
+        color: $black;
+      }
+
+      .desc {
+        color: $fontSubColor;
+      }
+
+      .sub-title {
+        span {
+          color: $white;
+          background-color: $black;
+        }
+        &:after {
+          left: 0;
+          right: auto;
+          border-color: $black;
+          color: $black;
+        }
+      }
+    }
+    @include ltMoblet {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

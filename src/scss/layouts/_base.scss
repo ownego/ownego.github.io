@@ -1,0 +1,427 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-overflow-scrolling: touch;
+
+  @include ltTablet() {
+    overflow: inherit;
+    height: auto;
+  }
+}
+
+body {
+  display: block;
+  color: $fontColor;
+  font-family: $fontFamily;
+  @include font-light;
+  font-size: 18px;
+  background-color: $black;
+  overflow: -moz-scrollbars-none;
+
+  @include ltTablet() {
+    &[data-active-screen="1"],
+    &[data-active-screen="3"] {
+      background-color: $white;
+    }
+
+    &.modal-open {
+      position: absolute;
+      overflow: hidden;
+
+      main {
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+
+  @include ltMoblet() {
+    font-size: 14px;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &, &:focus, &:active, &:hover {
+    outline: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+button {
+  display: inline-block;
+  margin: 0 1em;
+  border: none;
+  background: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::scroll-bar {
+  display: none;
+}
+
+::-moz-selection {
+  background-color: $black;
+  color: $white;
+}
+
+::selection {
+  background-color: $black;
+  color: $white;
+}
+
+.underconstruction {
+    position: absolute;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    > div {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translate(0, -50%);
+
+        h3 {
+            margin-top: 0;
+        }
+
+        p {
+            padding-bottom: 0;
+        }
+
+        i {
+            display: block;
+            font-size: 100px;
+            margin-bottom: 50px;
+
+            &.oeicon-sign-founders {
+                font-size: 80px;
+                line-height: 1em;
+                position: relative;
+                top: -10px;
+            }
+        }
+    }
+}
+/***** GENERAL *****/
+.main-screen {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  &.active {
+    display: block;
+    z-index: 500;
+    opacity: 1;
+    left: 0;
+
+    @include ltTablet() {
+      position: relative;
+    }
+  }
+
+  @include ltTablet() {
+    padding-top: 50px;
+    height: auto;
+  }
+
+  .modal-open & {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.s-title {
+  @include font-thin;
+  @include font-xl;
+  @include nvm;
+  padding-bottom: 15px;
+
+  @include ltDesktop() {
+    font-size: 40px;
+    padding-bottom: 5px;
+  }
+
+  @include eMobile() {
+    font-size: 30px;
+  }
+}
+
+.sub-title {
+  display: inline-block;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: $mainSpacing * 2;
+  @include font-bold;
+  @include font-md;
+  @include font-sub;
+
+  @include ltDesktop() {
+    font-size: 18px;
+  }
+
+  @include eMobile() {
+    font-size: 16px;
+  }
+
+  span {
+    display: block;
+    padding: 5px 15px;
+    opacity: 1;
+    color: $black;
+    white-space: nowrap;
+    background-color: $white;
+
+    @include gteTablet() {
+      transition: opacity $animateSpeed linear;
+    }
+  }
+  &:after {
+    content: attr(data-sub-content);
+    display: block;
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 100%;
+    padding: 4px 14px;
+    border: 1px solid $white;
+    color: $white;
+
+    @include gteTablet() {
+      transition: opacity 100ms linear;
+    }
+
+    .s1 & {
+      right: 0;
+      left: auto;
+    }
+  }
+  &:hover,
+  &.active {
+    span {
+      opacity: 0;
+    }
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  @include ltDesktop() {
+    &:focus,
+    &:active {
+      span {
+        opacity: 0;
+      }
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+p {
+  @include pb;
+  @include nvm;
+}
+
+.fitscreen {
+  position: relative;
+
+  @include ltTablet() {
+    height: auto !important;
+  }
+}
+
+.s-content {
+  text-align: right;
+  color: $white;
+
+  .desc {
+    @include font-thin;
+    color: $grey-dark;
+
+    @include ltDesktop() {
+      min-width: 400px;
+    }
+
+    @include ltTablet() {
+      @include font-light;
+    }
+
+    @include eMobile() {
+      min-width: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.loading {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $white;
+
+  &.fade {
+    z-index: -1;
+    visibility: hidden;
+  }
+
+  .load-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+  .chart {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    span {
+      display: block;
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      width: 100%;
+      font-size: 18px;
+      line-height: 1em;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      transition: color #{$animateSpeed*3} ease;
+
+      &:after {
+        content: attr(data-finish);
+        display: block;
+        position: absolute;
+        z-index: 10;
+        top: -1px;
+        left: 0;
+        width: 100%;
+        color: $black;
+        text-align: center;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity #{$animateSpeed*3} ease;
+      }
+
+      &:hover {
+        &:after {
+          text-decoration: underline;
+        }
+      }
+    }
+    &.done {
+      span {
+        color: $white;
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .load-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    text-align: center;
+
+    p {
+      line-height: 1em;
+    }
+
+    .near {
+      padding-bottom: 2px;
+    }
+  }
+}
+
+.key-btn {
+  $keySize: 20px;
+
+  display: inline-block;
+  width: $keySize;
+  height: $keySize;
+  border: 1px solid $borderColor;
+  border-radius: 2px;
+
+  i {
+    position: relative;
+    top: -1px;
+    font-size: 12px;
+
+    @include ltMoblet() {
+      top: 3px;
+    }
+  }
+}
+
+.link-only {
+  margin: 0;
+  padding: 10px 0 30px;
+  color: $black;
+
+  &.back {
+    padding-right: 20px;
+  }
+
+  &.next {
+    padding-left: 20px;
+  }
+
+  span {
+    font-size: 14px;
+    font-style: italic;
+  }
+  i {
+    position: relative;
+    top: 2px;
+    margin-left: 2px;
+    font-size: 14px;
+  }
+}
+
+.right-col {
+  float: right;
+
+  @include ltTablet() {
+    float: none;
+  }
+}
+.left-col {
+  float: left;
+
+  @include ltTablet() {
+    float: none;
+  }
+}

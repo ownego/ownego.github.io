@@ -1,0 +1,111 @@
+/* Animations core
+* AnimDelayLevel: the animations will be delayed by level.
+* @params:
+*   Level:
+*     Higher level means slower
+*     Default level is 0 (as 1s delayed)
+*     Level = -5 as no delay
+*   Now:
+*     The effect delay used for current selector or not
+*     Default is false, means delaying affects selector when it's actived via class [.active]
+*/
+@mixin animDelayLevel($level: 0, $now: false, $class: active) {
+  $extraDelay: 200ms * $level;
+
+  @if $now {
+    animation-delay: 1000ms + $extraDelay;
+  }
+
+  @at-root .#{$class}#{&} {
+    animation-delay: 1000ms + $extraDelay;
+  }
+}
+
+@mixin animSetup {
+  animation-duration: $animateSpeed * 2;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.27, .35, .23, .96);
+  animation-delay: 0s;
+
+  @include animDelayLevel;
+}
+
+@mixin animCore() {
+  @include animSetup;
+}
+
+@mixin animClear() {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Effects block
+* How to:
+* Call the effect name with parent [active] class as param
+* Ex:
+* .class-name {.fadeIn(actived)}
+* So the [div.class-name] will fade in when its parent has class [.actived]
+* Default parent active class is [.active]
+*/
+@mixin fadeIn($class: active) {
+  @include animCore;
+  animation-name: fadeOut;
+
+  @at-root .#{$class}#{&} {
+    animation-name: fadeIn;
+  }
+}
+
+@mixin fadeUp($class: active) {
+  @include animCore;
+  animation-name: fadeOutUp;
+
+  @at-root .#{$class}#{&} {
+    animation-name: fadeInUp;
+  }
+}
+
+@mixin fadeDown($class: active) {
+  @include animCore;
+  animation-name: fadeOutDown;
+
+  @at-root .#{$class}#{&} {
+    animation-name: fadeInDown;
+  }
+}
+
+@mixin fadeLeft($class: active) {
+  @include animCore;
+  animation-name: fadeOutLeft;
+
+  @at-root .#{$class}#{&} {
+    animation-name: fadeInLeft;
+  }
+}
+
+@mixin fadeRight($class: active) {
+  @include animCore;
+  animation-name: fadeOutRight;
+
+  @at-root .#{$class}#{&} {
+    animation-name: fadeInRight;
+  }
+}
+
+@mixin zoomIn($class: active) {
+  @include animCore;
+  animation-name: zoomOut;
+
+  @at-root .#{$class}#{&} {
+    animation-name: zoomIn;
+  }
+}
+
+@mixin slideInLeft($class: active) {
+  @include animCore;
+  animation-name: slideOutLeft;
+
+  @at-root .#{class}#{&} {
+    animation-name: slideInLeft;
+  }
+}

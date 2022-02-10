@@ -1,0 +1,316 @@
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+  .modal-dialog {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    width: auto;
+    margin: 0;
+    transform: translate(-50%, 0);
+  }
+  .modal-content {
+    box-shadow: none;
+    border-radius: 0;
+    border: 0;
+
+    .red {
+      color: $red;
+    }
+  }
+  .modal-body {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .modal-title {
+    margin: 0;
+    padding-bottom: 5px;
+    @include font-thin;
+    font-size: 30px;
+  }
+  .modal-body-wrapper {
+    padding-top: 20px;
+    border-top: 1px solid #d2d2d2;
+
+    p {
+      padding-bottom: 10px;
+    }
+  }
+  .g-recaptcha {
+    margin: 0 auto;
+    padding: 5px 0 20px;
+
+    > div > div {
+      margin: 0 auto;
+    }
+  }
+
+  .btn-close {
+    position: absolute;
+    z-index: 1000;
+    top: -5px;
+    right: 20px;
+    font-size: 20px;
+    outline: none !important;
+    border: 0;
+    margin: 0;
+    color: $black;
+
+    @include ltTablet {
+      top: -10px;
+      right: 15px;
+    }
+    @include eMobile {
+      top: 5px;
+    }
+
+    @at-root .guy-info#{&} {
+      top: -40px;
+      right: 0;
+      color: $white;
+
+      @include ltDesktop {
+        top: -45px;
+        right: 5px;
+        color: $white;
+        padding: 10px 3px 0 20px;
+      }
+
+      @include ltMoblet {
+        bottom: 35px;
+        right: 15px;
+        top: auto;
+        color: $black;
+
+        &:before {
+          content: 'Back';
+          display: block;
+          font-style: italic;
+          font-size: 18px;
+          line-height: 1em;
+        }
+
+        i {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  .modal-dialog {
+    @at-root .fade#{&} {
+      transform: translate(0, 50px);
+    }
+    @at-root .in#{&} {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.modal.small {
+  .modal-dialog {
+    width: 360px;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+
+    @include eMobile {
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translate(0, 0);
+      background-color: $white;
+    }
+  }
+
+  .row-nerf {
+    margin-left: -5px;
+    margin-right: -5px;
+
+    > div {
+      width: 50%;
+      padding: 0 5px;
+    }
+  }
+}
+
+.send-btn {
+  color: $white;
+  background-color: $black;
+  transition: all $animateSpeed ease;
+  &:hover {
+    background-color: darken($black, 5%);
+  }
+}
+
+// Project modals
+.project-info {
+  .modal-dialog {
+    top: 0;
+    left: 100px;
+    right: 100px;
+    min-height: 100%;
+    background-color: $white;
+
+    @include ltTablet {
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .modal-content {
+    padding: 30px 0 0;
+    @include font-regular;
+
+    @include eMobile {
+      padding-top: 15px;
+    }
+  }
+}
+.prji-title {
+  @include font-bold;
+  @include font-lg;
+  margin: 0 0 10px;
+
+  @include eMobile {
+    @include font-md;
+    padding-top: 30px;
+  }
+}
+.prji-desc {
+  @include font-xs;
+
+  a {
+    text-decoration: underline;
+  }
+}
+.prji-stats {
+  @include font-sm;
+  color: $grey-light;
+  margin-bottom: 10px;
+
+  @include eMobile {
+    @include font-xs;
+  }
+
+  span {
+    display: inline-block;
+    margin-right: 30px;
+
+    @include eMobile {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: $black;
+      text-decoration: none;
+    }
+  }
+
+  i {
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+    font-size: 18px;
+    color: darken($grey-light, 20%);
+  }
+}
+.prj-head {
+  position: relative;
+  padding: 0 30px;
+
+  @include eMobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.prj-gallery {
+  margin-top: 10px;
+  background-color: #f7f7f7;
+  text-align: center;
+
+  @include eMobile {
+    padding: 15px;
+  }
+}
+.prj-ss {
+  position: relative;
+  margin-top: 20px;
+  min-height: 100px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  span {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    @include font-xs;
+    transform: transformZ();
+    animation: flash 2s linear infinite;
+  }
+
+  img {
+    position: relative;
+    z-index: 10;
+    margin: 0 auto;
+    opacity: 1;
+    transition: opacity $animateSpeed ease-out;
+  }
+
+  &.loading {
+    img {
+      opacity: 0;
+    }
+  }
+}
+
+// Service modals
+.services-modal.big {
+  .info-left {
+    background-color: #f4f4f4;
+
+    .project-wrapper {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      color: $grey-light;
+    }
+  }
+  .info-head {
+    h3 {
+      text-align: center;
+      margin: 0 auto;
+      @include font-md;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@include bwDesktopWide {
+  .modal-content {
+    > .row,
+    .info-left,
+    .info-wrapper {
+      height: 100%;
+    }
+  }
+}

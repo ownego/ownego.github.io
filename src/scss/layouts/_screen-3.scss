@@ -1,0 +1,174 @@
+.s3 {
+  top: 0;
+  bottom: 0;
+
+  .fitscreen {
+    @include ltTablet {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @include ltMoblet {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  @include ltTablet {
+    .first-half-page {
+      padding-bottom: 20px;
+      background-color: $black;
+    }
+  }
+
+  .heading-wrapper {
+    position: absolute;
+    top: 14%;
+    left: 30px;
+    z-index: 10;
+    float: left;
+    .s-title {
+      color: $white;
+    }
+
+    @include ltTablet {
+      position: relative;
+      top: 0;
+      left: 0;
+      float: none;
+      padding-top: 40px;
+    }
+
+    @include eMobile {
+      padding-top: 20px;
+    }
+  }
+  .s-content {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    text-align: right;
+    color: $black;
+    transform: translate(0, -50%);
+
+    @include ltTablet {
+      position: relative;
+      top: 0;
+      left: auto;
+      right: auto;
+      text-align: left;
+      margin: 30px 0;
+      transform: translate(0, 0);
+    }
+
+    .desc {
+      @include ltDesktop {
+        min-width: inherit;
+      }
+    }
+
+    p {
+      @include font-light;
+      color: $black;
+    }
+  }
+  .punchs-wrapper {
+    position: absolute;
+    top: 55%;
+    right: 15%;
+    width: 100%;
+    transform: translate(0, -50%);
+
+    @include ltDesktop {
+      right: 11%;
+    }
+
+    @include ltTablet {
+      position: relative;
+      top: 0;
+      right: auto;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      @include clearfix();
+      transform: translate(0, 0);
+    }
+
+    .punchs {
+      color: $grey-light;
+      transition: color $animateSpeed ease;
+
+      &:nth-child(2) {
+        margin-right: 40px;
+      }
+      &:nth-child(3) {
+        margin-right: 80px;
+      }
+      &:nth-child(4) {
+        margin-right: 120px;
+      }
+
+      &:hover {
+        @include gteTablet {
+          color: $white;
+          .bounding-box {
+            &.box-border {
+              border-color: $white;
+            }
+            i {
+              color: $white;
+            }
+          }
+        }
+      }
+
+      @include ltTablet {
+        &.punchs {
+          margin: 0;
+          color: $white;
+        }
+        .bounding-box {
+          &.box-border {
+            border-color: $white;
+          }
+          i {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+  form {
+    margin-top: 20px;
+    .form-submit {
+      position: relative;
+      width: 100%;
+      margin: 0;
+      transition: all 300ms ease-in-out;
+    }
+    .input-wrapper {
+      position: relative;
+    }
+    .border-svg {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      stroke: $borderColor;
+      stroke-width: 2;
+    }
+    .form-caution {
+      &.red {
+        color: $red;
+      }
+      @include ltDesktop {
+        padding-top: 0;
+      }
+      @include ltTablet {
+        font-weight: 500;
+        padding-bottom: 15px;
+      }
+    }
+  }
+}

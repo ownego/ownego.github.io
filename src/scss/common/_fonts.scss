@@ -1,0 +1,115 @@
+@mixin font-sub() {
+  font-family: $fontCondensed;
+}
+
+// Weight
+@mixin font-thin() {
+  font-weight: 300;
+}
+
+@mixin font-light {
+  font-weight: 300;
+}
+
+@mixin font-regular {
+  font-weight: 400;
+}
+
+@mixin font-bold {
+  font-weight: 700;
+}
+
+// Size
+@mixin font-xs() {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin font-sm() {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin font-md() {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+@mixin font-lg() {
+  font-size: 30px;
+  line-height: 38px;
+}
+
+@mixin font-xl() {
+  font-size: 48px;
+  line-height: 60px;
+}
+
+@mixin font-xxl() {
+  font-size: 60px;
+  line-height: 1em;
+}
+
+// Colors
+@mixin text-white() {
+  color: $white;
+}
+
+@mixin text-grey-light() {
+  color: $grey-light;
+}
+
+.font-sub {
+  @include font-sub;
+}
+
+// Weight
+.font-thin {
+  @include font-thin;
+}
+
+.font-light {
+  @include font-light;
+}
+
+.font-regular {
+  @include font-regular;
+}
+
+.font-bold {
+  @include font-bold;
+}
+
+// Size
+.font-xs {
+  @include font-xs;
+}
+
+.font-sm {
+  @include font-sm;
+}
+
+.font-md {
+  @include font-md;
+}
+
+.font-lg {
+  @include font-lg;
+}
+
+.font-xl {
+  @include font-xl;
+}
+
+.font-xxl {
+  @include font-xxl;
+}
+
+// Colors
+.text-white {
+  @include text-white;
+}
+
+.text-grey-light {
+  @include text-grey-light;
+}

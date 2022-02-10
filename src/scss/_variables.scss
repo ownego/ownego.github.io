@@ -1,0 +1,46 @@
+// Color scheme
+// ------------
+$white: #fff;
+$black: #333;
+$grey-light: #8e8e8e;
+$grey-dark: #c8c8c8;
+$red: #db5151;
+$green: #0FB254;
+
+// Text
+// ----
+$fontColor: $black;
+$fontSubColor: #505050;
+$fontFamily: "Lato", sans-serif;
+$fontCondensed: "Raleway";
+
+// Bounding Box
+$bounding-box-size: 100px;
+$bounding-box-icon-size: 80px;
+$icon-size: 30px;
+
+// Utilities
+$borderColor: #d0d0d0;
+$tooltip-max-width: 300px;
+$tooltip-bg: $black;
+$tooltip-opacity: 1;
+
+// Others
+// ------
+$mainSpacing: 10px;
+$animateSpeed: 300ms;
+$avtDesktopSize: 200px;
+$avtTabletSize: 150px;
+
+/* === Responsive config === */
+// Tiny screen / phone
+$screen-tn: 480px;
+$screen-tn-max: ($screen-tn - 1);
+$screen-xs: 768px;
+$screen-xs-max: ($screen-xs - 1);
+$screen-sm: 992px;
+$screen-sm-max: ($screen-sm - 1);
+$screen-md: 1200px;
+$screen-md-max: ($screen-md - 1);
+$screen-xl: 1400px;
+$screen-xl-max: ($screen-xl - 1);

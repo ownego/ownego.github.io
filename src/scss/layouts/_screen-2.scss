@@ -1,0 +1,135 @@
+.s2 {
+  @include ltTablet {
+    top: 0;
+    bottom: 0;
+
+    .s-title {
+      padding-top: 20px;
+      margin-bottom: 0;
+    }
+
+    .first-half-page {
+      background-color: $white;
+    }
+
+    .fitscreen {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  @include ltMoblet {
+    .fitscreen {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  @include eMobile {
+    .right-col {
+      .s-title {
+        padding-top: 0;
+      }
+    }
+  }
+
+  .s-content {
+    @include vertical-center;
+    right: 25%;
+    text-align: left;
+
+    @include ltDesktop {
+      right: 10%;
+    }
+
+    @include ltTablet {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0 0 40px;
+      transform: translate(0, 0);
+    }
+
+    @include eMobile {
+      padding-bottom: 0;
+
+      .desc {
+        margin: 0;
+        padding-bottom: 40px;
+      }
+    }
+
+    .desc i {
+      display: block;
+      font-size: 115px;
+      line-height: 0px;
+      margin-top: 25px;
+      color: $white;
+      &:before {
+        line-height: 50px;
+      }
+    }
+    .team-signature {
+      margin-top: 10px;
+      path {
+        fill: $white;
+        stroke: $borderColor;
+        stroke-width: 3;
+      }
+    }
+  }
+  .punchs-wrapper {
+    @include vertical-center;
+    width: 100%;
+    right: 25%;
+
+    @include ltDesktop {
+      right: 20%;
+    }
+    @include ltTablet {
+      position: relative;
+      right: auto;
+      top: 0;
+      padding-top: 20px;
+      padding-bottom: 0;
+      @include clearfix();
+      transform: translate(0, 0);
+    }
+
+    .punchs {
+      &:nth-child(1) {
+        margin-right: 115px;
+      }
+      &:nth-child(2) {
+        margin-right: 70px;
+      }
+      &:nth-child(3) {
+        margin-right: 35px;
+      }
+
+      @include ltTablet {
+        &.project-item {
+          margin: 0 0 20px;
+          float: left;
+        }
+      }
+    }
+  }
+}
+.other-members {
+  position: absolute;
+  float: right;
+  bottom: -30px;
+  right: 0;
+  text-align: right;
+  font-style: italic;
+
+  @include ltTablet {
+    float: none;
+    position: relative;
+    clear: both;
+    bottom: 0;
+    text-align: left;
+  }
+}
