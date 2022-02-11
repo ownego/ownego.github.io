@@ -1,14 +1,12 @@
 .punchs {
-  float: right;
-  clear: both;
   position: relative;
   margin-bottom: 40px;
   text-align: right;
   overflow: hidden;
 
   &.project-item {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   @include ltTablet {
@@ -27,7 +25,6 @@
 }
 
 .bounding-box {
-  float: right;
   overflow: hidden;
   width: $bounding-box-icon-size;
   height: $bounding-box-icon-size;
@@ -58,13 +55,6 @@
       padding: 0 19px;
       font-size: $icon-size-sm;
     }
-  }
-
-  @include ltTablet {
-    position: absolute;
-    margin: 0 auto 5px;
-    top: 0;
-    left: 0;
   }
 
   .project-item & {
@@ -103,6 +93,18 @@
       }
     }
 
+    @include ltTablet {
+      $bounding-box-size: 60px;
+
+      width: $bounding-box-size;
+      height: $bounding-box-size;
+
+      img {
+        height: $bounding-box-size;
+        width: $bounding-box-size;
+      }
+    }
+
     a {
       display: block;
       position: relative;
@@ -120,7 +122,6 @@
 }
 
 .bounding-info {
-  float: left;
   margin-right: 30px;
 
   @include ltDesktop {
@@ -128,17 +129,17 @@
   }
 
   @include ltTablet {
-    width: 100%;
     padding-left: 80px;
     margin: 0;
 
     .project-item & {
-      padding-left: 100px;
+      flex-grow: 1;
+      padding-left: 20px;
     }
   }
 
   h4 {
-    margin: 20px 0 0;
+    margin: 0;
     @include font-md;
     @include font-light;
 
@@ -152,7 +153,7 @@
     }
 
     .project-item & {
-      @include font-lg;
+      @include font-md;
       margin-bottom: 2px;
 
       @include ltDesktop {
@@ -199,14 +200,16 @@
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translate(150px, 200%);
     opacity: 0;
+    z-index: -1;
 
     &.active {
+      z-index: auto;
       opacity: 1;
       transform: translate(0, -50%);
     }
   }
+
   .punchs-group {
     .punchs {
       transform: translate(115px, 420%);
@@ -215,7 +218,28 @@
         transform: translate(0, 0);
       }
     }
+
+    .prev-works {
+      opacity: 0;
+    }
   }
+
+  .punchs-group-title {
+    text-align: center;
+    margin-bottom: 50px;
+
+    .s-title {
+      @include font-lg;
+      padding-bottom: 0;
+    }
+
+    .desc {
+      @include font-sm;
+      @include font-light;
+      color: $grey-light;
+    }
+  }
+
   .punchs-control {
     position: absolute;
     top: 50%;

@@ -8,20 +8,41 @@ section.main-screen.s3(
         :style="fitHeightStyles",
         :class="{ 'active': $root.state.isNavOpened }"
       )
-        .heading-wrapper
+        .s-content
           h2.s-title {{ $t('screen3.title') }}
           h4.sub-title(:data-sub-content="$t('screen3.subHover')")
             span {{ $t('screen3.subTitle') }}
-        .punchs-wrapper
-          ServiceItem(
-            v-for="(service, index) in services",
-            :key="index",
-            :service="service"
-          )
-      .col-lg-5.offset-lg-0.col-md-5.offset-md-1.fitscreen(
+          .desc.my-3
+            .row
+              .col-md-8
+                .achievement-list(v-html="$t('screen3.desc')")
+            .row
+              .col-md-7
+                p.mt-4
+                  strong.headline.text-white Info
+                  a.font-xs(href="mailto:contact@ownego.com") contact@ownego.com
+                  span.d-block.mt-3.font-xs.extra-lh
+                    | 18th Floor, CLand Tower,
+                    br
+                    | 156 Xa Dan 2, Nam Dong, Dong Da,
+                    br
+                    | Hanoi, Vietnam
+                    a.location-pin(
+                      href="https://goo.gl/maps/QtHbTA9MZ9V3i9Az8",
+                      target="_blank",
+                    )
+                      Pin.location-pin-icon.ml-1
+              .col-md-5
+                p.mt-4
+                  strong.headline.text-white Links
+                  a.d-block.mb-2.font-xs(href="https://blog.ownego.com") Blog
+                  a.d-block.mb-2.font-xs(href="https://blog.ownego.com/collections/all") Careers
+                  a.d-block.mb-2.font-xs(href="https://blog.ownego.com/pages/benefits") Benefits
+                  a.d-block.mb-2.font-xs(href="https://blog.ownego.com/pages/about-us") More About Us
+      .col-lg-4.offset-lg-0.ml-lg-5.col-md-5.offset-md-1.fitscreen(
         :style="fitHeightStyles"
       )
-        .s-content
+        .s-form
           h2.s-title {{ $t('screen3.msgTitle') }}
           .desc(v-html="$t('screen3.msgDesc')")
           form#messageForm(
@@ -97,10 +118,12 @@ section.main-screen.s3(
 </template>
 <script>
 import InputBorder from '../assets/input-border.svg'
+import Pin from '../assets/pin.svg'
 import ServiceItem from '../components/ServiceItem'
 
 export default {
   components: {
+    Pin,
     InputBorder,
     ServiceItem
   },
@@ -114,23 +137,15 @@ export default {
       services: [
         {
           icon: '<i class="oeicon-paint"></i>',
-          title: 'Web Design',
-          modalid: 'modalServices'
+          title: 'Shopify Expert'
         },
         {
           icon: '<i class="oeicon-wrench"></i>',
-          title: 'Front-end Development',
-          modalid: 'modalServices'
+          title: '50k+ customers'
         },
         {
           icon: '<i class="oeicon-rocket"></i>',
-          title: 'Web Services',
-          modalid: 'modalServices'
-        },
-        {
-          icon: '<i class="oeicon-devices"></i>',
-          title: 'Mobile Applications',
-          modalid: 'modalServices'
+          title: 'SaaS'
         }
       ]
     }
@@ -142,14 +157,6 @@ export default {
         height: this.$root.state.screenHeight + 'px'
       }
     }
-  },
-
-  mounted () {
-    document.querySelectorAll('.input-normal').forEach(input => {
-      input.addEventListener('keyup', () => {
-        return false
-      })
-    })
   },
 
   methods: {

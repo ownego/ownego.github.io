@@ -50,6 +50,11 @@ export default {
 
   methods: {
     keyUpHandler (e) {
+      // Avoid keyup event in form input
+      if (e.target.className.includes('input-normal')) {
+        return
+      }
+
       switch (e.key) {
         case 'ArrowLeft':
         case 'ArrowUp':

@@ -1,32 +1,30 @@
 <template lang="pug">
-.punchs.project-item
+.punchs.project-item.d-flex.align-items-center.flex-md-row-reverse
   .bounding-box
     a(
-      href="javascript:;",
-      data-toggle="modal",
-      :data-target="`#${project.modalid}`",
+      :href="project.url",
+      target="_blank",
     )
       img.main-avt(
         :src="project.avatar",
-        width="100",
-        height="100",
+        width="80",
+        height="80",
         :alt="project.shortname",
       )
       img.hover-avt(
         :src="project.avatarHover",
-        width="100",
-        height="100",
+        width="80",
+        height="80",
         :alt="project.shortname",
       )
   .bounding-info
     h4
       a(
-        href="javascript:;",
-        data-toggle="modal",
-        :data-target="`#${project.modalid}`",
+        :href="project.url",
+        target="_blank",
       )
         | {{ project.shortname }}
-    span {{ project.desc }}
+    span(v-html="project.desc")
 </template>
 <script>
 export default {

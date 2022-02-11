@@ -186,7 +186,7 @@ button {
 
   span {
     display: block;
-    padding: 5px 15px;
+    padding: 5px 18px;
     opacity: 1;
     color: $black;
     white-space: nowrap;
@@ -259,7 +259,7 @@ p {
   color: $white;
 
   .desc {
-    @include font-thin;
+    @include font-light;
     color: $grey-dark;
 
     @include ltDesktop() {
@@ -267,13 +267,23 @@ p {
     }
 
     @include ltTablet() {
-      @include font-light;
+      @include font-sm;
+      @include font-regular;
     }
 
     @include eMobile() {
       min-width: 0;
       margin-bottom: 0;
     }
+  }
+
+  .headline {
+    display: block;
+    @include font-bold;
+    @include font-xs;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
   }
 }
 

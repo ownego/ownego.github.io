@@ -12,6 +12,17 @@
     font-size: 18px;
     transform: translate(0, 0);
 
+    &.social-link {
+      font-size: 14px;
+      margin-right: 10px;
+      @include font-regular;
+
+      &:hover {
+        transform: none;
+        text-decoration: underline;
+      }
+    }
+
     @include gteTablet() {
       transition: all $animateSpeed ease;
     }
@@ -44,7 +55,7 @@
     background-color: rgba(255, 255, 255, .9); // 10% white
 
     [data-active-screen="2"] & {
-      background-color: rgba(0, 0, 0, .9); // 10% black
+      background-color: rgba(0, 0, 0, .1); // 10% black
     }
 
     .site-nav-wrapper.active ~ & {

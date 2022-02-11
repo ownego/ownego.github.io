@@ -105,6 +105,10 @@
   &.success {
     color: $green;
   }
+
+  @include ltTablet {
+    @include font-xs;
+  }
 }
 .form-submit {
   span {

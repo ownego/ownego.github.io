@@ -25,12 +25,12 @@ export default {
           screen: 1
         },
         {
-          title: 'Projects',
+          title: 'Products',
           subTitle: 'Read our story',
           screen: 2
         },
         {
-          title: 'About Us',
+          title: 'Life at OE',
           subTitle: 'To know us better',
           href: 'https://blog.ownego.com'
         },

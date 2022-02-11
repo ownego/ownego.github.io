@@ -7,9 +7,9 @@ export default {
   screen1: {
     slogan: 'Everything you can\'t imagine',
     title: 'Who we are',
-    subTitle: 'We are justa team full of passion',
+    subTitle: 'A team full of passion',
     subHover: 'Passion is our caffeine',
-    desc: '<p>We are a creative team that is passionate about crafting beautiful and usable solutions.</p><p>We let the mind explore new ideas and the brain make it possible.</p><p> A thing should be, and can be done differently, more interestingly and more exceptionally. That\'s our belief.</p>'
+    desc: '<p><strong class="text-md-white">Ownego</strong> is a SaaS company passionate about crafting straightforward and usable solutions. We are small but flexible, young but passionate.</p><p>A thing should be, and can be done differently, more interestingly<br>and more exceptionally. That\'s our belief.</p>'
   },
 
   screen2: {
@@ -17,25 +17,40 @@ export default {
     subTitle: 'Together. Everyone. Achieves. More',
     subHover: 'T.E.A.M',
     desc: `<p>
-      Driven by passion, youthful creativity and hope for changing the world no matter how little it is, <span class="text-white">ownego</span> was found with the principle of creating the distinctive, molding mere abstract ideas into concrete creations imbued with essence and aesthetics.
+      We believe that great, innovative, inspirational works can only be made with devotion and an earnest heart, and for that reason, the human element is always the center at  <span class="text-white">ownego</span>. When the people reach their full potential, so do their creations.
+    </p>
+    <p>
+      The main products of ownego are supporting applications for e-commerce websites on the international market. Currently, <span class="text-white">ownego</span> is trusted by more than 35,000+ foreign customers.
     </p>
     <p>
       Starting with just 2 members, by inspiration and unwavering heart, we have been able to gather great talented, charming fellas to build a characteristic <span class="text-white">ownego</span>.
     </p>
     <p>
-      We believe that great, innovative, inspirational works can only be made with devotion and an earnest heart, and for that reason, the human element is always the center at  <span class="text-white">ownego</span>. When the people reach their full potential, so do their creations.
-    </p>
-    <p>
       <span class="text-white">ownego</span> is a small startup but you know: Less but better.
-    </p>`
+    </p>`,
+    productDesc: '<p>We are proud of our children</p>',
+    productTitle: 'Our Works',
+    prevWorks: 'Want to find our previous works?'
   },
 
   screen3: {
-    title: 'Services',
-    subTitle: 'We do what we love',
-    subHover: 'We love what we do',
+    title: 'Facts',
+    subTitle: 'We do what we proud',
+    subHover: 'Proud of what we do',
+    desc: `<ul>
+    <li>
+      We are powering <strong class="text-white">35k+</strong> eCommerce websites around the world and continue growing.
+    </li>
+    <li>
+      Qikify becomes Shopify Experts since 2019.
+    </li>
+    <li>
+      Teeinblue generates <strong class="text-white">1.4+ million</strong> orders for merchants in 2021.
+    </li>
+    </ul>
+    `,
 
-    msgTitle: 'Send us a message',
+    msgTitle: 'Get in Touch',
     msgDesc: `<p>
               Feel free to contact us. We would be happy to answer any questions
               about Jobs, Supports, Technique or... simply how coffee tastes today.

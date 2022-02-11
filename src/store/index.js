@@ -9,7 +9,7 @@ const store = {
     chainEffect: false,
     screenHashes: [
       'home',
-      'projects',
+      'products',
       'services'
     ]
   },
@@ -36,7 +36,7 @@ const store = {
 
     // Scroll to top
     setTimeout(() => {
-      document.body.scrollTop = 0
+      $('body, html').scrollTop(0)
     }, 200)
 
     // Effects

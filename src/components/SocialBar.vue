@@ -9,6 +9,13 @@
     v-tooltip="item.title",
   )
     i(:class="item.icon")
+
+  a.social-icon.social-link(
+    href="https://blog.ownego.com/collections/all",
+    title="Careers",
+    target="_blank",
+  )
+    span Join Us
 </template>
 <script>
 export default {

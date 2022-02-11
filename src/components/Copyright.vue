@@ -2,10 +2,10 @@
 .copyright-line
   i.oeicon-logo
   p
-    | Copyright &copy; 2016
+    | Reborned in 2018 &copy;
     |
     span ownego
-    | . All Rights Reserved.
+    | . From oe-team with love.
 </template>
 <script>
 export default {}

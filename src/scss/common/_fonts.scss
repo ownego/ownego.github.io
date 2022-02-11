@@ -20,6 +20,11 @@
 }
 
 // Size
+@mixin font-xxs() {
+  font-size: 11px;
+  line-height: 16px;
+}
+
 @mixin font-xs() {
   font-size: 14px;
   line-height: 20px;
@@ -108,6 +113,12 @@
 // Colors
 .text-white {
   @include text-white;
+}
+
+.text-md-white {
+  @include gteTablet {
+    @include text-white;
+  }
 }
 
 .text-grey-light {

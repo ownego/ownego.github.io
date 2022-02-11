@@ -3,8 +3,6 @@
   .bounding-box.box-border
     a(
       href="javascript:;",
-      data-toggle="modal",
-      :data-target="`#${service.modalid}`",
       v-html="service.icon"
     )
   .bounding-info

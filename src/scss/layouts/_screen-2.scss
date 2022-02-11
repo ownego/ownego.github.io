@@ -110,8 +110,7 @@
 
       @include ltTablet {
         &.project-item {
-          margin: 0 0 20px;
-          float: left;
+          margin: 0 0 30px;
         }
       }
     }
@@ -131,5 +130,41 @@
     clear: both;
     bottom: 0;
     text-align: left;
+  }
+}
+
+.prev-works {
+  @include font-xs;
+  margin-right: 50px;
+  margin-top: 50px;
+
+  > span {
+    color: $grey-light;
+  }
+
+  a {
+    display: inline-block;
+    margin-right: 13px;
+
+    i {
+      display: inline-block;
+      position: relative;
+      top: 1px;
+      right: -8px;
+      font-size: 10px;
+      transform: translate(0, 0);
+      transition: transform .2s ease-out;
+    }
+
+    &:hover {
+      i {
+        transform: translate(5px, 0);
+      }
+    }
+  }
+
+  @include ltTablet {
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 }
