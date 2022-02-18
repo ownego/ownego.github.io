@@ -5,7 +5,7 @@ export default {
   },
 
   screen1: {
-    slogan: 'Everything you can\'t imagine',
+    slogan: 'First-class eCommerce solutions',
     title: 'Who we are',
     subTitle: 'A team full of passion',
     subHover: 'Passion is our caffeine',
