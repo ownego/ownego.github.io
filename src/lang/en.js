@@ -39,13 +39,10 @@ export default {
     subHover: 'Proud of what we do',
     desc: `<ul>
     <li>
-      We are powering <strong class="text-white">35k+</strong> eCommerce websites around the world and continue growing.
+      Trusted solutions for <strong class="text-white">40k+</strong> online stores around the world
     </li>
     <li>
-      Qikify becomes Shopify Experts since 2019.
-    </li>
-    <li>
-      Teeinblue generates <strong class="text-white">1.4+ million</strong> orders for merchants in 2021.
+    Generated <strong class="text-white">4+ million</strong> orders for global merchants
     </li>
     </ul>
     `,

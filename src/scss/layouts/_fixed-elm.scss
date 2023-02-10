@@ -55,7 +55,7 @@
     background-color: rgba(255, 255, 255, .9); // 10% white
 
     [data-active-screen="2"] & {
-      background-color: rgba(0, 0, 0, .1); // 10% black
+      background-color: rgba(40, 40, 40, 1); // darker than background
     }
 
     .site-nav-wrapper.active ~ & {

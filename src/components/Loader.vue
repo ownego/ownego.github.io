@@ -93,7 +93,7 @@ export default {
     fontLoader () {
       WebFontLoader.load({
         google: {
-          families: ['Raleway:700:latin', 'Lato:400,400italic,700,300:latin']
+          families: ['Raleway:700', 'Lato:400,400italic,700,300']
         },
         active: () => {
           const val = 40 - this.fontLoaded
