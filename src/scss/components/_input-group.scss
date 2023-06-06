@@ -49,6 +49,21 @@
     @include font-sm;
     background-color: $black;
   }
+  &.btn-primary-inverse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $black;
+    @include font-sm;
+    @include font-regular;
+    background-color: $white;
+    transition: background-color ease-in .2s;
+  }
+}
+
+.s-content .desc a.btn.btn-primary-inverse:hover {
+  color: black;
+  background-color: fade-out($white, .2);
 }
 
 .form-submit {

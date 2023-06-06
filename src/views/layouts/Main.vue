@@ -3,7 +3,11 @@
   v-images-loaded:on.progress="imageProgress"
   v-images-loaded:on.always="imageAlways"
 )
-  main
+  .oe8(v-if="!isVideoEnded")
+    video#oe8(muted)
+      source(src="https://oe-cdn.sgp1.cdn.digitaloceanspaces.com/oe8.webm", type="video/webm")
+      p Your browser does not support the video tag.
+  main(v-else)
     slot
 
   //- Navigation trigger button
@@ -53,7 +57,8 @@ export default {
       loading: true,
       imageLoaded: 0,
       imageCount: 0,
-      triggerLoading: false
+      triggerLoading: false,
+      isVideoEnded: false
     }
   },
 
@@ -95,8 +100,20 @@ export default {
       const hashIndex = this.$root.getHashIndex(hash)
       const targetScreen = hashIndex < 0 ? 1 : hashIndex + 1
 
-      this.$root.switchScreen(targetScreen)
+      setTimeout(() => {
+        document.getElementById('oe8').play()
+        console.log('play')
+      }, 1500)
+
       this.loading = false
+
+      setTimeout(() => {
+        this.isVideoEnded = true
+
+        setTimeout(() => {
+          this.$root.switchScreen(targetScreen)
+        }, 500)
+      }, 11000)
     },
 
     toggleNav () {

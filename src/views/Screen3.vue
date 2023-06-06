@@ -14,7 +14,7 @@ section.main-screen.s3(
             span {{ $t('screen3.subTitle') }}
           .desc.my-3
             .row
-              .col-md-8
+              .col
                 .achievement-list(v-html="$t('screen3.desc')")
             .row
               .col-md-7
@@ -35,10 +35,18 @@ section.main-screen.s3(
               .col-md-5
                 p.mt-4
                   strong.headline.text-white Links
-                  a.d-block.mb-2.font-xs(href="https://blog.ownego.com") Blog
+                  a.d-block.mb-2.font-xs(href="https://blog.ownego.com")
+                    strong Blog
                   a.d-block.mb-2.font-xs(href="https://blog.ownego.com/collections/all") Careers
-                  a.d-block.mb-2.font-xs(href="https://blog.ownego.com/pages/benefits") Benefits
+                  a.d-block.mb-2.font-xs(href="https://blog.ownego.com/pages/our-values") Our Values
                   a.d-block.mb-2.font-xs(href="https://blog.ownego.com/pages/about-us") More About Us
+
+            .row
+              .col-md-6.mt-3
+                a.btn.btn-primary-inverse(
+                  href="https://blog.ownego.com",
+                  target="_blank",
+                ) Join Us
       .col-lg-4.offset-lg-0.ml-lg-5.col-md-5.offset-md-1.fitscreen(
         :style="fitHeightStyles"
       )
