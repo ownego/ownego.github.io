@@ -52,7 +52,8 @@ export default {
     return {
       loading: true,
       imageLoaded: 0,
-      imageCount: 0
+      imageCount: 0,
+      triggerLoading: false
     }
   },
 
