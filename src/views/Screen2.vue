@@ -92,6 +92,14 @@ export default {
           url: 'https://teeinblue.com',
           avatar: 'https://cdn.ownego.com/images/tib.png?v=1',
           avatarHover: 'https://cdn.ownego.com/images/tib-hover.png?v=1'
+        },
+        {
+          name: 'tepo',
+          shortname: 'tepo',
+          desc: 'Shopify product options app',
+          url: 'https://tepo.app',
+          avatar: 'https://cdn.ownego.com/images/tepo.png?v=1',
+          avatarHover: 'https://cdn.ownego.com/images/tepo-hover.png?v=1'
         }
       ]
     }
