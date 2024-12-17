@@ -39,10 +39,10 @@ export default {
     subHover: 'Proud of what we do',
     desc: `<ul>
     <li>
-      Trusted solutions for <strong class="text-white">40k+</strong> online stores around the world
+      Trusted solutions for <strong class="text-white">70k+</strong> online stores around the world.
     </li>
     <li>
-    Generated <strong class="text-white">4+ million</strong> orders for global merchants
+    Generated <strong class="text-white">8+ million</strong> orders for global merchants.
     </li>
     </ul>
     `,
